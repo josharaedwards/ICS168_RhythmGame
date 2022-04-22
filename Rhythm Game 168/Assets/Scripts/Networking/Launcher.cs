@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
     private string gameVersion = "1";
+    private bool isConnecting;
 
     [SerializeField] private byte maxPlayersPerRoom = 2;
     [SerializeField] private GameObject controlPanel;
@@ -34,7 +36,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         }
         else
         {
-            PhotonNetwork.ConnectUsingSettings();
+            isConnecting = PhotonNetwork.ConnectUsingSettings();
             PhotonNetwork.GameVersion = gameVersion;
         }
     }
@@ -45,14 +47,16 @@ public class Launcher : MonoBehaviourPunCallbacks
 
         //Tries to joing a random existing room and calls OnJoinRandomFailed() if not
         PhotonNetwork.JoinRandomRoom();
+        isConnecting = false;
     }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
+        Debug.LogWarningFormat("OnDisconnected() was called by PUN with reason {0}", cause);
+
         progressLabel.SetActive(false);
         controlPanel.SetActive(true);
-
-        Debug.LogWarningFormat("OnDisconnected() was called by PUN with reason {0}", cause);
+        isConnecting = false;
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -65,5 +69,19 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("OnJoinedRoom() called by PUN. Now this client is in a room.");
+        
+        PhotonNetwork.LoadLevel("Main");
+    }
+
+    //POTENTIALLY TEMPORARY
+    private void LoadAreana()
+    {
+        if(!PhotonNetwork.IsMasterClient)
+        {
+            Debug.LogError("Photon: Trying to load a level but not master client");
+        }
+
+        Debug.LogFormat("Photon: Loading Level : " + SceneManager.GetActiveScene().name);
+        PhotonNetwork.LoadLevel("Main");
     }
 }
