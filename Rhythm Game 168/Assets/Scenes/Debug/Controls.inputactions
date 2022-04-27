@@ -1,0 +1,157 @@
+{
+    "name": "Controls",
+    "maps": [
+        {
+            "name": "Beat Player Controls",
+            "id": "82dcabff-e86f-43c7-9661-e110517b9627",
+            "actions": [
+                {
+                    "name": "Left Note",
+                    "type": "Button",
+                    "id": "8613aff6-7c89-4f46-9039-b4b71b178e6c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Right Note",
+                    "type": "Button",
+                    "id": "2d3f0de3-17b8-4caf-a05a-25ca66dad0f3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Up Note",
+                    "type": "Button",
+                    "id": "cd3a8e7a-6680-420e-a04a-cafde773e611",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Down Note",
+                    "type": "Button",
+                    "id": "e84a95e4-851a-4010-be05-b988935b0d00",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5591b8a5-34fa-4651-8a60-75663364c41b",
+                    "path": "<Gamepad>/rightStick/down",
+                    "interactions": "Press",
+                    "processors": "AxisDeadzone",
+                    "groups": "Controller",
+                    "action": "Right Note",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "110af25d-aa03-4edd-96bc-dd207362c2a9",
+                    "path": "<Keyboard>/slash",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Right Note",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6728c36d-7c5c-49da-bcbb-d4befe359de8",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "Press",
+                    "processors": "AxisDeadzone",
+                    "groups": "Controller",
+                    "action": "Up Note",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e699e59c-13c8-4596-9d56-3c0ce9833ac6",
+                    "path": "<Keyboard>/comma",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Up Note",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "80f61f18-4ace-4477-bd10-6ee7067d8373",
+                    "path": "<Gamepad>/rightStick/up",
+                    "interactions": "Press",
+                    "processors": "AxisDeadzone",
+                    "groups": "Controller",
+                    "action": "Down Note",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4a6ebd13-8aa1-46e2-b338-769c49cb4707",
+                    "path": "<Keyboard>/period",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Down Note",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c9730d7a-f818-4c12-bb7c-912f1ec0a074",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "Press",
+                    "processors": "AxisDeadzone",
+                    "groups": "Controller",
+                    "action": "Left Note",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b9f464d5-a5a1-42c1-bd46-5158d3b1b6d9",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Left Note",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Controller",
+            "bindingGroup": "Controller",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
