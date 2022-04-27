@@ -42,7 +42,7 @@
                 {
                     "name": "",
                     "id": "5591b8a5-34fa-4651-8a60-75663364c41b",
-                    "path": "<Gamepad>/rightStick/down",
+                    "path": "<Gamepad>/rightStick/up",
                     "interactions": "Press",
                     "processors": "AxisDeadzone",
                     "groups": "Controller",
@@ -86,7 +86,7 @@
                 {
                     "name": "",
                     "id": "80f61f18-4ace-4477-bd10-6ee7067d8373",
-                    "path": "<Gamepad>/rightStick/up",
+                    "path": "<Gamepad>/rightStick/down",
                     "interactions": "Press",
                     "processors": "AxisDeadzone",
                     "groups": "Controller",
