@@ -97,15 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadeAlpha: 0.9
-  keybind: 109
-  playerControls:
-    m_Name: Player Controls
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 172c8256-083c-46e4-94d7-a088158fcaf8
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
+  m_Keybind: {fileID: 8898918635668820852, guid: c0356415ab7364745b51d080f8c24461, type: 3}
 --- !u!61 &882493129
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -229,15 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadeAlpha: 0.9
-  keybind: 44
-  playerControls:
-    m_Name: Player Controls
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 4e0af0c6-ea11-49e8-bc5b-cc446857d6cd
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
+  m_Keybind: {fileID: -4973187593447858995, guid: c0356415ab7364745b51d080f8c24461, type: 3}
 --- !u!61 &619366703
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -361,15 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadeAlpha: 0.9
-  keybind: 46
-  playerControls:
-    m_Name: Player Controls
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: c584a0b0-3bfe-41b0-a3df-bddea69ce19e
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
+  m_Keybind: {fileID: 340233931159940789, guid: c0356415ab7364745b51d080f8c24461, type: 3}
 --- !u!61 &333413621
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -493,15 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadeAlpha: 0.9
-  keybind: 47
-  playerControls:
-    m_Name: Player Controls
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: d34fc0af-fe5d-4cda-9c62-c6395334a8cd
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
+  m_Keybind: {fileID: 6754944654749888670, guid: c0356415ab7364745b51d080f8c24461, type: 3}
 --- !u!61 &2065509614
 BoxCollider2D:
   m_ObjectHideFlags: 0

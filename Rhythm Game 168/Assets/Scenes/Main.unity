@@ -516,6 +516,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 290272800838409433, guid: e924427f9457ba043bac451e28643421, type: 3}
+      propertyPath: m_Keybind
+      value: 
+      objectReference: {fileID: 8898918635668820852, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+    - target: {fileID: 290272801101534015, guid: e924427f9457ba043bac451e28643421, type: 3}
+      propertyPath: m_Keybind
+      value: 
+      objectReference: {fileID: -4973187593447858995, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+    - target: {fileID: 290272801320396517, guid: e924427f9457ba043bac451e28643421, type: 3}
+      propertyPath: m_Keybind
+      value: 
+      objectReference: {fileID: 340233931159940789, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+    - target: {fileID: 290272801718974204, guid: e924427f9457ba043bac451e28643421, type: 3}
+      propertyPath: m_Keybind
+      value: 
+      objectReference: {fileID: 6754944654749888670, guid: c0356415ab7364745b51d080f8c24461, type: 3}
     - target: {fileID: 290272801809592470, guid: e924427f9457ba043bac451e28643421, type: 3}
       propertyPath: m_Name
       value: Receiver

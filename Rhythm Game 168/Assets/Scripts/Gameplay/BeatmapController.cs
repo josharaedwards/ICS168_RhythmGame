@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BeatmapController : MonoBehaviour
 {
-    private bool started = false;
+    [SerializeField] private bool started = false;
 
     [SerializeField] private int beatPerMinute;
     private float beatPerSecond;
