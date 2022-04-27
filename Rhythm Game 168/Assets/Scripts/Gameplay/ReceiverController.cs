@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ReceiverCotroller : MonoBehaviour
+public class ReceiverController : MonoBehaviour
 {
     private SpriteRenderer buttonSprite;
     private Color initColor;
     private Color pressedColor;
 
-    [SerializeField][Range(0f,2f)] private float shadeAlpha;
-    [SerializeField] private KeyCode keybind;
-    [SerializeField] private InputAction playerControls;
+    [SerializeField] [Range(0f, 2f)] private float shadeAlpha;
+    [SerializeField] private InputActionReference m_Keybind = null;
+
 
     private ScoreTracker scoreTracker;
     private bool validPress = false;
@@ -19,12 +19,19 @@ public class ReceiverCotroller : MonoBehaviour
 
     private void OnEnable()
     {
-        playerControls.Enable();
+        m_Keybind.action.Enable();
     }
 
     private void OnDisable()
     {
-        playerControls.Disable();
+        m_Keybind.action.Disable();
+    }
+
+    void Awake()
+    {
+        m_Keybind.action.performed += ctx => HitOrMiss();
+        m_Keybind.action.performed += ctx => buttonSprite.color = pressedColor;
+        m_Keybind.action.canceled += ctx => buttonSprite.color = initColor;
     }
 
     void Start()
@@ -37,30 +44,20 @@ public class ReceiverCotroller : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void HitOrMiss()
     {
-        if (Input.GetKey(keybind))
+        if (validPress)
         {
-            buttonSprite.color = pressedColor;
+            scoreTracker.score += 1;
+            currentNote.SetActive(false);
+            currentNote = null;
+            validPress = false;
         }
         else
         {
-            buttonSprite.color = initColor;
+            scoreTracker.miss += 1;
         }
 
-        if (Input.GetKeyDown(keybind))
-        {
-            if (validPress)
-            {
-                scoreTracker.score += 1;
-                currentNote.SetActive(false);
-                currentNote = null;
-            }
-            else
-            {
-                scoreTracker.miss += 1;
-            }
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -75,15 +72,18 @@ public class ReceiverCotroller : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Note")
+        if (collision.gameObject.activeSelf) //Checks if the GameObject is active, preventing the function from registering it being hit as a miss.
         {
-            validPress = false;
-            if (currentNote != null)
+            if (collision.tag == "Note")
             {
-                scoreTracker.miss += 1;
+                validPress = false;
+                if (currentNote != null)
+                {
+                    scoreTracker.miss += 1;
+                }
+                currentNote = null;
+                Debug.Log("Note Exit");
             }
-            currentNote = null;
-            Debug.Log("Note Exit");
         }
     }
 }
