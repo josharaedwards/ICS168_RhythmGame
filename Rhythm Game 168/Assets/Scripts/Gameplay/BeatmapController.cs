@@ -34,8 +34,8 @@ public class BeatmapController : MonoBehaviour
             if (Input.anyKeyDown)
             {
                 started = true;
+                audioManager.PlaySong(song.songClip);
             }
-            audioManager.PlaySong(song.songClip);
         }
         else
         {
