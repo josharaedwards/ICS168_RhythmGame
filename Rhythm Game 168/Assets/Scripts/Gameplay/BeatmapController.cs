@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.Audio;
 public class BeatmapController : MonoBehaviour
 {
     [SerializeField] private bool started = false;
@@ -27,7 +27,7 @@ public class BeatmapController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!started)
         {
@@ -39,7 +39,7 @@ public class BeatmapController : MonoBehaviour
         }
         else
         {
-            transform.position -= new Vector3(0f, beatPerSecond * Time.deltaTime, 0f);
+            transform.position -= new Vector3(0.0f, beatPerSecond * Time.fixedDeltaTime, 0.0f);
         }
     }
 }
