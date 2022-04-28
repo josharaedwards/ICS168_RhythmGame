@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance { get; private set; }
 
-    [SerializeField] public AudioSource playbackMix;
+    [SerializeField] private AudioSource playbackMix;
     [SerializeField] private AudioSource sfxMix;
     [SerializeField] private AudioSource uiMix;
 

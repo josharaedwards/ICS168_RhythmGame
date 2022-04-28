@@ -27,7 +27,7 @@ public class BeatmapController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (!started)
         {
@@ -39,7 +39,7 @@ public class BeatmapController : MonoBehaviour
         }
         else
         {
-            transform.position = new Vector3(0.0f, -beatPerSecond * audioManager.playbackMix.time, 0.0f);
+            transform.position -= new Vector3(0.0f, beatPerSecond * Time.fixedDeltaTime, 0.0f);
         }
     }
 }
