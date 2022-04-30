@@ -9,9 +9,10 @@ public class ReceiverController : MonoBehaviour
     private Color initColor;
     private Color pressedColor;
 
-    [SerializeField] [Range(0f, 2f)] private float shadeAlpha;
-    [SerializeField] private InputActionReference m_Keybind = null;
+    private PlayerInput playerInput;
 
+    [SerializeField] [Range(0f, 2f)] private float shadeAlpha;
+    [SerializeField] private InputActionReference m_Keybind;
 
     private ScoreTracker scoreTracker;
     private bool validPress = false;
@@ -19,20 +20,31 @@ public class ReceiverController : MonoBehaviour
 
     private void OnEnable()
     {
-        m_Keybind.action.Enable();
+        playerInput.actions.Enable();
     }
 
     private void OnDisable()
     {
-        m_Keybind.action.Disable();
+        playerInput.actions.Disable();
     }
 
-    void Awake()
-    {
-        m_Keybind.action.performed += ctx => HitOrMiss();
-        m_Keybind.action.performed += ctx => buttonSprite.color = pressedColor;
-        m_Keybind.action.canceled += ctx => buttonSprite.color = initColor;
+    void Awake() {
+        playerInput = GetComponentInParent<PlayerInput>();
+        playerInput.actions[m_Keybind.action.name].performed += HitOrMiss;
+        playerInput.actions[m_Keybind.action.name].performed += notPressed;
+        // m_Keybind.action.performed += ctx => HitOrMiss();
+        // m_Keybind.action.performed += ctx => buttonSprite.color = pressedColor;
+        // m_Keybind.action.canceled += ctx => buttonSprite.color = initColor;
     }
+
+    void notPressed(InputAction.CallbackContext context)
+    {
+        if(buttonSprite != null)
+        {
+            buttonSprite.color = initColor;
+        }    
+    }
+    
 
     void Start()
     {
@@ -43,14 +55,34 @@ public class ReceiverController : MonoBehaviour
         scoreTracker = ScoreTracker.instance;
     }
 
+    /*
+    void Update() {
+        if (Input.GetKeyDown(PRESS)) {
+            HitOrMiss();
+            buttonSprite.color = pressedColor;
+        }
+        if (Input.GetKeyUp(PRESS)) {
+            buttonSprite.color = initColor;
+        }
+    }
+    */
     // Update is called once per frame
-    void HitOrMiss()
+    void HitOrMiss(InputAction.CallbackContext context)
     {
+        if(buttonSprite != null)
+        {
+            buttonSprite.color = pressedColor;
+        }
+            
         if (validPress)
         {
             scoreTracker.score += 1;
-            currentNote.SetActive(false);
-            currentNote = null;
+
+            if(currentNote != null)
+            {
+                currentNote.SetActive(false);
+                currentNote = null;
+            }
             validPress = false;
         }
         else
