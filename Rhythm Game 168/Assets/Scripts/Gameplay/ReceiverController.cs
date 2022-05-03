@@ -5,9 +5,9 @@ using UnityEngine.InputSystem;
 
 public class ReceiverController : MonoBehaviour
 {
-    private SpriteRenderer buttonSprite;
-    private Color initColor;
-    private Color pressedColor;
+    private SpriteRenderer buttonSprite, lineSprite, laneSprite;
+    private Color initButtonColor, initLineColor, initLaneColor;
+    private Color pressedButtonColor, pressedLineColor, pressedLaneColor;
 
     private PlayerInput playerInput;
 
@@ -31,7 +31,7 @@ public class ReceiverController : MonoBehaviour
     void Awake() {
         playerInput = GetComponentInParent<PlayerInput>();
         playerInput.actions[m_Keybind.action.name].performed += HitOrMiss;
-        playerInput.actions[m_Keybind.action.name].performed += notPressed;
+        playerInput.actions[m_Keybind.action.name].canceled += notPressed;
         // m_Keybind.action.performed += ctx => HitOrMiss();
         // m_Keybind.action.performed += ctx => buttonSprite.color = pressedColor;
         // m_Keybind.action.canceled += ctx => buttonSprite.color = initColor;
@@ -39,18 +39,28 @@ public class ReceiverController : MonoBehaviour
 
     void notPressed(InputAction.CallbackContext context)
     {
-        if(buttonSprite != null)
+        if(buttonSprite != null && lineSprite != null && laneSprite != null)
         {
-            buttonSprite.color = initColor;
-        }    
+            laneSprite.color = initLaneColor;
+            lineSprite.color = initLineColor;
+            buttonSprite.color = initButtonColor;
+        } 
     }
     
 
     void Start()
     {
+        laneSprite = GetComponentInChildren<SpriteRenderer>();
+        initLaneColor = laneSprite.color;
+        pressedLaneColor = new Color(initLaneColor.r, initLaneColor.g, initLaneColor.b, initLaneColor.a * shadeAlpha);
+        
+        lineSprite = GameObject.Find("Judgement Line").GetComponent<SpriteRenderer>();
+        initLineColor = lineSprite.color;
+        pressedLineColor = new Color(initLineColor.r, initLineColor.g, initLineColor.b, initLineColor.a * shadeAlpha);
+
         buttonSprite = GetComponent<SpriteRenderer>();
-        initColor = buttonSprite.color;
-        pressedColor = new Color(initColor.r * shadeAlpha, initColor.g * shadeAlpha, initColor.b * shadeAlpha, initColor.a);
+        initButtonColor = buttonSprite.color;
+        pressedButtonColor = new Color(initButtonColor.r, initButtonColor.g, initButtonColor.b, initButtonColor.a * shadeAlpha);
 
         scoreTracker = ScoreTracker.instance;
     }
@@ -69,9 +79,11 @@ public class ReceiverController : MonoBehaviour
     // Update is called once per frame
     void HitOrMiss(InputAction.CallbackContext context)
     {
-        if(buttonSprite != null)
+        if(buttonSprite != null && lineSprite != null && laneSprite != null)
         {
-            buttonSprite.color = pressedColor;
+            laneSprite.color = pressedLaneColor;
+            lineSprite.color = pressedLineColor;
+            buttonSprite.color = pressedButtonColor;
         }
             
         if (validPress)
