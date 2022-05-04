@@ -28,8 +28,8 @@ public class AudioManager : MonoBehaviour
         currentSongTime = playbackMix.time;
         currentSongPercentage = playbackMix.time / playbackMix.clip.length;
 
-        Debug.Log("Current song time is " + currentSongTime);
-        Debug.Log("Current song percent is " + currentSongPercentage);
+        //Debug.Log("Current song time is " + currentSongTime);
+        //Debug.Log("Current song percent is " + currentSongPercentage);
     }
 
     void Init()
