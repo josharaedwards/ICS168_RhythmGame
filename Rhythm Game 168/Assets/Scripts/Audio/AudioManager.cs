@@ -12,14 +12,7 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance && instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            instance = this;
-        }
+        Init();
     }
 
     void Start()
@@ -30,6 +23,20 @@ public class AudioManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void Init()
+    {
+        if (instance && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+
+        DontDestroyOnLoad(this.gameObject.transform.root);
     }
 
     public void PlaySong(AudioClip song)

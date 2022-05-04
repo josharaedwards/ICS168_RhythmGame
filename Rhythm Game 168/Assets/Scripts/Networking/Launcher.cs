@@ -70,18 +70,11 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         Debug.Log("OnJoinedRoom() called by PUN. Now this client is in a room.");
         
-        PhotonNetwork.LoadLevel("Main");
-    }
-
-    //POTENTIALLY TEMPORARY
-    private void LoadAreana()
-    {
-        if(!PhotonNetwork.IsMasterClient)
+        if(PhotonNetwork.CurrentRoom.PlayerCount == 1)
         {
-            Debug.LogError("Photon: Trying to load a level but not master client");
-        }
+            Debug.Log("We load the Main Player 1");
 
-        Debug.LogFormat("Photon: Loading Level : " + SceneManager.GetActiveScene().name);
-        PhotonNetwork.LoadLevel("Main");
+            PhotonNetwork.LoadLevel("Main");
+        } 
     }
 }
