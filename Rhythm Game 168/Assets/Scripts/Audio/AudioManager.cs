@@ -25,11 +25,11 @@ public class AudioManager : MonoBehaviour
 
     void Update()
     {
-        currentSongTime = playbackMix.time;
-        currentSongPercentage = playbackMix.time / playbackMix.clip.length;
-
-        //Debug.Log("Current song time is " + currentSongTime);
-        //Debug.Log("Current song percent is " + currentSongPercentage);
+        if(playbackMix.isPlaying)
+        {
+            currentSongTime = playbackMix.time;
+            currentSongPercentage = playbackMix.time / playbackMix.clip.length;
+        }
     }
 
     void Init()
@@ -43,7 +43,7 @@ public class AudioManager : MonoBehaviour
             instance = this;
         }
 
-        DontDestroyOnLoad(this.gameObject.transform.root);
+        DontDestroyOnLoad(this.gameObject.transform.root);       
     }
 
     public void PlaySong(AudioClip song)

@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 {
     public static GameManager instance { get; private set; }
 
+    public SongData[] songList;
+
     private void Awake()
     {
         Init();
@@ -33,6 +35,13 @@ public class GameManager : MonoBehaviourPunCallbacks
         else
         {
             instance = this;
+        }
+
+        GameObject[] gms = GameObject.FindGameObjectsWithTag("GameManager");
+
+        if (gms.Length > 1)
+        {
+            Destroy(this.gameObject);
         }
 
         DontDestroyOnLoad(this.gameObject.transform.root);
