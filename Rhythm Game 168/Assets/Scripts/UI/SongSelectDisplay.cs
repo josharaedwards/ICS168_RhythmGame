@@ -6,12 +6,10 @@ using TMPro;
 
 public class SongSelectDisplay : MonoBehaviour
 {
-    public int numOfSongs = 25;
-
     [SerializeField] private GameObject songButtonPrototype;
     [SerializeField] private GameObject songListContainer;  
 
-    void Start()
+    void Awake()
     {
         UpdateSongList();
     }
@@ -23,14 +21,18 @@ public class SongSelectDisplay : MonoBehaviour
 
     public void UpdateSongList()
     {
-        for(int i = 0; i < numOfSongs; ++i)
+        SongData[] songList = GameManager.instance.songList;
+        int numOfSongs = songList.Length;
+
+        for (int i = 0; i < numOfSongs; ++i)
         {
-            CreateSongButton();
+            CreateSongButton(songList[i]);
         }
     }
 
-    private void CreateSongButton()
+    private void CreateSongButton(SongData song)
     {
-        Instantiate(songButtonPrototype, songListContainer.transform);
+        GameObject songButton = Instantiate(songButtonPrototype, songListContainer.transform);
+        songButton.GetComponent<SongListButton>().Init(song);
     }
 }
