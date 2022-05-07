@@ -24,7 +24,7 @@ public class BeatmapController : MonoBehaviour
 
         for(int i = 1; i < beatPositions.Length; i++)
         {
-            Debug.Log("changed");
+            //Debug.Log("changed");
             beatPositions[i].localPosition = Vector3.Scale(beatPositions[i].localPosition, new Vector3(1.0f, highwaySpeed, 1.0f));
         }
 
