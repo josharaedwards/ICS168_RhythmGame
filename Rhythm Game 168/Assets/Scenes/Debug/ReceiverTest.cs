@@ -48,7 +48,7 @@ public class ReceiverTest : MonoBehaviour
     {
         if (validPress)
         {
-            scoreTracker.score += 1;
+            scoreTracker.superb += 1;
             currentNote.SetActive(false);
             currentNote = null;
             validPress = false;
