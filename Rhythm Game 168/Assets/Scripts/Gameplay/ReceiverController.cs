@@ -145,6 +145,7 @@ public class ReceiverController : MonoBehaviour
         
 
 
+
         // if (superbPress)
         // {
         //     scoreTracker.superb += 1;
@@ -206,7 +207,6 @@ public class ReceiverController : MonoBehaviour
 //             //     currentNote.SetActive(false);
 //             //     currentNote = null;
 //             // }
-
 //             //validPress = false;
 //         }
 //         else if (validPress)
