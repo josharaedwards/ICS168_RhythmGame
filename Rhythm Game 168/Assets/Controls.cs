@@ -62,6 +62,78 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hinder (Lock Both)"",
+                    ""type"": ""Button"",
+                    ""id"": ""25518513-9b2e-4f23-a0a1-95018874f7e7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hinder (Lock Right)"",
+                    ""type"": ""Button"",
+                    ""id"": ""9dcf1b74-6ff0-473f-982b-4681fef0b83c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hinder (Lock Left)"",
+                    ""type"": ""Button"",
+                    ""id"": ""e83b6ebe-9659-4b71-b003-c32fcb74acaf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hinder (Flicker)"",
+                    ""type"": ""Button"",
+                    ""id"": ""146f46da-7537-4df3-8a2d-770172c1e9f2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Help (Miss Both)"",
+                    ""type"": ""Button"",
+                    ""id"": ""a94d4ffa-c45e-40de-aa65-296e46587c40"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Help (Miss Right)"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef5c3a5d-f92b-4c11-9fd5-7f519b326d56"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Help (Miss Left)"",
+                    ""type"": ""Button"",
+                    ""id"": ""0d7151c0-bee2-4672-9823-aeacbef56b24"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Help (Multiplier)"",
+                    ""type"": ""Button"",
+                    ""id"": ""3b26c4b2-512e-4c4d-bb1e-4a9e9c61c737"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +224,94 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Left Note"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fa4b8fe3-1bc9-46e9-91c2-e4ebd98ee4bd"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hinder (Flicker)"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d73cf147-37be-44c2-811c-b49aa5e65a35"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hinder (Lock Left)"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39696497-6895-45d1-8110-d96d9a1ddfe1"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hinder (Lock Right)"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13865897-1186-498e-9fd4-3c87d9312011"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hinder (Lock Both)"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ccd379c9-833b-46dd-9250-9ad3575be4b4"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Help (Multiplier)"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""adcb954e-ba65-4dbe-aa4b-9553d24b1d6d"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Help (Miss Left)"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""24eb3c32-f2b9-4f94-8039-7ad43bba2650"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Help (Miss Right)"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77ad82c4-5e79-4bd0-8d7b-d6c2651ab274"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Help (Miss Both)"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -187,6 +347,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_BeatPlayerControls_RightNote = m_BeatPlayerControls.FindAction("Right Note", throwIfNotFound: true);
         m_BeatPlayerControls_UpNote = m_BeatPlayerControls.FindAction("Up Note", throwIfNotFound: true);
         m_BeatPlayerControls_DownNote = m_BeatPlayerControls.FindAction("Down Note", throwIfNotFound: true);
+        m_BeatPlayerControls_HinderLockBoth = m_BeatPlayerControls.FindAction("Hinder (Lock Both)", throwIfNotFound: true);
+        m_BeatPlayerControls_HinderLockRight = m_BeatPlayerControls.FindAction("Hinder (Lock Right)", throwIfNotFound: true);
+        m_BeatPlayerControls_HinderLockLeft = m_BeatPlayerControls.FindAction("Hinder (Lock Left)", throwIfNotFound: true);
+        m_BeatPlayerControls_HinderFlicker = m_BeatPlayerControls.FindAction("Hinder (Flicker)", throwIfNotFound: true);
+        m_BeatPlayerControls_HelpMissBoth = m_BeatPlayerControls.FindAction("Help (Miss Both)", throwIfNotFound: true);
+        m_BeatPlayerControls_HelpMissRight = m_BeatPlayerControls.FindAction("Help (Miss Right)", throwIfNotFound: true);
+        m_BeatPlayerControls_HelpMissLeft = m_BeatPlayerControls.FindAction("Help (Miss Left)", throwIfNotFound: true);
+        m_BeatPlayerControls_HelpMultiplier = m_BeatPlayerControls.FindAction("Help (Multiplier)", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -250,6 +418,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_BeatPlayerControls_RightNote;
     private readonly InputAction m_BeatPlayerControls_UpNote;
     private readonly InputAction m_BeatPlayerControls_DownNote;
+    private readonly InputAction m_BeatPlayerControls_HinderLockBoth;
+    private readonly InputAction m_BeatPlayerControls_HinderLockRight;
+    private readonly InputAction m_BeatPlayerControls_HinderLockLeft;
+    private readonly InputAction m_BeatPlayerControls_HinderFlicker;
+    private readonly InputAction m_BeatPlayerControls_HelpMissBoth;
+    private readonly InputAction m_BeatPlayerControls_HelpMissRight;
+    private readonly InputAction m_BeatPlayerControls_HelpMissLeft;
+    private readonly InputAction m_BeatPlayerControls_HelpMultiplier;
     public struct BeatPlayerControlsActions
     {
         private @Controls m_Wrapper;
@@ -258,6 +434,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @RightNote => m_Wrapper.m_BeatPlayerControls_RightNote;
         public InputAction @UpNote => m_Wrapper.m_BeatPlayerControls_UpNote;
         public InputAction @DownNote => m_Wrapper.m_BeatPlayerControls_DownNote;
+        public InputAction @HinderLockBoth => m_Wrapper.m_BeatPlayerControls_HinderLockBoth;
+        public InputAction @HinderLockRight => m_Wrapper.m_BeatPlayerControls_HinderLockRight;
+        public InputAction @HinderLockLeft => m_Wrapper.m_BeatPlayerControls_HinderLockLeft;
+        public InputAction @HinderFlicker => m_Wrapper.m_BeatPlayerControls_HinderFlicker;
+        public InputAction @HelpMissBoth => m_Wrapper.m_BeatPlayerControls_HelpMissBoth;
+        public InputAction @HelpMissRight => m_Wrapper.m_BeatPlayerControls_HelpMissRight;
+        public InputAction @HelpMissLeft => m_Wrapper.m_BeatPlayerControls_HelpMissLeft;
+        public InputAction @HelpMultiplier => m_Wrapper.m_BeatPlayerControls_HelpMultiplier;
         public InputActionMap Get() { return m_Wrapper.m_BeatPlayerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -279,6 +463,30 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @DownNote.started -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnDownNote;
                 @DownNote.performed -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnDownNote;
                 @DownNote.canceled -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnDownNote;
+                @HinderLockBoth.started -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHinderLockBoth;
+                @HinderLockBoth.performed -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHinderLockBoth;
+                @HinderLockBoth.canceled -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHinderLockBoth;
+                @HinderLockRight.started -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHinderLockRight;
+                @HinderLockRight.performed -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHinderLockRight;
+                @HinderLockRight.canceled -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHinderLockRight;
+                @HinderLockLeft.started -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHinderLockLeft;
+                @HinderLockLeft.performed -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHinderLockLeft;
+                @HinderLockLeft.canceled -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHinderLockLeft;
+                @HinderFlicker.started -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHinderFlicker;
+                @HinderFlicker.performed -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHinderFlicker;
+                @HinderFlicker.canceled -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHinderFlicker;
+                @HelpMissBoth.started -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHelpMissBoth;
+                @HelpMissBoth.performed -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHelpMissBoth;
+                @HelpMissBoth.canceled -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHelpMissBoth;
+                @HelpMissRight.started -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHelpMissRight;
+                @HelpMissRight.performed -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHelpMissRight;
+                @HelpMissRight.canceled -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHelpMissRight;
+                @HelpMissLeft.started -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHelpMissLeft;
+                @HelpMissLeft.performed -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHelpMissLeft;
+                @HelpMissLeft.canceled -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHelpMissLeft;
+                @HelpMultiplier.started -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHelpMultiplier;
+                @HelpMultiplier.performed -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHelpMultiplier;
+                @HelpMultiplier.canceled -= m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface.OnHelpMultiplier;
             }
             m_Wrapper.m_BeatPlayerControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -295,6 +503,30 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @DownNote.started += instance.OnDownNote;
                 @DownNote.performed += instance.OnDownNote;
                 @DownNote.canceled += instance.OnDownNote;
+                @HinderLockBoth.started += instance.OnHinderLockBoth;
+                @HinderLockBoth.performed += instance.OnHinderLockBoth;
+                @HinderLockBoth.canceled += instance.OnHinderLockBoth;
+                @HinderLockRight.started += instance.OnHinderLockRight;
+                @HinderLockRight.performed += instance.OnHinderLockRight;
+                @HinderLockRight.canceled += instance.OnHinderLockRight;
+                @HinderLockLeft.started += instance.OnHinderLockLeft;
+                @HinderLockLeft.performed += instance.OnHinderLockLeft;
+                @HinderLockLeft.canceled += instance.OnHinderLockLeft;
+                @HinderFlicker.started += instance.OnHinderFlicker;
+                @HinderFlicker.performed += instance.OnHinderFlicker;
+                @HinderFlicker.canceled += instance.OnHinderFlicker;
+                @HelpMissBoth.started += instance.OnHelpMissBoth;
+                @HelpMissBoth.performed += instance.OnHelpMissBoth;
+                @HelpMissBoth.canceled += instance.OnHelpMissBoth;
+                @HelpMissRight.started += instance.OnHelpMissRight;
+                @HelpMissRight.performed += instance.OnHelpMissRight;
+                @HelpMissRight.canceled += instance.OnHelpMissRight;
+                @HelpMissLeft.started += instance.OnHelpMissLeft;
+                @HelpMissLeft.performed += instance.OnHelpMissLeft;
+                @HelpMissLeft.canceled += instance.OnHelpMissLeft;
+                @HelpMultiplier.started += instance.OnHelpMultiplier;
+                @HelpMultiplier.performed += instance.OnHelpMultiplier;
+                @HelpMultiplier.canceled += instance.OnHelpMultiplier;
             }
         }
     }
@@ -323,5 +555,13 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnRightNote(InputAction.CallbackContext context);
         void OnUpNote(InputAction.CallbackContext context);
         void OnDownNote(InputAction.CallbackContext context);
+        void OnHinderLockBoth(InputAction.CallbackContext context);
+        void OnHinderLockRight(InputAction.CallbackContext context);
+        void OnHinderLockLeft(InputAction.CallbackContext context);
+        void OnHinderFlicker(InputAction.CallbackContext context);
+        void OnHelpMissBoth(InputAction.CallbackContext context);
+        void OnHelpMissRight(InputAction.CallbackContext context);
+        void OnHelpMissLeft(InputAction.CallbackContext context);
+        void OnHelpMultiplier(InputAction.CallbackContext context);
     }
 }

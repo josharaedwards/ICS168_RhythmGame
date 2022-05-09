@@ -50,7 +50,7 @@ public class BeatmapController : MonoBehaviour
         }
         else
         {
-            transform.position -= new Vector3(0.0f, beatPerSecond * highwaySpeed * Time.fixedDeltaTime, 0.0f);
+            transform.localPosition -= transform.rotation * (new Vector3(0.0f, beatPerSecond * highwaySpeed * Time.fixedDeltaTime, 0.0f));
         }
     }
 }
