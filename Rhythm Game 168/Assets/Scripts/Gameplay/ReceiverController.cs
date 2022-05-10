@@ -32,7 +32,7 @@ public class ReceiverController : MonoBehaviour
 
     void Awake() {
         playerInput = GetComponentInParent<PlayerInput>();
-        playerInput.actions[m_Keybind.action.name].performed += HitOrMiss;
+        playerInput.actions[m_Keybind.action.name].performed += Hit;
         playerInput.actions[m_Keybind.action.name].canceled += notPressed;
         // m_Keybind.action.performed += ctx => HitOrMiss();
         // m_Keybind.action.performed += ctx => buttonSprite.color = pressedColor;
@@ -82,7 +82,7 @@ public class ReceiverController : MonoBehaviour
     }
     */
     // Update is called once per frame
-    void HitOrMiss(InputAction.CallbackContext context)
+    void Hit(InputAction.CallbackContext context)
     {
         if(buttonSprite != null && lineSprite != null && laneSprite != null)
         {
@@ -143,6 +143,7 @@ public class ReceiverController : MonoBehaviour
             validPress = false;
         }
         
+
 
 
         // if (superbPress)
@@ -206,7 +207,6 @@ public class ReceiverController : MonoBehaviour
 //             //     currentNote.SetActive(false);
 //             //     currentNote = null;
 //             // }
-
 //             //validPress = false;
 //         }
 //         else if (validPress)
@@ -247,7 +247,10 @@ public class ReceiverController : MonoBehaviour
         if (collision.tag == "Note")
         {
             validPress = true;
-            currentNote = collision.gameObject;
+            if (currentNote == null)
+            {
+                currentNote = collision.gameObject;
+            }
             Debug.Log("Note Enter");
         }
         // switch (collision.tag)
@@ -281,10 +284,10 @@ public class ReceiverController : MonoBehaviour
             if (collision.tag == "Note")
             {
                 validPress = false;
-                if (currentNote != null)
-                {
-                    scoreTracker.miss += 1;
-                }
+                // if (currentNote != null)
+                // {
+                scoreTracker.miss += 1;
+                // }
                 currentNote = null;
                 Debug.Log("Note Exit");
             }
