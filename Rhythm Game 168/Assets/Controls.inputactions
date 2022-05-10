@@ -1,0 +1,321 @@
+{
+    "name": "Controls",
+    "maps": [
+        {
+            "name": "Beat Player Controls",
+            "id": "82dcabff-e86f-43c7-9661-e110517b9627",
+            "actions": [
+                {
+                    "name": "Left Note",
+                    "type": "Button",
+                    "id": "8613aff6-7c89-4f46-9039-b4b71b178e6c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Right Note",
+                    "type": "Button",
+                    "id": "2d3f0de3-17b8-4caf-a05a-25ca66dad0f3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Up Note",
+                    "type": "Button",
+                    "id": "cd3a8e7a-6680-420e-a04a-cafde773e611",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Down Note",
+                    "type": "Button",
+                    "id": "e84a95e4-851a-4010-be05-b988935b0d00",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Hinder (Lock Both)",
+                    "type": "Button",
+                    "id": "25518513-9b2e-4f23-a0a1-95018874f7e7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Hinder (Lock Right)",
+                    "type": "Button",
+                    "id": "9dcf1b74-6ff0-473f-982b-4681fef0b83c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Hinder (Lock Left)",
+                    "type": "Button",
+                    "id": "e83b6ebe-9659-4b71-b003-c32fcb74acaf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Hinder (Flicker)",
+                    "type": "Button",
+                    "id": "146f46da-7537-4df3-8a2d-770172c1e9f2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Help (Miss Both)",
+                    "type": "Button",
+                    "id": "a94d4ffa-c45e-40de-aa65-296e46587c40",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Help (Miss Right)",
+                    "type": "Button",
+                    "id": "ef5c3a5d-f92b-4c11-9fd5-7f519b326d56",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Help (Miss Left)",
+                    "type": "Button",
+                    "id": "0d7151c0-bee2-4672-9823-aeacbef56b24",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Help (Multiplier)",
+                    "type": "Button",
+                    "id": "3b26c4b2-512e-4c4d-bb1e-4a9e9c61c737",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5591b8a5-34fa-4651-8a60-75663364c41b",
+                    "path": "<Gamepad>/rightStick/up",
+                    "interactions": "Press",
+                    "processors": "AxisDeadzone",
+                    "groups": "Controller",
+                    "action": "Right Note",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "110af25d-aa03-4edd-96bc-dd207362c2a9",
+                    "path": "<Keyboard>/slash",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Right Note",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6728c36d-7c5c-49da-bcbb-d4befe359de8",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "Press",
+                    "processors": "AxisDeadzone",
+                    "groups": "Controller",
+                    "action": "Up Note",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e699e59c-13c8-4596-9d56-3c0ce9833ac6",
+                    "path": "<Keyboard>/comma",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Up Note",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "80f61f18-4ace-4477-bd10-6ee7067d8373",
+                    "path": "<Gamepad>/rightStick/down",
+                    "interactions": "Press",
+                    "processors": "AxisDeadzone",
+                    "groups": "Controller",
+                    "action": "Down Note",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4a6ebd13-8aa1-46e2-b338-769c49cb4707",
+                    "path": "<Keyboard>/period",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Down Note",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c9730d7a-f818-4c12-bb7c-912f1ec0a074",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "Press",
+                    "processors": "AxisDeadzone",
+                    "groups": "Controller",
+                    "action": "Left Note",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b9f464d5-a5a1-42c1-bd46-5158d3b1b6d9",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Left Note",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fa4b8fe3-1bc9-46e9-91c2-e4ebd98ee4bd",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hinder (Flicker)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d73cf147-37be-44c2-811c-b49aa5e65a35",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hinder (Lock Left)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "39696497-6895-45d1-8110-d96d9a1ddfe1",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hinder (Lock Right)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "13865897-1186-498e-9fd4-3c87d9312011",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hinder (Lock Both)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ccd379c9-833b-46dd-9250-9ad3575be4b4",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Help (Multiplier)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "adcb954e-ba65-4dbe-aa4b-9553d24b1d6d",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Help (Miss Left)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "24eb3c32-f2b9-4f94-8039-7ad43bba2650",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Help (Miss Right)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "77ad82c4-5e79-4bd0-8d7b-d6c2651ab274",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Help (Miss Both)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Controller",
+            "bindingGroup": "Controller",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
