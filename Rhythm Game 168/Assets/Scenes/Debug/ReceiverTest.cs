@@ -30,7 +30,10 @@ public class ReceiverTest : MonoBehaviour
 
     private void OnDisable()
     {
-        playerInput.actions.Disable();
+        if(playerInput != null)
+        {
+            playerInput.actions.Disable();
+        }
     }
 
     public void Disable()
@@ -42,9 +45,10 @@ public class ReceiverTest : MonoBehaviour
     }
 
     void Awake() {
-        playerInput = GetComponentInParent<PlayerInput>();
+        playerInput = GetComponentInParent<PlayerSpawner>().assignedPlayerInput;
         playerInput.actions[m_Keybind.action.name].performed += Hit;
         playerInput.actions[m_Keybind.action.name].canceled += notPressed;
+        
         // m_Keybind.action.performed += ctx => HitOrMiss();
         // m_Keybind.action.performed += ctx => buttonSprite.color = pressedColor;
         // m_Keybind.action.canceled += ctx => buttonSprite.color = initColor;

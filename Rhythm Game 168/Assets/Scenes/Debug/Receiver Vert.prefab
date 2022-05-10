@@ -923,7 +923,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3833867302872143382}
-  - component: {fileID: 3545424088609785480}
   - component: {fileID: 3545424088783686254}
   m_Layer: 0
   m_Name: Receiver Vert
@@ -940,7 +939,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833867302872143385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: 5, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7704237138766074523}
@@ -951,84 +950,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3545424088609785480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3833867302872143385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: c0356415ab7364745b51d080f8c24461, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8613aff6-7c89-4f46-9039-b4b71b178e6c
-    m_ActionName: Beat Player Controls/Left Note[/Keyboard/m]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 2d3f0de3-17b8-4caf-a05a-25ca66dad0f3
-    m_ActionName: Beat Player Controls/Right Note[/Keyboard/slash]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: cd3a8e7a-6680-420e-a04a-cafde773e611
-    m_ActionName: Beat Player Controls/Up Note[/Keyboard/comma]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e84a95e4-851a-4010-be05-b988935b0d00
-    m_ActionName: Beat Player Controls/Down Note[/Keyboard/period]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 25518513-9b2e-4f23-a0a1-95018874f7e7
-    m_ActionName: Beat Player Controls/Hinder (Lock Both)
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9dcf1b74-6ff0-473f-982b-4681fef0b83c
-    m_ActionName: Beat Player Controls/Hinder (Lock Right)
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e83b6ebe-9659-4b71-b003-c32fcb74acaf
-    m_ActionName: Beat Player Controls/Hinder (Lock Left)
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 146f46da-7537-4df3-8a2d-770172c1e9f2
-    m_ActionName: Beat Player Controls/Hinder (Flicker)
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a94d4ffa-c45e-40de-aa65-296e46587c40
-    m_ActionName: Beat Player Controls/Help (Miss Both)
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ef5c3a5d-f92b-4c11-9fd5-7f519b326d56
-    m_ActionName: Beat Player Controls/Help (Miss Right)
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0d7151c0-bee2-4672-9823-aeacbef56b24
-    m_ActionName: Beat Player Controls/Help (Miss Left)
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3b26c4b2-512e-4c4d-bb1e-4a9e9c61c737
-    m_ActionName: Beat Player Controls/Help (Multiplier)
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Controller
-  m_DefaultActionMap: Beat Player Controls
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &3545424088783686254
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ public class PowerUpControllerTest : MonoBehaviour
 
     void Awake()
     {
-        powerUpInput = GetComponent<PlayerInput>();
+        powerUpInput = GetComponentInParent<PlayerSpawner>().assignedPlayerInput;
         powerUpInput.actions["Hinder (Lock Left)"].performed += LockLeftStick;
         powerUpInput.actions["Hinder (Lock Right)"].performed += LockRightStick;
         powerUpInput.actions["Hinder (Lock Both)"].performed += LockBothSticks;
