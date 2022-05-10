@@ -2,37 +2,69 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField]
-    private List<PlayerInput> players = new List<PlayerInput>();
-    private PlayerInputManager playerInputManager;
+    private PlayerInput thisPlayerInput;
 
+    private PlayerSpawner[] myPlayerSpawners;
+    private int playerNumber = 0;
+
+    // public static PlayerManager instance;
+    
     void Awake()
     {
-        playerInputManager = GetComponent<PlayerInputManager>();
+        thisPlayerInput = GetComponent<PlayerInput>();
+        
+        playerNumber = thisPlayerInput.playerIndex;
+
+        DontDestroyOnLoad(this);   
     }
 
-    private void OnEnable()
+    void OnEnable()
     {
-        playerInputManager.onPlayerJoined += AddPlayer;
+        Debug.Log("OnEnable called");
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    public void AddPlayer(PlayerInput player)
+    void OnDisable()
     {
-        players.Add(player);
+        Debug.Log("OnDisable");
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void Start()
+    {
+        SpawnPlayers();
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SpawnPlayers();
+    }
+
+    void SpawnPlayers()
+    {
+        myPlayerSpawners = FindObjectsOfType<PlayerSpawner>();
+        foreach(PlayerSpawner player in myPlayerSpawners)
+        {
+            if(player.assignedPlayerInput == null)
+            {
+                Debug.Log(thisPlayerInput.playerIndex);
+                player.spawnPlayer(thisPlayerInput, playerNumber); 
+                break;    
+            }    
+        }  
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
+    
         
-    }
+    
 
-    // Update is called once per frame
-    void Update()
+    public void UpdatePlayerNumber(int newPlayerNumber)
     {
-        
+        playerNumber = newPlayerNumber;
     }
 }
