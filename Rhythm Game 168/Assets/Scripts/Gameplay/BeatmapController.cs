@@ -5,7 +5,11 @@ using UnityEngine.InputSystem;
 using UnityEngine.Audio;
 public class BeatmapController : MonoBehaviour
 {
+    [SerializeField] private bool editMode = true;
+
     [SerializeField] private bool started = false;
+
+    [SerializeField] private bool isPlaying = false;
 
     [SerializeField] private float beatPerMinute;
     private float beatPerSecond;
@@ -16,6 +20,8 @@ public class BeatmapController : MonoBehaviour
     [SerializeField] [Range(1.0f, 5.0f)] private float highwaySpeed = 1;
 
     private Transform[] beatPositions;
+
+    private Vector3 initPos;
 
     // Start is called before the first frame update
     void Awake()
@@ -34,6 +40,7 @@ public class BeatmapController : MonoBehaviour
 
     void Start()
     {
+        initPos = transform.position;
         audioManager = AudioManager.instance;
     }
 
@@ -44,13 +51,97 @@ public class BeatmapController : MonoBehaviour
         {
             if (Input.anyKeyDown)
             {
+                isPlaying = true;
                 started = true;
                 audioManager.PlaySong(song.songClip);
             }
         }
-        else
+        else if (isPlaying)
         {
             transform.localPosition -= transform.rotation * (new Vector3(0.0f, beatPerSecond * highwaySpeed * Time.fixedDeltaTime, 0.0f));
         }
+    }
+
+    void Update()
+    {
+        BeatmapEditInput();
+    }
+
+    private void BeatmapEditInput()
+    {
+        if (!editMode || !started)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            JumpBeat(-16);
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            JumpBeat(16);
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            JumpBeat(-4);
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            JumpBeat(4);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isPlaying)
+            {
+                Pause();
+            }
+            else
+            {
+                Play();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Restart();
+        }
+    }
+
+    // Move beatmap beats
+    private void MoveBeatmap(int beats)
+    {
+        transform.localPosition -= transform.rotation * (new Vector3(0.0f, beats * highwaySpeed, 0.0f));
+    }
+
+    // Jump beats on both song and beatmap
+    private void JumpBeat(int beats)
+    {
+        float jumpTime = beats / beatPerSecond;
+        bool jumped = audioManager.JumpTime(jumpTime);
+
+        if (jumped)
+        {
+            MoveBeatmap(beats);
+        }
+    }
+
+    private void Play()
+    {
+        isPlaying = true;
+        audioManager.Play();
+    }
+
+    private void Pause()
+    {
+        isPlaying = false;
+        audioManager.Pause();
+    }
+
+    private void Restart()
+    {
+        transform.position = initPos;
+        audioManager.PlaySong(song.songClip, isPlaying);
     }
 }
