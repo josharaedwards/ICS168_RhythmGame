@@ -76,6 +76,10 @@ public class BeatmapController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            for(int i = 1; i < beatPositions.Length; i++)
+            {
+                beatPositions[i].gameObject.SetActive(true);
+            }
             JumpBeat(-16);
         }
         else if (Input.GetKeyDown(KeyCode.W))
@@ -84,6 +88,10 @@ public class BeatmapController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
+            for(int i = 1; i < beatPositions.Length; i++)
+            {
+                beatPositions[i].gameObject.SetActive(true);
+            }
             JumpBeat(-4);
         }
         else if (Input.GetKeyDown(KeyCode.S))
@@ -141,6 +149,10 @@ public class BeatmapController : MonoBehaviour
 
     private void Restart()
     {
+        for(int i = 1; i < beatPositions.Length; i++)
+        {
+            beatPositions[i].gameObject.SetActive(true);
+        }
         transform.position = initPos;
         audioManager.PlaySong(song.songClip, isPlaying);
     }

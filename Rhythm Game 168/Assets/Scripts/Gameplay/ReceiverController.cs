@@ -16,7 +16,14 @@ public class ReceiverController : MonoBehaviour
     [SerializeField] [Range(0f, 2f)] private float shadeAlpha;
     [SerializeField] private InputActionReference m_Keybind;
 
+    [SerializeField] private AudioClip sfxHit;
+
+    [SerializeField] private AudioClip sfxMiss;
+    [SerializeField] private AudioClip sfxHitDisabled;
     private ScoreTracker scoreTracker;
+
+    private int wiggleToFree = 10;
+    private bool disabled = false;
     private bool /*superbPress, goodPress, almostPress,badPress,*/ validPress = false;
     private GameObject currentNote; // TODO: Make this a queue for somewhat overlapping notes
 
@@ -27,13 +34,25 @@ public class ReceiverController : MonoBehaviour
 
     private void OnDisable()
     {
-        playerInput.actions.Disable();
+        if(playerInput != null)
+        {
+            playerInput.actions.Disable();
+        }
+    }
+
+    public void Disable()
+    {
+        laneSprite.color = pressedLaneColor;
+        lineSprite.color = pressedLineColor;
+        buttonSprite.color = pressedButtonColor;
+        disabled = true;
     }
 
     void Awake() {
-        playerInput = GetComponentInParent<PlayerInput>();
+        playerInput = GetComponentInParent<PlayerSpawner>().assignedPlayerInput;
         playerInput.actions[m_Keybind.action.name].performed += Hit;
         playerInput.actions[m_Keybind.action.name].canceled += notPressed;
+        
         // m_Keybind.action.performed += ctx => HitOrMiss();
         // m_Keybind.action.performed += ctx => buttonSprite.color = pressedColor;
         // m_Keybind.action.canceled += ctx => buttonSprite.color = initColor;
@@ -43,9 +62,18 @@ public class ReceiverController : MonoBehaviour
     {
         if(buttonSprite != null && lineSprite != null && laneSprite != null)
         {
-            laneSprite.color = initLaneColor;
-            lineSprite.color = initLineColor;
-            buttonSprite.color = initButtonColor;
+            if (!disabled)
+            {
+                laneSprite.color = initLaneColor;
+                lineSprite.color = initLineColor;
+                buttonSprite.color = initButtonColor;
+            }
+            else
+            {
+                laneSprite.color = pressedLaneColor;
+                lineSprite.color = pressedLineColor;
+                buttonSprite.color = pressedButtonColor;
+            }
         } 
     }
     
@@ -59,7 +87,7 @@ public class ReceiverController : MonoBehaviour
         initLaneColor = laneSprite.color;
         pressedLaneColor = new Color(initLaneColor.r, initLaneColor.g, initLaneColor.b, initLaneColor.a * shadeAlpha);
         
-        lineSprite = GameObject.Find("Judgement Line").GetComponent<SpriteRenderer>();
+        lineSprite = transform.parent.Find("Judgement Line").GetComponent<SpriteRenderer>();
         initLineColor = lineSprite.color;
         pressedLineColor = new Color(initLineColor.r, initLineColor.g, initLineColor.b, initLineColor.a * shadeAlpha);
 
@@ -68,6 +96,19 @@ public class ReceiverController : MonoBehaviour
         pressedButtonColor = new Color(initButtonColor.r, initButtonColor.g, initButtonColor.b, initButtonColor.a * shadeAlpha);
 
         scoreTracker = ScoreTracker.instance;
+    }
+    
+    void Update()
+    {
+        
+        if (scoreTracker.wiggled >= wiggleToFree)
+        {
+            disabled = false;
+            laneSprite.color = initLaneColor;
+            lineSprite.color = initLineColor;
+            buttonSprite.color = initButtonColor;
+        }
+        
     }
 
     /*
@@ -84,15 +125,26 @@ public class ReceiverController : MonoBehaviour
     // Update is called once per frame
     void Hit(InputAction.CallbackContext context)
     {
-        if(buttonSprite != null && lineSprite != null && laneSprite != null)
+        if (!disabled)
         {
-            laneSprite.color = pressedLaneColor;
-            lineSprite.color = pressedLineColor;
-            buttonSprite.color = pressedButtonColor;
+            if(buttonSprite != null && lineSprite != null && laneSprite != null)
+            {
+                laneSprite.color = pressedLaneColor;
+                lineSprite.color = pressedLineColor;
+                buttonSprite.color = pressedButtonColor;
+            }
+            HitType();
         }
-
-        HitType();
-            
+        else
+        {
+            if(buttonSprite != null && lineSprite != null && laneSprite != null)
+            {
+                laneSprite.color = initLaneColor;
+                lineSprite.color = initLineColor;
+                buttonSprite.color = initButtonColor;
+            }
+            Wiggle();
+        }    
         // if (validPress)
         // {
         //     scoreTracker.gloomy += 1;
@@ -111,10 +163,19 @@ public class ReceiverController : MonoBehaviour
 
     }
 
+    private void Wiggle()
+    {
+        AudioManager.instance.PlaySFX(sfxHitDisabled);
+        scoreTracker.wiggled += 1;
+        
+    }
+
     private void HitType()
     {
+        
         if (validPress)
         {
+            AudioManager.instance.PlaySFX(sfxHit);
             float currentNotePos = currentNote.transform.position.y;
             float hitRangePercentage = (Mathf.Abs(currentNotePos - (receiverColliderOffset + transform.position.y))/receiverColliderSize) * 2;
 
@@ -142,8 +203,11 @@ public class ReceiverController : MonoBehaviour
             }
             validPress = false;
         }
+        else
+        {
+            AudioManager.instance.PlaySFX(sfxMiss);
+        }
         
-
 
 
         // if (superbPress)
@@ -207,6 +271,7 @@ public class ReceiverController : MonoBehaviour
 //             //     currentNote.SetActive(false);
 //             //     currentNote = null;
 //             // }
+
 //             //validPress = false;
 //         }
 //         else if (validPress)
