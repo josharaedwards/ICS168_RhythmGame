@@ -10,7 +10,7 @@ public class ReceiverController : MonoBehaviour
     private Color pressedButtonColor, pressedLineColor, pressedLaneColor;
 
     private float receiverColliderSize;
-    private float receiverColliderOffset;
+    private float receiverColliderPosY, receiverColliderPosX;
     private PlayerInput playerInput;
 
     [SerializeField] [Range(0f, 2f)] private float shadeAlpha;
@@ -26,6 +26,8 @@ public class ReceiverController : MonoBehaviour
     private bool disabled = false;
     private bool /*superbPress, goodPress, almostPress,badPress,*/ validPress = false;
     private GameObject currentNote; // TODO: Make this a queue for somewhat overlapping notes
+
+    [SerializeField] private GameObject superbHit, goodHit, badHit, gloomyHit, miss;
 
     private void OnEnable()
     {
@@ -81,7 +83,9 @@ public class ReceiverController : MonoBehaviour
     void Start()
     {
         receiverColliderSize = GetComponent<BoxCollider2D>().size.y;
-        receiverColliderOffset = GetComponent<BoxCollider2D>().offset.y;
+        receiverColliderPosX = GetComponent<BoxCollider2D>().offset.x + transform.position.x;
+        receiverColliderPosY = GetComponent<BoxCollider2D>().offset.y + transform.position.y;
+
 
         laneSprite = GetComponentInChildren<SpriteRenderer>();
         initLaneColor = laneSprite.color;
@@ -177,23 +181,27 @@ public class ReceiverController : MonoBehaviour
         {
             AudioManager.instance.PlaySFX(sfxHit);
             float currentNotePos = currentNote.transform.position.y;
-            float hitRangePercentage = (Mathf.Abs(currentNotePos - (receiverColliderOffset + transform.position.y))/receiverColliderSize) * 2;
+            float hitRangePercentage = (Mathf.Abs(currentNotePos - (receiverColliderPosY))/receiverColliderSize) * 2;
 
             if (hitRangePercentage > .90f)
             {
                 scoreTracker.gloomy += 1;
+                Instantiate(gloomyHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
             }
             else if (hitRangePercentage > .75f)
             {
                 scoreTracker.bad += 1;
+                Instantiate(badHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
             }
             else if (hitRangePercentage > .50f)
             {
                 scoreTracker.good += 1;
+                Instantiate(goodHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
             }
             else
             {
                 scoreTracker.superb += 1;
+                Instantiate(superbHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
             }
 
             if(currentNote != null)
@@ -351,7 +359,8 @@ public class ReceiverController : MonoBehaviour
                 validPress = false;
                 // if (currentNote != null)
                 // {
-                scoreTracker.miss += 1;
+                scoreTracker.gloomy += 1;
+                Instantiate(gloomyHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
                 // }
                 currentNote = null;
                 Debug.Log("Note Exit");

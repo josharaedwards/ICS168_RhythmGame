@@ -185,6 +185,11 @@ MonoBehaviour:
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
   sfxMiss: {fileID: 8300000, guid: 64ae77209e0be414598f1a98deab4920, type: 3}
   sfxHitDisabled: {fileID: 8300000, guid: eeb0550a863c6470a90fcfa35bc8ab28, type: 3}
+  superbHit: {fileID: 285247390463128237, guid: e5dfe7cc15818451d977c415fca1cf48, type: 3}
+  goodHit: {fileID: 9067433206459685691, guid: d945f5d1abbef4b4cafaf213c1b2442f, type: 3}
+  badHit: {fileID: 3539708428591197616, guid: 66c580bf508bf48fbb8ae3101d3a0e58, type: 3}
+  gloomyHit: {fileID: 116223284463633260, guid: 55cf3eeab2bb74848a453a959e96afb8, type: 3}
+  miss: {fileID: 2335399728336288483, guid: b3b97c6b8fec5439baa1daca925286df, type: 3}
 --- !u!61 &882493129
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -314,6 +319,11 @@ MonoBehaviour:
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
   sfxMiss: {fileID: 8300000, guid: 64ae77209e0be414598f1a98deab4920, type: 3}
   sfxHitDisabled: {fileID: 8300000, guid: eeb0550a863c6470a90fcfa35bc8ab28, type: 3}
+  superbHit: {fileID: 285247390463128237, guid: e5dfe7cc15818451d977c415fca1cf48, type: 3}
+  goodHit: {fileID: 9067433206459685691, guid: d945f5d1abbef4b4cafaf213c1b2442f, type: 3}
+  badHit: {fileID: 3539708428591197616, guid: 66c580bf508bf48fbb8ae3101d3a0e58, type: 3}
+  gloomyHit: {fileID: 116223284463633260, guid: 55cf3eeab2bb74848a453a959e96afb8, type: 3}
+  miss: {fileID: 2335399728336288483, guid: b3b97c6b8fec5439baa1daca925286df, type: 3}
 --- !u!61 &619366703
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -443,6 +453,11 @@ MonoBehaviour:
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
   sfxMiss: {fileID: 8300000, guid: 64ae77209e0be414598f1a98deab4920, type: 3}
   sfxHitDisabled: {fileID: 8300000, guid: eeb0550a863c6470a90fcfa35bc8ab28, type: 3}
+  superbHit: {fileID: 285247390463128237, guid: e5dfe7cc15818451d977c415fca1cf48, type: 3}
+  goodHit: {fileID: 9067433206459685691, guid: d945f5d1abbef4b4cafaf213c1b2442f, type: 3}
+  badHit: {fileID: 3539708428591197616, guid: 66c580bf508bf48fbb8ae3101d3a0e58, type: 3}
+  gloomyHit: {fileID: 116223284463633260, guid: 55cf3eeab2bb74848a453a959e96afb8, type: 3}
+  miss: {fileID: 2335399728336288483, guid: b3b97c6b8fec5439baa1daca925286df, type: 3}
 --- !u!61 &333413621
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -572,6 +587,11 @@ MonoBehaviour:
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
   sfxMiss: {fileID: 8300000, guid: 64ae77209e0be414598f1a98deab4920, type: 3}
   sfxHitDisabled: {fileID: 8300000, guid: eeb0550a863c6470a90fcfa35bc8ab28, type: 3}
+  superbHit: {fileID: 285247390463128237, guid: e5dfe7cc15818451d977c415fca1cf48, type: 3}
+  goodHit: {fileID: 9067433206459685691, guid: d945f5d1abbef4b4cafaf213c1b2442f, type: 3}
+  badHit: {fileID: 3539708428591197616, guid: 66c580bf508bf48fbb8ae3101d3a0e58, type: 3}
+  gloomyHit: {fileID: 116223284463633260, guid: 55cf3eeab2bb74848a453a959e96afb8, type: 3}
+  miss: {fileID: 2335399728336288483, guid: b3b97c6b8fec5439baa1daca925286df, type: 3}
 --- !u!61 &2065509614
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class ScoreTracker : MonoBehaviour
     // public int almost = 0;
     public int bad = 0;
     public int gloomy = 0;
-    public int miss = 0;
+    // public int miss = 0;
 
     public static ScoreTracker instance;
 
