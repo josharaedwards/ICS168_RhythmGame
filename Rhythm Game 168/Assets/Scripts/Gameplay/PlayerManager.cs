@@ -6,56 +6,45 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
-    private PlayerInput thisPlayerInput;
-
-    private PlayerSpawner[] myPlayerSpawners;
+    private PlayerInputManager manager;
     private int playerNumber = 0;
+
+
+    [SerializeField]
+    private GameObject[] playerPrefabs;
+    
 
     // public static PlayerManager instance;
     
     void Awake()
     {
-        thisPlayerInput = GetComponent<PlayerInput>();
-        
-        playerNumber = thisPlayerInput.playerIndex;
+        manager = GetComponent<PlayerInputManager>();
 
-        DontDestroyOnLoad(this);   
+        manager.playerPrefab =  playerPrefabs[playerNumber]; 
     }
 
-    void OnEnable()
-    {
-        Debug.Log("OnEnable called");
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+    // void OnEnable()
+    // {
+    //     Debug.Log("OnEnable called");
+    //     SceneManager.sceneLoaded += OnSceneLoaded;
+    // }
 
-    void OnDisable()
-    {
-        Debug.Log("OnDisable");
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+    // void OnDisable()
+    // {
+    //     Debug.Log("OnDisable");
+    //     SceneManager.sceneLoaded -= OnSceneLoaded;
+    // }
 
-    void Start()
+    public void NewPlayer(PlayerInput input)
     {
-        SpawnPlayers();
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        SpawnPlayers();
-    }
-
-    void SpawnPlayers()
-    {
-        myPlayerSpawners = FindObjectsOfType<PlayerSpawner>();
-        foreach(PlayerSpawner player in myPlayerSpawners)
+        playerNumber += 1;
+        if(playerNumber >= playerPrefabs.Length)
         {
-            if(player.assignedPlayerInput == null)
-            {
-                Debug.Log(thisPlayerInput.playerIndex);
-                player.spawnPlayer(thisPlayerInput, playerNumber); 
-                break;    
-            }    
-        }  
+            playerNumber = 0; 
+        }
+        manager.playerPrefab = playerPrefabs[playerNumber];
+            
+
     }
 
     // Start is called before the first frame update

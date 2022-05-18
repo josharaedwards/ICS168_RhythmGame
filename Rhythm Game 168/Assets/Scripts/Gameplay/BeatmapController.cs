@@ -12,7 +12,7 @@ public class BeatmapController : MonoBehaviour
     [SerializeField] private bool isPlaying = false;
 
     [SerializeField] private float beatPerMinute;
-    private float beatPerSecond;
+    private float beatPerSecond, secondsPerBeat;
 
     [SerializeField] private SongData song;
     AudioManager audioManager;
@@ -36,6 +36,7 @@ public class BeatmapController : MonoBehaviour
 
         beatPerMinute = song.bpm;
         beatPerSecond = beatPerMinute / 60f;
+        // secondsPerBeat = 60f/ beatPerMinute;
     }
 
     void Start()
@@ -154,6 +155,6 @@ public class BeatmapController : MonoBehaviour
             beatPositions[i].gameObject.SetActive(true);
         }
         transform.position = initPos;
-        audioManager.PlaySong(song.songClip, isPlaying);
+        audioManager.Replay();
     }
 }
