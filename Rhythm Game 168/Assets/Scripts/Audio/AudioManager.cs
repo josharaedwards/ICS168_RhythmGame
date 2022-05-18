@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource sfxMix;
     [SerializeField] private AudioSource uiMix;
 
-    private float currentSongTime;
+    private float currentSongTime = 0.0f;
     private float currentSongPercentage;
 
     private void Awake()
@@ -48,10 +48,10 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySong(AudioClip song, bool play=true)
     {
-        if(playbackMix.isPlaying)
-        {
-            playbackMix.Stop();
-        }
+        // if(playbackMix.isPlaying)
+        // {
+        //     playbackMix.Stop();
+        // }
 
         playbackMix.clip = song;
         if (play)
@@ -99,6 +99,13 @@ public class AudioManager : MonoBehaviour
     public void Pause()
     {
         playbackMix.Pause();
+    }
+
+    public void Replay()
+    {
+        playbackMix.time = 0.0f;
+        playbackMix.Stop();
+        playbackMix.Play();
     }
 
     // Jump seconds forward
