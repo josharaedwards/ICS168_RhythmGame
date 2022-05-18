@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ReceiverController : MonoBehaviour
 {
@@ -325,6 +326,12 @@ public class ReceiverController : MonoBehaviour
                 currentNote = collision.gameObject;
             }
             Debug.Log("Note Enter");
+        }
+        else if (collision.tag == "Finish")
+        {
+            Debug.Log("ResultScreen Loaded!");
+            SceneManager.LoadScene("ResultScr");
+            
         }
         // switch (collision.tag)
         // {

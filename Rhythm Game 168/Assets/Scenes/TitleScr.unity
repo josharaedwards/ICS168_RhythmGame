@@ -538,16 +538,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1055637046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_PointAction: {fileID: 7677558634872186543, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_MoveAction: {fileID: 253253789022310087, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_SubmitAction: {fileID: 1852543699990482406, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_CancelAction: {fileID: -5950544467082711185, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_LeftClickAction: {fileID: -4111500685653897108, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_MiddleClickAction: {fileID: -369518837828428534, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_RightClickAction: {fileID: -2463812431124692219, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_ScrollWheelAction: {fileID: 6592187906510690797, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6177457245926696349, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 5256082241844003157, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
 --- !u!114 &1055637048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,7 +569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1199134826}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1055637049
@@ -638,9 +647,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.8396226, g: 0.19406372, b: 0.5872951, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -771,9 +780,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.8396226, g: 0.19406372, b: 0.5872951, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -983,9 +992,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.8396226, g: 0.19406372, b: 0.5872951, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
