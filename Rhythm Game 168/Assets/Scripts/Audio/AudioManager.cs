@@ -46,7 +46,7 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject.transform.root);       
     }
 
-    public void PlaySong(AudioClip song)
+    public void PlaySong(AudioClip song, bool play=true)
     {
         if(playbackMix.isPlaying)
         {
@@ -54,7 +54,10 @@ public class AudioManager : MonoBehaviour
         }
 
         playbackMix.clip = song;
-        playbackMix.Play();
+        if (play)
+        {
+            playbackMix.Play();
+        }
     }
 
     public void PlaySFX(AudioClip sfx)
@@ -87,9 +90,50 @@ public class AudioManager : MonoBehaviour
         return 0f;
     }
 
-    public void SetSongTime(float songPercent)
+
+    public void Play()
     {
-        if(songPercent < 0f)
+        playbackMix.Play();
+    }
+
+    public void Pause()
+    {
+        playbackMix.Pause();
+    }
+
+    // Jump seconds forward
+    public bool JumpTime(float seconds)
+    {
+        bool jumped;
+
+        bool wasPlaying = playbackMix.isPlaying;
+        playbackMix.Pause();
+
+        float currentTime = playbackMix.time;
+        playbackMix.time = 0f;
+        float time = currentTime + seconds;
+        if (time <= 0f || time >= playbackMix.clip.length)
+        {
+            playbackMix.time = currentTime;
+            jumped = false;
+        }
+        else
+        {
+            playbackMix.time = time;
+            jumped = true;
+        }
+        
+        if (wasPlaying)
+        {
+            playbackMix.Play();
+        }
+
+        return jumped;
+    }
+
+    public void SetSongPercent(float songPercent)
+    {
+        if (songPercent < 0f)
         {
             songPercent = 0f;
         }

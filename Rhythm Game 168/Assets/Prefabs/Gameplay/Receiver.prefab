@@ -182,6 +182,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadeAlpha: 0.9
   m_Keybind: {fileID: 8898918635668820852, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
+  sfxMiss: {fileID: 8300000, guid: 64ae77209e0be414598f1a98deab4920, type: 3}
+  sfxHitDisabled: {fileID: 8300000, guid: eeb0550a863c6470a90fcfa35bc8ab28, type: 3}
+  superbHit: {fileID: 285247390463128237, guid: e5dfe7cc15818451d977c415fca1cf48, type: 3}
+  goodHit: {fileID: 9067433206459685691, guid: d945f5d1abbef4b4cafaf213c1b2442f, type: 3}
+  badHit: {fileID: 3539708428591197616, guid: 66c580bf508bf48fbb8ae3101d3a0e58, type: 3}
+  gloomyHit: {fileID: 116223284463633260, guid: 55cf3eeab2bb74848a453a959e96afb8, type: 3}
+  miss: {fileID: 2335399728336288483, guid: b3b97c6b8fec5439baa1daca925286df, type: 3}
 --- !u!61 &882493129
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -308,6 +316,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadeAlpha: 0.9
   m_Keybind: {fileID: -4973187593447858995, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
+  sfxMiss: {fileID: 8300000, guid: 64ae77209e0be414598f1a98deab4920, type: 3}
+  sfxHitDisabled: {fileID: 8300000, guid: eeb0550a863c6470a90fcfa35bc8ab28, type: 3}
+  superbHit: {fileID: 285247390463128237, guid: e5dfe7cc15818451d977c415fca1cf48, type: 3}
+  goodHit: {fileID: 9067433206459685691, guid: d945f5d1abbef4b4cafaf213c1b2442f, type: 3}
+  badHit: {fileID: 3539708428591197616, guid: 66c580bf508bf48fbb8ae3101d3a0e58, type: 3}
+  gloomyHit: {fileID: 116223284463633260, guid: 55cf3eeab2bb74848a453a959e96afb8, type: 3}
+  miss: {fileID: 2335399728336288483, guid: b3b97c6b8fec5439baa1daca925286df, type: 3}
 --- !u!61 &619366703
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -434,6 +450,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadeAlpha: 0.9
   m_Keybind: {fileID: 340233931159940789, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
+  sfxMiss: {fileID: 8300000, guid: 64ae77209e0be414598f1a98deab4920, type: 3}
+  sfxHitDisabled: {fileID: 8300000, guid: eeb0550a863c6470a90fcfa35bc8ab28, type: 3}
+  superbHit: {fileID: 285247390463128237, guid: e5dfe7cc15818451d977c415fca1cf48, type: 3}
+  goodHit: {fileID: 9067433206459685691, guid: d945f5d1abbef4b4cafaf213c1b2442f, type: 3}
+  badHit: {fileID: 3539708428591197616, guid: 66c580bf508bf48fbb8ae3101d3a0e58, type: 3}
+  gloomyHit: {fileID: 116223284463633260, guid: 55cf3eeab2bb74848a453a959e96afb8, type: 3}
+  miss: {fileID: 2335399728336288483, guid: b3b97c6b8fec5439baa1daca925286df, type: 3}
 --- !u!61 &333413621
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -560,6 +584,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadeAlpha: 0.9
   m_Keybind: {fileID: 6754944654749888670, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
+  sfxMiss: {fileID: 8300000, guid: 64ae77209e0be414598f1a98deab4920, type: 3}
+  sfxHitDisabled: {fileID: 8300000, guid: eeb0550a863c6470a90fcfa35bc8ab28, type: 3}
+  superbHit: {fileID: 285247390463128237, guid: e5dfe7cc15818451d977c415fca1cf48, type: 3}
+  goodHit: {fileID: 9067433206459685691, guid: d945f5d1abbef4b4cafaf213c1b2442f, type: 3}
+  badHit: {fileID: 3539708428591197616, guid: 66c580bf508bf48fbb8ae3101d3a0e58, type: 3}
+  gloomyHit: {fileID: 116223284463633260, guid: 55cf3eeab2bb74848a453a959e96afb8, type: 3}
+  miss: {fileID: 2335399728336288483, guid: b3b97c6b8fec5439baa1daca925286df, type: 3}
 --- !u!61 &2065509614
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -595,7 +627,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 290272801809592473}
-  - component: {fileID: 466591751}
+  - component: {fileID: 2395457590245004384}
   m_Layer: 0
   m_Name: Receiver
   m_TagString: Untagged
@@ -622,7 +654,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &466591751
+--- !u!114 &2395457590245004384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -631,43 +663,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 290272801809592470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Script: {fileID: 11500000, guid: e24d717991ec64b95a289ffbee3560e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: c0356415ab7364745b51d080f8c24461, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8613aff6-7c89-4f46-9039-b4b71b178e6c
-    m_ActionName: Beat Player Controls/Left Note[/Keyboard/m]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 2d3f0de3-17b8-4caf-a05a-25ca66dad0f3
-    m_ActionName: Beat Player Controls/Right Note[/Keyboard/slash]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: cd3a8e7a-6680-420e-a04a-cafde773e611
-    m_ActionName: Beat Player Controls/Up Note[/Keyboard/comma]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e84a95e4-851a-4010-be05-b988935b0d00
-    m_ActionName: Beat Player Controls/Down Note[/Keyboard/period]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Beat Player Controls
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &1637945776829094639
 GameObject:
   m_ObjectHideFlags: 0

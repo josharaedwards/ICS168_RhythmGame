@@ -225,7 +225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3833867302872143385, guid: 8039bdc0de5ce4a04bd015ff76cb9836, type: 3}
       propertyPath: m_Name
-      value: Receiver (1)
+      value: Receiver Horiz
       objectReference: {fileID: 0}
     - target: {fileID: 4190178868595952823, guid: 8039bdc0de5ce4a04bd015ff76cb9836, type: 3}
       propertyPath: m_SortingOrder
