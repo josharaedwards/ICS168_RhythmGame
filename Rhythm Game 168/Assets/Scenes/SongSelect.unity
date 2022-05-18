@@ -262,7 +262,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.7372549, g: 0.6509804, b: 0.6509804, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -286,7 +286,19 @@ MonoBehaviour:
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &110553741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -695,7 +707,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.7372549, g: 0.6509804, b: 0.6509804, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -894,16 +906,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 875215926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_PointAction: {fileID: 7677558634872186543, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_MoveAction: {fileID: 253253789022310087, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_SubmitAction: {fileID: 1852543699990482406, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_CancelAction: {fileID: -5950544467082711185, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_LeftClickAction: {fileID: -4111500685653897108, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_MiddleClickAction: {fileID: -369518837828428534, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_RightClickAction: {fileID: -2463812431124692219, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_ScrollWheelAction: {fileID: 6592187906510690797, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6177457245926696349, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 5256082241844003157, guid: c0356415ab7364745b51d080f8c24461, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
 --- !u!114 &875215928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -916,7 +937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 294406326}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &875215929
@@ -1269,6 +1290,7 @@ GameObject:
   - component: {fileID: 1740022644}
   - component: {fileID: 1740022643}
   - component: {fileID: 1740022646}
+  - component: {fileID: 1740022647}
   m_Layer: 5
   m_Name: SongList
   m_TagString: Untagged
@@ -1315,7 +1337,7 @@ MonoBehaviour:
   m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
-  m_DecelerationRate: 0.135
+  m_DecelerationRate: 0.75
   m_ScrollSensitivity: 1
   m_Viewport: {fileID: 181968432}
   m_HorizontalScrollbar: {fileID: 0}
@@ -1377,9 +1399,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381bad56184adaf458214d4e2328d8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfSongs: 25
   songButtonPrototype: {fileID: 6873724580504161474, guid: 1a869b5854ee0d5478851bbab123888c, type: 3}
   songListContainer: {fileID: 2063651577}
+--- !u!114 &1740022647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740022641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c969b105cc994bb1814df93e0e8861f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1757318339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,6 +1648,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
+      propertyPath: songList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
+      propertyPath: songList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 804aaedcd8069a14386a3d0dea1faf49, type: 2}
+    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
+      propertyPath: songList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: e179a6fb259abef43a93697a5c7dbc32, type: 2}
+    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
+      propertyPath: songList.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
+    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
+      propertyPath: songList.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
+    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
+      propertyPath: songList.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
+    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
+      propertyPath: songList.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
+    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
+      propertyPath: songList.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
+    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
+      propertyPath: songList.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
+    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
+      propertyPath: songList.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
+    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
+      propertyPath: songList.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
 --- !u!1 &2063651577
