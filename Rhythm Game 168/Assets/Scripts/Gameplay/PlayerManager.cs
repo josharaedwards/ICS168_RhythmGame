@@ -20,7 +20,15 @@ public class PlayerManager : MonoBehaviour
     {
         manager = GetComponent<PlayerInputManager>();
 
-        manager.playerPrefab =  playerPrefabs[playerNumber]; 
+        manager.playerPrefab = playerPrefabs[playerNumber]; 
+    }
+
+    void Start()
+    {
+        if(playerPrefabs[playerNumber] != null)
+        {
+            manager.gameObject.SetActive(false);
+        }
     }
 
     // void OnEnable()
