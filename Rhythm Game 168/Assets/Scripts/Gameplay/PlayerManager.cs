@@ -38,11 +38,14 @@ public class PlayerManager : MonoBehaviour
     public void NewPlayer(PlayerInput input)
     {
         playerNumber += 1;
+        
+        manager.playerPrefab = playerPrefabs[playerNumber];
         if(playerNumber >= playerPrefabs.Length)
         {
+            Debug.Log("Looped");
             playerNumber = 0; 
         }
-        manager.playerPrefab = playerPrefabs[playerNumber];
+        
             
 
     }
@@ -50,7 +53,10 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     
         
-    
+    public void YouDied()
+    {
+        
+    }
 
     public void UpdatePlayerNumber(int newPlayerNumber)
     {

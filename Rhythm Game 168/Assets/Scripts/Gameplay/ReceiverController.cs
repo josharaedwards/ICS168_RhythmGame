@@ -21,7 +21,7 @@ public class ReceiverController : MonoBehaviour
 
     [SerializeField] private AudioClip sfxMiss;
     [SerializeField] private AudioClip sfxHitDisabled;
-    private ScoreTracker scoreTracker;
+    private PlayerStats scoreAndHealth;
 
     private int wiggleToFree = 10;
     private bool disabled = false;
@@ -100,13 +100,13 @@ public class ReceiverController : MonoBehaviour
         initButtonColor = buttonSprite.color;
         pressedButtonColor = new Color(initButtonColor.r, initButtonColor.g, initButtonColor.b, initButtonColor.a * shadeAlpha);
 
-        scoreTracker = ScoreTracker.instance;
+        scoreAndHealth = GetComponentInParent<PlayerStats>();
     }
     
     void Update()
     {
         
-        if (scoreTracker.wiggled >= wiggleToFree)
+        if (scoreAndHealth.wiggled >= wiggleToFree)
         {
             disabled = false;
             laneSprite.color = initLaneColor;
@@ -171,7 +171,7 @@ public class ReceiverController : MonoBehaviour
     private void Wiggle()
     {
         AudioManager.instance.PlaySFX(sfxHitDisabled);
-        scoreTracker.wiggled += 1;
+        scoreAndHealth.wiggled += 1;
         
     }
 
@@ -186,22 +186,22 @@ public class ReceiverController : MonoBehaviour
 
             if (hitRangePercentage > .90f)
             {
-                scoreTracker.gloomy += 1;
+                scoreAndHealth.gloomy += 1;
                 Instantiate(gloomyHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
             }
             else if (hitRangePercentage > .75f)
             {
-                scoreTracker.bad += 1;
+                scoreAndHealth.bad += 1;
                 Instantiate(badHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
             }
             else if (hitRangePercentage > .50f)
             {
-                scoreTracker.good += 1;
+                scoreAndHealth.good += 1;
                 Instantiate(goodHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
             }
             else
             {
-                scoreTracker.superb += 1;
+                scoreAndHealth.superb += 1;
                 Instantiate(superbHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
             }
 
@@ -366,7 +366,7 @@ public class ReceiverController : MonoBehaviour
                 validPress = false;
                 // if (currentNote != null)
                 // {
-                scoreTracker.gloomy += 1;
+                scoreAndHealth.gloomy += 1;
                 Instantiate(gloomyHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
                 // }
                 currentNote = null;
