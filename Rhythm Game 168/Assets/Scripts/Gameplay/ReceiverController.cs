@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class ReceiverController : MonoBehaviour
 {
+    public static event Action<ReceiverController> wonGame; //<--- Observer pattern
     private SpriteRenderer buttonSprite, lineSprite, laneSprite;
     private Color initButtonColor, initLineColor, initLaneColor;
     private Color pressedButtonColor, pressedLineColor, pressedLaneColor;
@@ -49,6 +51,14 @@ public class ReceiverController : MonoBehaviour
         lineSprite.color = pressedLineColor;
         buttonSprite.color = pressedButtonColor;
         disabled = true;
+    }
+
+    public void DisableFully()
+    {
+        laneSprite.color = pressedLaneColor;
+        lineSprite.color = pressedLineColor;
+        buttonSprite.color = pressedButtonColor;
+        playerInput.actions.Disable();
     }
 
     void Awake() {
@@ -186,22 +196,22 @@ public class ReceiverController : MonoBehaviour
 
             if (hitRangePercentage > .90f)
             {
-                scoreAndHealth.gloomy += 1;
+                scoreAndHealth.gloomyHit();
                 Instantiate(gloomyHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
             }
             else if (hitRangePercentage > .75f)
             {
-                scoreAndHealth.bad += 1;
+                scoreAndHealth.badHit();
                 Instantiate(badHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
             }
             else if (hitRangePercentage > .50f)
             {
-                scoreAndHealth.good += 1;
+                scoreAndHealth.goodHit();
                 Instantiate(goodHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
             }
             else
             {
-                scoreAndHealth.superb += 1;
+                scoreAndHealth.superbHit();
                 Instantiate(superbHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
             }
 
@@ -329,8 +339,8 @@ public class ReceiverController : MonoBehaviour
         }
         else if (collision.tag == "Finish")
         {
-            Debug.Log("ResultScreen Loaded!");
-            SceneManager.LoadScene("ResultScr");
+            Debug.Log("Won Game!");
+            wonGame(this);
             
         }
         // switch (collision.tag)
@@ -366,7 +376,7 @@ public class ReceiverController : MonoBehaviour
                 validPress = false;
                 // if (currentNote != null)
                 // {
-                scoreAndHealth.gloomy += 1;
+                scoreAndHealth.gloomyHit();
                 Instantiate(gloomyHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
                 // }
                 currentNote = null;
