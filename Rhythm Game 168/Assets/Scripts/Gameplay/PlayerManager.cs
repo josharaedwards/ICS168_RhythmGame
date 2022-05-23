@@ -7,7 +7,12 @@ using UnityEngine.SceneManagement;
 public class PlayerManager : MonoBehaviour
 {
     private PlayerInputManager manager;
+
+    [SerializeField] private int playerCount = 1; //MUST set in editor for single vs multiplayer
     private int playerNumber = 0;
+    private int totalScore = 0;
+
+    private int PlayersDead = 0;
 
 
     [SerializeField]
@@ -25,10 +30,59 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-        if(playerPrefabs[playerNumber] != null)
+        PlayerPrefs.DeleteAll();
+
+        PlayerStats.imDead += LoseGameCheck; //<---- Observer Pattern (subscribing)
+        PlayerStats.wonMyGame += wonGame;
+        PlayerStats.totScoreChange += TotalScore;
+        if(playerCount == 1)
         {
             manager.gameObject.SetActive(false);
         }
+    }
+
+    private void TotalScore(int addedScore)
+    {
+        totalScore += addedScore;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerStats.imDead -= LoseGameCheck; //<---- Observer Pattern (unsubscribing)
+    }
+
+    private void LoseGameCheck(PlayerStats sub)
+    {
+        PlayersDead += 1;
+        if (PlayersDead >= playerCount)
+        {
+            GameOver();
+            LeverLoaderScript.instance.LoadNextSceneFromDead("ResultScr");
+        }
+    }
+
+    private void wonGame(PlayerStats sub)
+    {
+        GameOver();
+        LeverLoaderScript.instance.LoadNextSceneFromWin("ResultScr");
+    }
+
+    private void GameOver()
+    {
+        PlayerPrefs.SetInt("TotalScore", totalScore);
+
+        for(int i = 0; i < playerPrefabs.Length; i++) //Get Scores from each player to put into results screen.
+        {
+            PlayerPrefs.SetInt("ScorePlayer" + i, playerPrefabs[i].GetComponent<PlayerStats>().score);
+            PlayerPrefs.SetInt("ScorePlayer" + i, playerPrefabs[i].GetComponent<PlayerStats>().health);
+            PlayerPrefs.SetInt("SuperbHitPlayer" + i, playerPrefabs[i].GetComponent<PlayerStats>().superb);
+            PlayerPrefs.SetInt("GoodHitPlayer" + i, playerPrefabs[i].GetComponent<PlayerStats>().good);
+            PlayerPrefs.SetInt("BadHitPlayer" + i, playerPrefabs[i].GetComponent<PlayerStats>().bad);
+            PlayerPrefs.SetInt("GloomyHitPlayer" + i, playerPrefabs[i].GetComponent<PlayerStats>().gloomy);
+        }
+
+        
+        
     }
 
     // void OnEnable()
@@ -60,12 +114,6 @@ public class PlayerManager : MonoBehaviour
 
     // Start is called before the first frame update
     
-        
-    public void YouDied()
-    {
-        
-    }
-
     public void UpdatePlayerNumber(int newPlayerNumber)
     {
         playerNumber = newPlayerNumber;
