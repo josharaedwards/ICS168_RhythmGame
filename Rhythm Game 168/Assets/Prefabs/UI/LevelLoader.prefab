@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7426062884856081106}
   - component: {fileID: 7426062884856081104}
   - component: {fileID: 7426062884856081105}
+  - component: {fileID: 1053908719321000954}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -75,6 +76,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &1053908719321000954
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7426062884856081107}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7426062885347860408
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 7426062885627484114}
-  transitionTime: 1
+  transitionTime: 2
+  deathAnimTime: 1.5
 --- !u!1 &7426062885627484124
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +149,7 @@ GameObject:
   - component: {fileID: 7426062885627484113}
   - component: {fileID: 7426062885627484114}
   m_Layer: 0
-  m_Name: ScreenWipe
+  m_Name: Transition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
