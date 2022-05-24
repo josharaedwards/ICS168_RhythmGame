@@ -12,6 +12,7 @@ public class ReceiverController : MonoBehaviour
     private Color initButtonColor, initLineColor, initLaneColor;
     private Color pressedButtonColor, pressedLineColor, pressedLaneColor;
 
+    private BoxCollider2D boxCollider;
     private float receiverColliderSize;
     private float receiverColliderPosY, receiverColliderPosX;
     private PlayerInput playerInput;
@@ -59,6 +60,7 @@ public class ReceiverController : MonoBehaviour
         lineSprite.color = pressedLineColor;
         buttonSprite.color = pressedButtonColor;
         playerInput.actions.Disable();
+        boxCollider.enabled = false;
     }
 
     void Awake() {
@@ -93,9 +95,10 @@ public class ReceiverController : MonoBehaviour
 
     void Start()
     {
-        receiverColliderSize = GetComponent<BoxCollider2D>().size.y;
-        receiverColliderPosX = GetComponent<BoxCollider2D>().offset.x + transform.position.x;
-        receiverColliderPosY = GetComponent<BoxCollider2D>().offset.y + transform.position.y;
+        boxCollider = GetComponent<BoxCollider2D>();
+        receiverColliderSize = boxCollider.size.y;
+        receiverColliderPosX = boxCollider.offset.x + transform.position.x;
+        receiverColliderPosY = boxCollider.offset.y + transform.position.y;
 
 
         laneSprite = GetComponentInChildren<SpriteRenderer>();
@@ -180,7 +183,7 @@ public class ReceiverController : MonoBehaviour
 
     private void Wiggle()
     {
-        AudioManager.instance.PlaySFX(sfxHitDisabled);
+        AudioManager.instance.PlayBeat(sfxHitDisabled);
         scoreAndHealth.wiggled += 1;
         
     }
@@ -190,7 +193,7 @@ public class ReceiverController : MonoBehaviour
         
         if (validPress)
         {
-            AudioManager.instance.PlaySFX(sfxHit);
+            AudioManager.instance.PlayBeat(sfxHit);
             float currentNotePos = currentNote.transform.position.y;
             float hitRangePercentage = (Mathf.Abs(currentNotePos - (receiverColliderPosY))/receiverColliderSize) * 2;
 
@@ -224,7 +227,7 @@ public class ReceiverController : MonoBehaviour
         }
         else
         {
-            AudioManager.instance.PlaySFX(sfxMiss);
+            AudioManager.instance.PlayBeat(sfxMiss);
         }
         
 

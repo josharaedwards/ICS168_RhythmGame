@@ -8,7 +8,7 @@ using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static event Action<PlayerStats> imDead, wonMyGame; //<--- Observer pattern
+    public static event Action<PlayerStats> imDead, iGotHurt, iHealed, lowHealth, highHealth, wonMyGame; //<--- Observer pattern
     public static event Action<int> totScoreChange; //<--- Observer pattern
     private const int maxHealth = 100;
     public const float maxMeter = 3.0f;
@@ -81,10 +81,10 @@ public class PlayerStats : MonoBehaviour
         //[looking if our receiver reached the end song trigger]
         ReceiverController.wonGame += wonTheGame;//<---- Observer Pattern (subscribing) 
 
-        LeftStickUp = GameObject.Find(LeftUp).GetComponent<ReceiverController>();
-        LeftStickDown = GameObject.Find(LeftDown).GetComponent<ReceiverController>();
-        RightStickUp = GameObject.Find(RightUp).GetComponent<ReceiverController>();
-        RightStickDown = GameObject.Find(RightDown).GetComponent<ReceiverController>();
+        LeftStickUp = transform.Find(LeftUp).GetComponent<ReceiverController>();
+        LeftStickDown = transform.Find(LeftDown).GetComponent<ReceiverController>();
+        RightStickUp = transform.Find(RightUp).GetComponent<ReceiverController>();
+        RightStickDown = transform.Find(RightDown).GetComponent<ReceiverController>();
 
     }
 
@@ -246,16 +246,26 @@ public class PlayerStats : MonoBehaviour
 
     public void Heal(int healAmt)
     {
+        if (isDead)
+        {
+            return;
+        }
+        iHealed(this);
         health += healAmt;
         healthBar.fillAmount = (float)health/maxHealth;
         if (health > maxHealth)
         {
             health = maxHealth;
         }
+        else if (health > 30)
+        {
+            highHealth(this);
+        }
     }
 
     public void Damage(int dmgAmt)
     {
+        iGotHurt(this);
         health -= dmgAmt;
         healthBar.fillAmount = (float)health/maxHealth;
         if (health <= 0)
@@ -272,6 +282,10 @@ public class PlayerStats : MonoBehaviour
                 }
                 //anim.SetBool("IsDead", true); <-- use observer method? Or link to animators?
             }
+        }
+        else if (health <= 30)
+        {
+            lowHealth(this);
         }
     }
 }

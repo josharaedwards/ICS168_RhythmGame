@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
     public void PlayNowButton()
     {
         // Play Now Button has been pressed, here you can initialize your game (For example Load a Scene called GameLevel etc.)
-        UnityEngine.SceneManagement.SceneManager.LoadScene("SinglePlayerMultiPlayer");
+        LevelLoaderScript.instance.LoadNextScene("SinglePlayerMultiPlayer");
     }
 
     public void QuitButton()
@@ -25,12 +25,12 @@ public class MainMenu : MonoBehaviour
     public void SinglePlayerButton()
     {
         // Single Player
-        UnityEngine.SceneManagement.SceneManager.LoadScene("SongSelect");
+        LevelLoaderScript.instance.LoadNextScene("SongSelect");
     }
 
     public void MultiPlayerButton()
     {
         // Multi Player
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Multi");
+        LevelLoaderScript.instance.LoadNextSceneFromWin("Jason_Debug");
     }
 }

@@ -57,14 +57,14 @@ public class PlayerManager : MonoBehaviour
         if (PlayersDead >= playerCount)
         {
             GameOver();
-            LeverLoaderScript.instance.LoadNextSceneFromDead("ResultScr");
+            LevelLoaderScript.instance.LoadNextSceneFromDead("ResultScr");
         }
     }
 
     private void wonGame(PlayerStats sub)
     {
         GameOver();
-        LeverLoaderScript.instance.LoadNextSceneFromWin("ResultScr");
+        LevelLoaderScript.instance.LoadNextSceneFromWin("ResultScr");
     }
 
     private void GameOver()
@@ -100,13 +100,17 @@ public class PlayerManager : MonoBehaviour
     public void NewPlayer(PlayerInput input)
     {
         playerNumber += 1;
-        
-        manager.playerPrefab = playerPrefabs[playerNumber];
         if(playerNumber >= playerPrefabs.Length)
         {
             Debug.Log("Looped");
             playerNumber = 0; 
         }
+        else
+        {
+            
+            manager.playerPrefab = playerPrefabs[playerNumber];
+        }
+        
         
             
 

@@ -57,7 +57,7 @@ public class BeatmapController : MonoBehaviour
                 audioManager.PlaySong(song.songClip);
             }
         }
-        else if (isPlaying)
+        if (isPlaying)
         {
             transform.localPosition -= transform.rotation * (new Vector3(0.0f, beatPerSecond * highwaySpeed * Time.fixedDeltaTime, 0.0f));
         }

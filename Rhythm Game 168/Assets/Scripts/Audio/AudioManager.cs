@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource playbackMix;
     [SerializeField] private AudioSource sfxMix;
     [SerializeField] private AudioSource uiMix;
+    [SerializeField] private AudioSource beatMix;
 
     private float currentSongTime = 0.0f;
     private float currentSongPercentage;
@@ -68,6 +69,11 @@ public class AudioManager : MonoBehaviour
     public void PlayUI(AudioClip ui)
     {
         uiMix.PlayOneShot(ui);
+    }
+
+    public void PlayBeat(AudioClip beat)
+    {
+        beatMix.PlayOneShot(beat);
     }
 
     public float GetCurrentSongTime()
