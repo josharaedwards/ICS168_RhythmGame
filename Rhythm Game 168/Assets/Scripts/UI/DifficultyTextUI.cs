@@ -5,10 +5,12 @@ using TMPro;
 
 public class DifficultyTextUI : MonoBehaviour
 {
+    private TextMeshProUGUI textObj;
     
     private void OnEnable()
     {
         SongListButton.songButtonClicked += ChangeDifficultyText;
+        textObj = GetComponent<TextMeshProUGUI>();
     }
 
 
@@ -19,6 +21,7 @@ public class DifficultyTextUI : MonoBehaviour
     
     private void ChangeDifficultyText(SongData song)
     {
-        Debug.Log("Difficulty: " + "Easy");
+        string difficultyText = " Difficulty: ";
+        textObj.text = difficultyText + song.difficulty;
     }
 }

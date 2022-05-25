@@ -17,3 +17,4 @@ MonoBehaviour:
   bpm: 89
   songClip: {fileID: 8300000, guid: a45d75bada42e244e90ad1040d390581, type: 3}
   albumCover: {fileID: 21300000, guid: 56b3058dc1714304fbd45ff864184dce, type: 3}
+  difficulty: Intermediate
