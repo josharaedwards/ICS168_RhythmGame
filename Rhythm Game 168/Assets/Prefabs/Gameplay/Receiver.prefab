@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2617804c69be9014dbbf6e60d818f40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineSprite: {fileID: 408013537187388569}
   shadeAlpha: 0.9
   m_Keybind: {fileID: 8898918635668820852, guid: c0356415ab7364745b51d080f8c24461, type: 3}
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
@@ -314,6 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2617804c69be9014dbbf6e60d818f40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineSprite: {fileID: 408013537187388569}
   shadeAlpha: 0.9
   m_Keybind: {fileID: -4973187593447858995, guid: c0356415ab7364745b51d080f8c24461, type: 3}
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
@@ -448,6 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2617804c69be9014dbbf6e60d818f40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineSprite: {fileID: 408013537187388569}
   shadeAlpha: 0.9
   m_Keybind: {fileID: 340233931159940789, guid: c0356415ab7364745b51d080f8c24461, type: 3}
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
@@ -582,6 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2617804c69be9014dbbf6e60d818f40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineSprite: {fileID: 408013537187388569}
   shadeAlpha: 0.9
   m_Keybind: {fileID: 6754944654749888670, guid: c0356415ab7364745b51d080f8c24461, type: 3}
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
@@ -677,9 +681,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e24d717991ec64b95a289ffbee3560e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  editorMode: 1
+  editorMode: 0
+  isSinglePlayer: 1
   healthBar: {fileID: 2973477720107040342}
-  scoreAmount: {fileID: 4658480008747441665}
+  scoreAmountText: {fileID: 4658480008747441665}
   health: 100
   meterFill: 0
   score: 0
@@ -703,6 +708,10 @@ MonoBehaviour:
   good: 0
   bad: 0
   gloomy: 0
+  LeftStickUp: {fileID: 290272800838409433}
+  LeftStickDown: {fileID: 290272801101534015}
+  RightStickUp: {fileID: 290272801718974204}
+  RightStickDown: {fileID: 290272801320396517}
   animators:
   - {fileID: 0}
   - {fileID: 6204419541606265426}
@@ -1491,7 +1500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7398090310216944372, guid: 0fad9cac999c9460e8fd85208d573b57, type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8819423640216043984, guid: 0fad9cac999c9460e8fd85208d573b57, type: 3}
       propertyPath: m_Pivot.x

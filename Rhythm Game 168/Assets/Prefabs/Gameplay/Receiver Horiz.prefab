@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2617804c69be9014dbbf6e60d818f40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineSprite: {fileID: 1339122004682794868}
   shadeAlpha: 0.9
   m_Keybind: {fileID: 340233931159940789, guid: c0356415ab7364745b51d080f8c24461, type: 3}
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
@@ -340,6 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2617804c69be9014dbbf6e60d818f40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineSprite: {fileID: 1339122004682794868}
   shadeAlpha: 0.9
   m_Keybind: {fileID: -4973187593447858995, guid: c0356415ab7364745b51d080f8c24461, type: 3}
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
@@ -474,6 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2617804c69be9014dbbf6e60d818f40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineSprite: {fileID: 1339122004682794868}
   shadeAlpha: 0.9
   m_Keybind: {fileID: 8898918635668820852, guid: c0356415ab7364745b51d080f8c24461, type: 3}
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
@@ -608,6 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2617804c69be9014dbbf6e60d818f40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineSprite: {fileID: 1339122004682794868}
   shadeAlpha: 0.9
   m_Keybind: {fileID: 6754944654749888670, guid: c0356415ab7364745b51d080f8c24461, type: 3}
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
@@ -631,7 +635,7 @@ GameObject:
   - component: {fileID: 4738608011738926618}
   m_Layer: 0
   m_Name: Receiver Horiz
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -677,7 +681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editorMode: 0
   healthBar: {fileID: 6629882403976402045}
-  scoreAmount: {fileID: 6885195374361751891}
+  scoreAmountText: {fileID: 6885195374361751891}
   health: 100
   meterFill: 0
   score: 0
@@ -701,6 +705,10 @@ MonoBehaviour:
   good: 0
   bad: 0
   gloomy: 0
+  LeftStickUp: {fileID: 5048751639069821844}
+  LeftStickDown: {fileID: 7735195137906051378}
+  RightStickUp: {fileID: 1155655901568379616}
+  RightStickDown: {fileID: 6419319124264522175}
   animators:
   - {fileID: 4104005873059996193}
 --- !u!114 &4738608011738926618

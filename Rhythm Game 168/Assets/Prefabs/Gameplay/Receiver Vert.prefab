@@ -534,6 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2617804c69be9014dbbf6e60d818f40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineSprite: {fileID: 3790463304584296982}
   shadeAlpha: 0.9
   m_Keybind: {fileID: 8898918635668820852, guid: c0356415ab7364745b51d080f8c24461, type: 3}
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
@@ -668,6 +669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2617804c69be9014dbbf6e60d818f40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineSprite: {fileID: 3833867301902480819}
   shadeAlpha: 0.9
   m_Keybind: {fileID: -4973187593447858995, guid: c0356415ab7364745b51d080f8c24461, type: 3}
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
@@ -802,6 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2617804c69be9014dbbf6e60d818f40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineSprite: {fileID: 3833867302119686253}
   shadeAlpha: 0.9
   m_Keybind: {fileID: 340233931159940789, guid: c0356415ab7364745b51d080f8c24461, type: 3}
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
@@ -936,6 +939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2617804c69be9014dbbf6e60d818f40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineSprite: {fileID: 3833867302778310770}
   shadeAlpha: 0.9
   m_Keybind: {fileID: 6754944654749888670, guid: c0356415ab7364745b51d080f8c24461, type: 3}
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
@@ -959,7 +963,7 @@ GameObject:
   - component: {fileID: -1743736424724409480}
   m_Layer: 0
   m_Name: Receiver Vert
-  m_TagString: Untagged
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1005,7 +1009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editorMode: 0
   healthBar: {fileID: 7732221184442285238}
-  scoreAmount: {fileID: 1760902271500027936}
+  scoreAmountText: {fileID: 1760902271500027936}
   health: 100
   meterFill: 0
   score: 0
@@ -1029,6 +1033,10 @@ MonoBehaviour:
   good: 0
   bad: 0
   gloomy: 0
+  LeftStickUp: {fileID: 6926306194857203446}
+  LeftStickDown: {fileID: 5572928467044439120}
+  RightStickUp: {fileID: 3892901181893228418}
+  RightStickDown: {fileID: 9158609355619699933}
   animators:
   - {fileID: 7018055229742308610, guid: dccf0fab9cb72464a9c0ef7d0259e4e0, type: 3}
 --- !u!114 &-1743736424724409480

@@ -9,13 +9,17 @@ using TMPro;
 public class PlayerStats : MonoBehaviour
 {
     public static event Action<PlayerStats> imDead, iGotHurt, iHealed, lowHealth, highHealth, wonMyGame; //<--- Observer pattern
-    public static event Action<int> totScoreChange; //<--- Observer pattern
+    public static event Action<int> addToTotalScore; //<--- Observer pattern
     private const int maxHealth = 100;
     public const float maxMeter = 3.0f;
 
     public bool editorMode = false;
+
+    public bool isSinglePlayer = false;
     [SerializeField] private Image healthBar;
-    [SerializeField] private TextMeshProUGUI scoreAmount;
+    [SerializeField] private TextMeshProUGUI scoreAmountText;
+
+    
 
     public int health = maxHealth;
     private bool isDead = false;
@@ -49,12 +53,12 @@ public class PlayerStats : MonoBehaviour
     public int gloomy = 0;
     // public int miss = 0;
     
-    string LeftUp = "Left Up";
-    string LeftDown = "Left Down";
-    string RightUp = "Right Up";
-    string RightDown = "Right Down";
+    // string LeftUp = "Left Up";
+    // string LeftDown = "Left Down";
+    // string RightUp = "Right Up";
+    // string RightDown = "Right Down";
 
-    ReceiverController LeftStickUp, LeftStickDown, RightStickUp, RightStickDown;
+    [SerializeField] private ReceiverController LeftStickUp, LeftStickDown, RightStickUp, RightStickDown;
     
     [SerializeField] private Animator[] animators;
     private PlayerInput powerUpInput;
@@ -81,10 +85,7 @@ public class PlayerStats : MonoBehaviour
         //[looking if our receiver reached the end song trigger]
         ReceiverController.wonGame += wonTheGame;//<---- Observer Pattern (subscribing) 
 
-        LeftStickUp = transform.Find(LeftUp).GetComponent<ReceiverController>();
-        LeftStickDown = transform.Find(LeftDown).GetComponent<ReceiverController>();
-        RightStickUp = transform.Find(RightUp).GetComponent<ReceiverController>();
-        RightStickDown = transform.Find(RightDown).GetComponent<ReceiverController>();
+        
 
     }
 
@@ -157,9 +158,12 @@ public class PlayerStats : MonoBehaviour
         superb += 1;
         Heal(healthPerSuperb);
         MeterFill(meterPerSuperb);
-        totScoreChange(scorePerSuperb * currentMultiplier); //<---Observer Pattern (Notifying)
         score += scorePerSuperb * currentMultiplier;
-        scoreAmount.text = score.ToString();
+        if(isSinglePlayer == false)
+        {
+            addToTotalScore(scorePerSuperb * currentMultiplier); //<---Observer Pattern (Notifying)
+        }
+        scoreAmountText.text = score.ToString();
     }
 
     public void goodHit()
@@ -168,9 +172,12 @@ public class PlayerStats : MonoBehaviour
         good += 1;
         Heal(healthPerGood);
         MeterFill(meterPerGood);
-        totScoreChange(scorePerGood * currentMultiplier); //<---Observer Pattern (Notifying)
         score += scorePerGood * currentMultiplier;
-        scoreAmount.text = score.ToString();
+        if(isSinglePlayer == false)
+        {
+            addToTotalScore(scorePerSuperb * currentMultiplier); //<---Observer Pattern (Notifying)
+        }
+        scoreAmountText.text = score.ToString();
     }
 
     public void badHit()
@@ -179,9 +186,12 @@ public class PlayerStats : MonoBehaviour
         bad += 1;
         Heal(healthPerBad);
         MeterFill(meterPerBad);
-        totScoreChange(scorePerBad * currentMultiplier); //<---Observer Pattern (Notifying)
         score += scorePerBad * currentMultiplier;
-        scoreAmount.text = score.ToString();
+        if(isSinglePlayer == false)
+        {
+            addToTotalScore(scorePerSuperb * currentMultiplier); //<---Observer Pattern (Notifying)
+        }
+        scoreAmountText.text = score.ToString();
     }
 
     public void gloomyHit()

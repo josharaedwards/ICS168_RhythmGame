@@ -8,7 +8,10 @@ using UnityEngine.SceneManagement;
 public class ReceiverController : MonoBehaviour
 {
     public static event Action<ReceiverController> wonGame; //<--- Observer pattern
-    private SpriteRenderer buttonSprite, lineSprite, laneSprite;
+    private SpriteRenderer buttonSprite, laneSprite;
+
+    [SerializeField] private SpriteRenderer lineSprite;
+
     private Color initButtonColor, initLineColor, initLaneColor;
     private Color pressedButtonColor, pressedLineColor, pressedLaneColor;
 
@@ -28,6 +31,7 @@ public class ReceiverController : MonoBehaviour
 
     private int wiggleToFree = 10;
     private bool disabled = false;
+    // private bool isDead = false;
     private bool /*superbPress, goodPress, almostPress,badPress,*/ validPress = false;
     private GameObject currentNote; // TODO: Make this a queue for somewhat overlapping notes
 
@@ -105,7 +109,6 @@ public class ReceiverController : MonoBehaviour
         initLaneColor = laneSprite.color;
         pressedLaneColor = new Color(initLaneColor.r, initLaneColor.g, initLaneColor.b, initLaneColor.a * shadeAlpha);
         
-        lineSprite = transform.parent.Find("Judgement Line").GetComponent<SpriteRenderer>();
         initLineColor = lineSprite.color;
         pressedLineColor = new Color(initLineColor.r, initLineColor.g, initLineColor.b, initLineColor.a * shadeAlpha);
 
