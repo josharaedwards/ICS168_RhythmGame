@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: fe73de2353485d34a915c30734139910
+guid: b16c65cf363e6104e8629535eb91de86
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - buttonSFX: {fileID: 8300000, guid: 2fb330140d611e14da95d084a940003f, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

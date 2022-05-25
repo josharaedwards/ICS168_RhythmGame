@@ -10,4 +10,6 @@ public class SongData : ScriptableObject
     public float bpm;
     public AudioClip songClip;
     public Sprite albumCover;
+
+    public string difficulty;
 }
