@@ -12,7 +12,8 @@ public class AnimatorControl : MonoBehaviour
         anim = GetComponent<Animator>();
 
         PlayerStats.imDead += Died;
-        PlayerStats.iHealed += Healed;
+        //PlayerStats.iPoweredUp += PowerUp;
+        PlayerStats.wonMyGame += wonGame;
         PlayerStats.highHealth += Healthy;
         PlayerStats.lowHealth += Unhealthy;
         PlayerStats.iGotHurt += Hurt;
@@ -21,7 +22,7 @@ public class AnimatorControl : MonoBehaviour
     void OnDestroy()
     {
         PlayerStats.imDead -= Died;
-        PlayerStats.iHealed -= Healed;
+        //PlayerStats.iPoweredUp -= PowerUp;
         PlayerStats.highHealth -= Healthy;
         PlayerStats.lowHealth -= Unhealthy;
         PlayerStats.iGotHurt -= Hurt;
@@ -49,7 +50,15 @@ public class AnimatorControl : MonoBehaviour
         }
     }
 
-    void Healed(PlayerStats sub)
+    void PowerUp(PlayerStats sub)
+    {
+        if(CheckIfMine(sub))
+        {
+            anim.SetTrigger("Happy");
+        }
+    }
+
+    void wonGame(PlayerStats sub)
     {
         if(CheckIfMine(sub))
         {

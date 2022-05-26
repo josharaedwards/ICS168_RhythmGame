@@ -34,8 +34,10 @@ public class KamehameBar : MonoBehaviour
         }    
         
         totScore += addScore;
-        totScoreText.text = totScore.ToString();
+        
         KamehameBarUI.fillAmount = 1.0f - (float)playerTwo.score/(float)totScore;
+        totScoreText.text = totScore.ToString();
+        
         totScoreChange(totScore);
         
     }

@@ -535,7 +535,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineSprite: {fileID: 3790463304584296982}
-  shadeAlpha: 0.9
+  shadeWhite: 0.2
+  shadeAlpha: 0.5
   m_Keybind: {fileID: 8898918635668820852, guid: c0356415ab7364745b51d080f8c24461, type: 3}
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
   sfxMiss: {fileID: 8300000, guid: 64ae77209e0be414598f1a98deab4920, type: 3}
@@ -669,8 +670,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2617804c69be9014dbbf6e60d818f40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineSprite: {fileID: 3833867301902480819}
-  shadeAlpha: 0.9
+  lineSprite: {fileID: 3790463304584296982}
+  shadeWhite: 0.2
+  shadeAlpha: 0.5
   m_Keybind: {fileID: -4973187593447858995, guid: c0356415ab7364745b51d080f8c24461, type: 3}
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
   sfxMiss: {fileID: 8300000, guid: 64ae77209e0be414598f1a98deab4920, type: 3}
@@ -804,8 +806,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2617804c69be9014dbbf6e60d818f40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineSprite: {fileID: 3833867302119686253}
-  shadeAlpha: 0.9
+  lineSprite: {fileID: 3790463304584296982}
+  shadeWhite: 0.2
+  shadeAlpha: 0.5
   m_Keybind: {fileID: 340233931159940789, guid: c0356415ab7364745b51d080f8c24461, type: 3}
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
   sfxMiss: {fileID: 8300000, guid: 64ae77209e0be414598f1a98deab4920, type: 3}
@@ -939,8 +942,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2617804c69be9014dbbf6e60d818f40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineSprite: {fileID: 3833867302778310770}
-  shadeAlpha: 0.9
+  lineSprite: {fileID: 3790463304584296982}
+  shadeWhite: 0.2
+  shadeAlpha: 0.5
   m_Keybind: {fileID: 6754944654749888670, guid: c0356415ab7364745b51d080f8c24461, type: 3}
   sfxHit: {fileID: 8300000, guid: 5fabeeda8285a4711b5f4472829e7a91, type: 3}
   sfxMiss: {fileID: 8300000, guid: 64ae77209e0be414598f1a98deab4920, type: 3}
@@ -1008,6 +1012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorMode: 0
+  isSinglePlayer: 0
   healthBar: {fileID: 7732221184442285238}
   scoreAmountText: {fileID: 1760902271500027936}
   health: 100

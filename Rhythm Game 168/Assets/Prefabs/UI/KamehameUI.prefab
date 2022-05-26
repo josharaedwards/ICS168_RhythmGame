@@ -166,7 +166,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &4296299620829057086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KamehameBarUI: {fileID: 6745792607972165368}
   totScoreText: {fileID: 9154260371182521818}
+  playerOne: {fileID: 1674224672623826700, guid: 00efc954adb764487b86671ef0db0249, type: 3}
+  playerTwo: {fileID: 3545424088783686254, guid: 8039bdc0de5ce4a04bd015ff76cb9836, type: 3}
 --- !u!1 &7737849060540871247
 GameObject:
   m_ObjectHideFlags: 0

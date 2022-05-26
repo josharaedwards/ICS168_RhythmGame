@@ -8,7 +8,7 @@ using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static event Action<PlayerStats> imDead, iGotHurt, iHealed, lowHealth, highHealth, wonMyGame; //<--- Observer pattern
+    public static event Action<PlayerStats> imDead, iGotHurt, /*iPoweredUp,*/ lowHealth, highHealth, wonMyGame; //<--- Observer pattern
     public static event Action<int> addToTotalScore; //<--- Observer pattern
     private const int maxHealth = 100;
     public const float maxMeter = 3.0f;
@@ -175,7 +175,7 @@ public class PlayerStats : MonoBehaviour
         score += scorePerGood * currentMultiplier;
         if(isSinglePlayer == false)
         {
-            addToTotalScore(scorePerSuperb * currentMultiplier); //<---Observer Pattern (Notifying)
+            addToTotalScore(scorePerGood * currentMultiplier); //<---Observer Pattern (Notifying)
         }
         scoreAmountText.text = score.ToString();
     }
@@ -189,7 +189,7 @@ public class PlayerStats : MonoBehaviour
         score += scorePerBad * currentMultiplier;
         if(isSinglePlayer == false)
         {
-            addToTotalScore(scorePerSuperb * currentMultiplier); //<---Observer Pattern (Notifying)
+            addToTotalScore(scorePerBad * currentMultiplier); //<---Observer Pattern (Notifying)
         }
         scoreAmountText.text = score.ToString();
     }
@@ -260,7 +260,7 @@ public class PlayerStats : MonoBehaviour
         {
             return;
         }
-        iHealed(this);
+        
         health += healAmt;
         healthBar.fillAmount = (float)health/maxHealth;
         if (health > maxHealth)
@@ -269,8 +269,13 @@ public class PlayerStats : MonoBehaviour
         }
         else if (health > 30)
         {
+            // iHealed(this);
             highHealth(this);
         }
+        // else
+        // {
+        //     iHealed(this);
+        // }
     }
 
     public void Damage(int dmgAmt)
