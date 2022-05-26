@@ -45,7 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songList:
+  - {fileID: 11400000, guid: e179a6fb259abef43a93697a5c7dbc32, type: 2}
+  - {fileID: 11400000, guid: 804aaedcd8069a14386a3d0dea1faf49, type: 2}
   - {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
+  - {fileID: 11400000, guid: a3cf304c9f9124170a1b6389d59c9d26, type: 2}
 --- !u!1001 &8386758883766708182
 PrefabInstance:
   m_ObjectHideFlags: 0
