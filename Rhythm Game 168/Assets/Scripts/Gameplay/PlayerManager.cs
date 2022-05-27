@@ -59,6 +59,7 @@ public class PlayerManager : MonoBehaviour
         if (PlayersDead >= playerCount)
         {
             GameOver();
+            AudioManager.instance.Stop();
             LevelLoaderScript.instance.LoadNextSceneFromDead("ResultScr");
         }
     }

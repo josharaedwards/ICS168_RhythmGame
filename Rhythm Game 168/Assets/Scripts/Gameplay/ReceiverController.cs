@@ -70,7 +70,7 @@ public class ReceiverController : MonoBehaviour
     }
 
     void Awake() {
-        playerInput = GetComponentInParent<PlayerInput>();;
+        playerInput = GetComponentInParent<PlayerInput>();
         playerInput.actions[m_Keybind.action.name].performed += Hit;
         playerInput.actions[m_Keybind.action.name].canceled += notPressed;
         

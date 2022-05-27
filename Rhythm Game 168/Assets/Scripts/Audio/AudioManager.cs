@@ -107,6 +107,11 @@ public class AudioManager : MonoBehaviour
         playbackMix.Pause();
     }
 
+    public void Stop()
+    {
+        playbackMix.Stop();
+    }
+
     public void Replay()
     {
         playbackMix.time = 0.0f;
