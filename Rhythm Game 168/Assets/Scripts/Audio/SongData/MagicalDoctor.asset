@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songTitle: Magical Doctor
   artistName: Maretu
-  bpm: 205
+  bpm: 204
   songClip: {fileID: 8300000, guid: a97ac270e03474a31be5b50ef95e88ea, type: 3}
   albumCover: {fileID: 21300000, guid: 80fa8a197696345429591479748820a4, type: 3}
   difficulty: Extreme
