@@ -12,4 +12,5 @@ public class SongData : ScriptableObject
     public Sprite albumCover;
 
     public string difficulty;
+    public Sprite songButton;
 }
