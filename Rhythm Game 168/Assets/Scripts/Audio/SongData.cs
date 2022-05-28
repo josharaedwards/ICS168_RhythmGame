@@ -13,4 +13,6 @@ public class SongData : ScriptableObject
 
     public string difficulty;
     public Sprite songButton;
+
+    public GameObject beatmap;
 }
