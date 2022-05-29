@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public static GameManager instance { get; private set; }
 
     public SongData[] songList;
+    public SongData currentSong;
 
     private void Awake()
     {
@@ -90,5 +91,11 @@ public class GameManager : MonoBehaviourPunCallbacks
 
             LoadArena();
         }
+    }
+
+    public void SetCurrentSong(SongData otherSong)
+    {
+        currentSong = otherSong;
+        Debug.Log("Song Set: " + currentSong.songTitle);
     }
 }

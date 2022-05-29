@@ -11,7 +11,9 @@ public class LevelLoaderScript : MonoBehaviour
 
     public float transitionTime = 1.0f;
 
-    public float deathAnimTime = 1.5f;
+    public float deathAnimTime = 1f;
+
+    public float winAnimTime = 1.5f;
 
     void Start()
     {
@@ -61,6 +63,8 @@ public class LevelLoaderScript : MonoBehaviour
 
     private IEnumerator LoadSceneFromWin(string scene)
     {
+        yield return new WaitForSeconds(winAnimTime);
+
         transition.SetTrigger("Win");
 
         yield return new WaitForSeconds(transitionTime);

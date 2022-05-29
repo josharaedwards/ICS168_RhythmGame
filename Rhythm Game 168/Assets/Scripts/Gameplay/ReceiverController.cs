@@ -8,16 +8,21 @@ using UnityEngine.SceneManagement;
 public class ReceiverController : MonoBehaviour
 {
     public static event Action<ReceiverController> wonGame; //<--- Observer pattern
-    private SpriteRenderer buttonSprite, lineSprite, laneSprite;
+    private SpriteRenderer buttonSprite, laneSprite;
+
+    [SerializeField] private SpriteRenderer lineSprite;
+
     private Color initButtonColor, initLineColor, initLaneColor;
     private Color pressedButtonColor, pressedLineColor, pressedLaneColor;
+
+    private Color disabledButtonColor, disabledLineColor, disabledLaneColor;
 
     private BoxCollider2D boxCollider;
     private float receiverColliderSize;
     private float receiverColliderPosY, receiverColliderPosX;
     private PlayerInput playerInput;
 
-    [SerializeField] [Range(0f, 2f)] private float shadeAlpha;
+    [SerializeField] [Range(0f, 1f)] private float shadeWhite, shadeAlpha;
     [SerializeField] private InputActionReference m_Keybind;
 
     [SerializeField] private AudioClip sfxHit;
@@ -28,6 +33,7 @@ public class ReceiverController : MonoBehaviour
 
     private int wiggleToFree = 10;
     private bool disabled = false;
+    // private bool isDead = false;
     private bool /*superbPress, goodPress, almostPress,badPress,*/ validPress = false;
     private GameObject currentNote; // TODO: Make this a queue for somewhat overlapping notes
 
@@ -48,23 +54,23 @@ public class ReceiverController : MonoBehaviour
 
     public void Disable()
     {
-        laneSprite.color = pressedLaneColor;
-        lineSprite.color = pressedLineColor;
-        buttonSprite.color = pressedButtonColor;
+        laneSprite.color = disabledLaneColor;
+        lineSprite.color = disabledLineColor;
+        buttonSprite.color = disabledButtonColor;
         disabled = true;
     }
 
     public void DisableFully()
     {
-        laneSprite.color = pressedLaneColor;
-        lineSprite.color = pressedLineColor;
-        buttonSprite.color = pressedButtonColor;
         playerInput.actions.Disable();
+        laneSprite.color = disabledLaneColor;
+        lineSprite.color = disabledLineColor;
+        buttonSprite.color = disabledButtonColor;
         boxCollider.enabled = false;
     }
 
     void Awake() {
-        playerInput = GetComponentInParent<PlayerInput>();;
+        playerInput = GetComponentInParent<PlayerInput>();
         playerInput.actions[m_Keybind.action.name].performed += Hit;
         playerInput.actions[m_Keybind.action.name].canceled += notPressed;
         
@@ -85,9 +91,9 @@ public class ReceiverController : MonoBehaviour
             }
             else
             {
-                laneSprite.color = pressedLaneColor;
-                lineSprite.color = pressedLineColor;
-                buttonSprite.color = pressedButtonColor;
+                laneSprite.color = disabledLaneColor;
+                lineSprite.color = disabledLineColor;
+                buttonSprite.color = disabledButtonColor;
             }
         } 
     }
@@ -101,17 +107,19 @@ public class ReceiverController : MonoBehaviour
         receiverColliderPosY = boxCollider.offset.y + transform.position.y;
 
 
-        laneSprite = GetComponentInChildren<SpriteRenderer>();
+        laneSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         initLaneColor = laneSprite.color;
-        pressedLaneColor = new Color(initLaneColor.r, initLaneColor.g, initLaneColor.b, initLaneColor.a * shadeAlpha);
+        pressedLaneColor = Color.Lerp(initLaneColor, Color.white, shadeWhite);
+        disabledLaneColor = new Color(initLaneColor.r, initLaneColor.g, initLaneColor.b, initLaneColor.a * shadeAlpha);
         
-        lineSprite = transform.parent.Find("Judgement Line").GetComponent<SpriteRenderer>();
         initLineColor = lineSprite.color;
-        pressedLineColor = new Color(initLineColor.r, initLineColor.g, initLineColor.b, initLineColor.a * shadeAlpha);
+        pressedLineColor = Color.Lerp(initLineColor, Color.white, shadeWhite);
+        disabledLineColor = new Color(initLineColor.r, initLineColor.g, initLineColor.b, initLineColor.a * shadeAlpha);
 
         buttonSprite = GetComponent<SpriteRenderer>();
         initButtonColor = buttonSprite.color;
-        pressedButtonColor = new Color(initButtonColor.r, initButtonColor.g, initButtonColor.b, initButtonColor.a * shadeAlpha);
+        pressedButtonColor = Color.Lerp(initButtonColor, Color.white, shadeWhite);
+        disabledButtonColor = new Color(initButtonColor.r, initButtonColor.g, initButtonColor.b, initButtonColor.a * shadeAlpha);
 
         scoreAndHealth = GetComponentInParent<PlayerStats>();
     }

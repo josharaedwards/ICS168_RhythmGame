@@ -3,7 +3,9 @@ guid: ea501de662ab73749974d5c0dee4d019
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - songClip: {instanceID: 0}
+  - albumCover: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

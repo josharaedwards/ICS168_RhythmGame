@@ -25,6 +25,8 @@ public class PlayerManager : MonoBehaviour
     {
         manager = GetComponent<PlayerInputManager>();
 
+        KamehameBar.totScoreChange += TotalScore;
+
         manager.playerPrefab = playerPrefabs[playerNumber]; 
     }
 
@@ -34,16 +36,16 @@ public class PlayerManager : MonoBehaviour
 
         PlayerStats.imDead += LoseGameCheck; //<---- Observer Pattern (subscribing)
         PlayerStats.wonMyGame += wonGame;
-        PlayerStats.totScoreChange += TotalScore;
+        // PlayerStats.totScoreChange += TotalScore;
         if(playerCount == 1)
         {
             manager.gameObject.SetActive(false);
         }
     }
 
-    private void TotalScore(int addedScore)
+    private void TotalScore(int totScore)
     {
-        totalScore += addedScore;
+        totalScore = totScore;
     }
 
     private void OnDestroy()
@@ -57,6 +59,7 @@ public class PlayerManager : MonoBehaviour
         if (PlayersDead >= playerCount)
         {
             GameOver();
+            AudioManager.instance.Stop();
             LevelLoaderScript.instance.LoadNextSceneFromDead("ResultScr");
         }
     }

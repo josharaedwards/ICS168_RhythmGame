@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea501de662ab73749974d5c0dee4d019, type: 3}
+  m_Name: MagicalDoctor
+  m_EditorClassIdentifier: 
+  songTitle: Magical Doctor
+  artistName: Maretu
+  bpm: 204
+  songClip: {fileID: 8300000, guid: a97ac270e03474a31be5b50ef95e88ea, type: 3}
+  albumCover: {fileID: 21300000, guid: 80fa8a197696345429591479748820a4, type: 3}
+  difficulty: Extreme
