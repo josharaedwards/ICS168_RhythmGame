@@ -18,3 +18,5 @@ MonoBehaviour:
   songClip: {fileID: 8300000, guid: d142490516babd24ca1b8bb480e4076f, type: 3}
   albumCover: {fileID: 21300000, guid: 56b3058dc1714304fbd45ff864184dce, type: 3}
   difficulty: Intermediate
+  songButton: {fileID: 21300000, guid: 851abd7a671924a4faae603c95df86dd, type: 3}
+  beatmap: {fileID: 7280535714825970366, guid: 6cf0a387a275941528eb16865723e0ae, type: 3}
