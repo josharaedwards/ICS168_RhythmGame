@@ -23,24 +23,31 @@ public class BeatmapController : MonoBehaviour
 
     private Vector3 initPos;
 
+    private BeatmapLoader beatmapLoader;
     // Start is called before the first frame update
     void Awake()
     {
-        beatPositions = GetComponentsInChildren<Transform>();
-
-        for(int i = 1; i < beatPositions.Length; i++)
-        {
-            //Debug.Log("changed");
-            beatPositions[i].localPosition = Vector3.Scale(beatPositions[i].localPosition, new Vector3(1.0f, highwaySpeed, 1.0f));
-        }
-
-        beatPerMinute = song.bpm;
-        beatPerSecond = beatPerMinute / 60f;
         // secondsPerBeat = 60f/ beatPerMinute;
     }
 
     void Start()
     {
+        song = GameManager.instance.currentSong;
+        beatPerMinute = song.bpm;
+        beatPerSecond = beatPerMinute / 60f;
+
+        beatmapLoader = GetComponent<BeatmapLoader>();
+        beatmapLoader.setBeatmapName(song.beatmapName);
+        beatmapLoader.Clear();
+        beatmapLoader.Load();
+
+        beatPositions = GetComponentsInChildren<Transform>();
+        for (int i = 1; i < beatPositions.Length; i++)
+        {
+            //Debug.Log("changed");
+            beatPositions[i].localPosition = Vector3.Scale(beatPositions[i].localPosition, new Vector3(1.0f, highwaySpeed, 1.0f));
+        }
+
         initPos = transform.position;
         audioManager = AudioManager.instance;
     }
@@ -77,7 +84,7 @@ public class BeatmapController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            for(int i = 1; i < beatPositions.Length; i++)
+            for (int i = 1; i < beatPositions.Length; i++)
             {
                 beatPositions[i].gameObject.SetActive(true);
             }
@@ -89,7 +96,7 @@ public class BeatmapController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
-            for(int i = 1; i < beatPositions.Length; i++)
+            for (int i = 1; i < beatPositions.Length; i++)
             {
                 beatPositions[i].gameObject.SetActive(true);
             }
@@ -115,6 +122,11 @@ public class BeatmapController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             Restart();
+        }
+
+        if ((Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)) && Input.GetKeyDown(KeyCode.G))
+        {
+            beatmapLoader.Save();
         }
     }
 
@@ -150,7 +162,7 @@ public class BeatmapController : MonoBehaviour
 
     private void Restart()
     {
-        for(int i = 1; i < beatPositions.Length; i++)
+        for (int i = 1; i < beatPositions.Length; i++)
         {
             beatPositions[i].gameObject.SetActive(true);
         }

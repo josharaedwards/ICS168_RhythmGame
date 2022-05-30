@@ -639,6 +639,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9046662915842247675, guid: 000a23f54434b4d4eace937e140303c0, type: 3}
   m_PrefabInstance: {fileID: 240289408}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &270130145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5737739870289972604, guid: 54afc066e3d444268b2e10c6d4c90cd0, type: 3}
+  m_PrefabInstance: {fileID: 1734265860}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &270130146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270130145}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8903e9b5ee3c70c419e25092e1e1371e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMapName: INOBeatmap
+  notePrefab: {fileID: 690202757}
 --- !u!1 &283592339
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,11 +687,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc613de787e8584f954629fd80ec844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meter: 3
+  wiggled: 0
   superb: 0
   good: 0
   bad: 0
   gloomy: 0
-  miss: 0
 --- !u!4 &283592341
 Transform:
   m_ObjectHideFlags: 0
@@ -749,6 +769,70 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9046662915842247675, guid: 000a23f54434b4d4eace937e140303c0, type: 3}
   m_PrefabInstance: {fileID: 309971834}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &331890648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 331890651}
+  - component: {fileID: 331890650}
+  - component: {fileID: 331890649}
+  m_Layer: 0
+  m_Name: Beatmap (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &331890649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331890648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8903e9b5ee3c70c419e25092e1e1371e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMapName: ComeWanderBeatmap
+  notePrefab: {fileID: 9046662915842247669, guid: 000a23f54434b4d4eace937e140303c0, type: 3}
+--- !u!114 &331890650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331890648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b19572313d103b47ac2967f29a8555a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editMode: 1
+  started: 0
+  isPlaying: 0
+  beatPerMinute: 137
+  song: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
+  highwaySpeed: 1
+--- !u!4 &331890651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331890648}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &347355911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1431,6 +1515,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9046662915842247675, guid: 000a23f54434b4d4eace937e140303c0, type: 3}
   m_PrefabInstance: {fileID: 505773013}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &613083938 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7280535714825970366, guid: 6cf0a387a275941528eb16865723e0ae, type: 3}
+  m_PrefabInstance: {fileID: 1007328630}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &613083939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613083938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8903e9b5ee3c70c419e25092e1e1371e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMapName: ComeWanderBeatmap
+  notePrefab: {fileID: 690202757}
 --- !u!1001 &682734301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1492,6 +1595,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 9046662915842247675, guid: 000a23f54434b4d4eace937e140303c0, type: 3}
   m_PrefabInstance: {fileID: 682734301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &690202757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9046662915842247669, guid: 000a23f54434b4d4eace937e140303c0, type: 3}
+  m_PrefabInstance: {fileID: 347355911}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &911074981
 PrefabInstance:
@@ -1760,7 +1868,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &988956255
 PrefabInstance:
@@ -1824,6 +1932,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9046662915842247675, guid: 000a23f54434b4d4eace937e140303c0, type: 3}
   m_PrefabInstance: {fileID: 988956255}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1007328630
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7280535714825970364, guid: 6cf0a387a275941528eb16865723e0ae, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280535714825970364, guid: 6cf0a387a275941528eb16865723e0ae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280535714825970364, guid: 6cf0a387a275941528eb16865723e0ae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280535714825970364, guid: 6cf0a387a275941528eb16865723e0ae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280535714825970364, guid: 6cf0a387a275941528eb16865723e0ae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280535714825970364, guid: 6cf0a387a275941528eb16865723e0ae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280535714825970364, guid: 6cf0a387a275941528eb16865723e0ae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280535714825970364, guid: 6cf0a387a275941528eb16865723e0ae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280535714825970364, guid: 6cf0a387a275941528eb16865723e0ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280535714825970364, guid: 6cf0a387a275941528eb16865723e0ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280535714825970364, guid: 6cf0a387a275941528eb16865723e0ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280535714825970366, guid: 6cf0a387a275941528eb16865723e0ae, type: 3}
+      propertyPath: m_Name
+      value: ComeWander Beatmap
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280535714825970366, guid: 6cf0a387a275941528eb16865723e0ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6cf0a387a275941528eb16865723e0ae, type: 3}
 --- !u!1001 &1028515592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1886,6 +2055,86 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9046662915842247675, guid: 000a23f54434b4d4eace937e140303c0, type: 3}
   m_PrefabInstance: {fileID: 1028515592}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1061156017
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7321996119245012581, guid: 144d723cbf8034a06b2ad096e7d721f5, type: 3}
+      propertyPath: m_Name
+      value: SweetDreams Beatmap
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321996119245012581, guid: 144d723cbf8034a06b2ad096e7d721f5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321996119245012891, guid: 144d723cbf8034a06b2ad096e7d721f5, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321996119245012891, guid: 144d723cbf8034a06b2ad096e7d721f5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321996119245012891, guid: 144d723cbf8034a06b2ad096e7d721f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321996119245012891, guid: 144d723cbf8034a06b2ad096e7d721f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321996119245012891, guid: 144d723cbf8034a06b2ad096e7d721f5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321996119245012891, guid: 144d723cbf8034a06b2ad096e7d721f5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321996119245012891, guid: 144d723cbf8034a06b2ad096e7d721f5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321996119245012891, guid: 144d723cbf8034a06b2ad096e7d721f5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321996119245012891, guid: 144d723cbf8034a06b2ad096e7d721f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321996119245012891, guid: 144d723cbf8034a06b2ad096e7d721f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321996119245012891, guid: 144d723cbf8034a06b2ad096e7d721f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 144d723cbf8034a06b2ad096e7d721f5, type: 3}
+--- !u!1 &1061156018 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7321996119245012581, guid: 144d723cbf8034a06b2ad096e7d721f5, type: 3}
+  m_PrefabInstance: {fileID: 1061156017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1061156019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061156018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8903e9b5ee3c70c419e25092e1e1371e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMapName: SweetDreamsBeatmap
+  notePrefab: {fileID: 690202757}
 --- !u!1001 &1098231798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2258,6 +2507,90 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9046662915842247675, guid: 000a23f54434b4d4eace937e140303c0, type: 3}
   m_PrefabInstance: {fileID: 1299477134}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1319062090
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1422092731589623188, guid: 3c48666c9f7d948338629a94eefed0f6, type: 3}
+      propertyPath: m_Name
+      value: Magical Doctor Beatmap
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422092731589623188, guid: 3c48666c9f7d948338629a94eefed0f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422092731589623189, guid: 3c48666c9f7d948338629a94eefed0f6, type: 3}
+      propertyPath: highwaySpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422092731589623190, guid: 3c48666c9f7d948338629a94eefed0f6, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422092731589623190, guid: 3c48666c9f7d948338629a94eefed0f6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422092731589623190, guid: 3c48666c9f7d948338629a94eefed0f6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422092731589623190, guid: 3c48666c9f7d948338629a94eefed0f6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422092731589623190, guid: 3c48666c9f7d948338629a94eefed0f6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422092731589623190, guid: 3c48666c9f7d948338629a94eefed0f6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422092731589623190, guid: 3c48666c9f7d948338629a94eefed0f6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422092731589623190, guid: 3c48666c9f7d948338629a94eefed0f6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422092731589623190, guid: 3c48666c9f7d948338629a94eefed0f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422092731589623190, guid: 3c48666c9f7d948338629a94eefed0f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422092731589623190, guid: 3c48666c9f7d948338629a94eefed0f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3c48666c9f7d948338629a94eefed0f6, type: 3}
+--- !u!1 &1319062091 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1422092731589623188, guid: 3c48666c9f7d948338629a94eefed0f6, type: 3}
+  m_PrefabInstance: {fileID: 1319062090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1319062092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319062091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8903e9b5ee3c70c419e25092e1e1371e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMapName: MagicalDoctorBeatmap
+  notePrefab: {fileID: 690202757}
 --- !u!1001 &1322376222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3321,7 +3654,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6058770173813767484, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6058770173813767484, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3431,6 +3764,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9046662915842247675, guid: 000a23f54434b4d4eace937e140303c0, type: 3}
   m_PrefabInstance: {fileID: 1716632215}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1734265860
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5737739870289972604, guid: 54afc066e3d444268b2e10c6d4c90cd0, type: 3}
+      propertyPath: m_Name
+      value: INO Beatmap
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737739870289972604, guid: 54afc066e3d444268b2e10c6d4c90cd0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737739870289972605, guid: 54afc066e3d444268b2e10c6d4c90cd0, type: 3}
+      propertyPath: highwaySpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737739870289972606, guid: 54afc066e3d444268b2e10c6d4c90cd0, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737739870289972606, guid: 54afc066e3d444268b2e10c6d4c90cd0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737739870289972606, guid: 54afc066e3d444268b2e10c6d4c90cd0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737739870289972606, guid: 54afc066e3d444268b2e10c6d4c90cd0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737739870289972606, guid: 54afc066e3d444268b2e10c6d4c90cd0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737739870289972606, guid: 54afc066e3d444268b2e10c6d4c90cd0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737739870289972606, guid: 54afc066e3d444268b2e10c6d4c90cd0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737739870289972606, guid: 54afc066e3d444268b2e10c6d4c90cd0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737739870289972606, guid: 54afc066e3d444268b2e10c6d4c90cd0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737739870289972606, guid: 54afc066e3d444268b2e10c6d4c90cd0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737739870289972606, guid: 54afc066e3d444268b2e10c6d4c90cd0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 54afc066e3d444268b2e10c6d4c90cd0, type: 3}
 --- !u!1001 &1742395311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3650,15 +4048,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9046662915842247675, guid: 000a23f54434b4d4eace937e140303c0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9046662915842247675, guid: 000a23f54434b4d4eace937e140303c0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9046662915842247675, guid: 000a23f54434b4d4eace937e140303c0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9046662915842247675, guid: 000a23f54434b4d4eace937e140303c0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3813,13 +4211,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1852512482}
   - component: {fileID: 1852512481}
+  - component: {fileID: 1852512483}
   m_Layer: 0
   m_Name: Beatmap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1852512481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3832,6 +4231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b19572313d103b47ac2967f29a8555a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  editMode: 1
   started: 0
   isPlaying: 0
   beatPerMinute: 137
@@ -3918,6 +4318,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1852512483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852512480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8903e9b5ee3c70c419e25092e1e1371e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMapName: TestBeatmap
+  notePrefab: {fileID: 9046662915842247669, guid: 000a23f54434b4d4eace937e140303c0, type: 3}
 --- !u!1001 &1886298771
 PrefabInstance:
   m_ObjectHideFlags: 0
