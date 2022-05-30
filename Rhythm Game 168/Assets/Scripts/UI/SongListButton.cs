@@ -32,6 +32,12 @@ public class SongListButton : RGButton
         GameManager.instance.SetCurrentSong(mySong);
     }
 
+    public void ClickFirstButton()
+    {
+        songButtonClicked(mySong);
+        GameManager.instance.SetCurrentSong(mySong);
+    }
+
     //Deprecated due to using UI art for song title
     private void SetupButtonText(SongData song)
     {
