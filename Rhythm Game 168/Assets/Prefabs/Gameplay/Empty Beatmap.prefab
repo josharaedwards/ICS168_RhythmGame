@@ -47,9 +47,9 @@ MonoBehaviour:
   editMode: 0
   started: 0
   isPlaying: 0
-  beatPerMinute: 137
-  song: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
-  highwaySpeed: 2.25
+  beatPerMinute: 0
+  song: {fileID: 0}
+  highwaySpeed: 1
 --- !u!114 &5031095185751185402
 MonoBehaviour:
   m_ObjectHideFlags: 0
