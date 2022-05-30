@@ -67,12 +67,12 @@ public class PlayerStats : MonoBehaviour
 
     void Awake()
     {
-        if (powerUpInput == null)
+        if (powerUpInput == null) //Unfinished power up feature.
         {
-            powerUpInput = GetComponent<PlayerInput>();
-            powerUpInput.actions["Hinder (Lock Left)"].performed += LockLeftStick;
-            powerUpInput.actions["Hinder (Lock Right)"].performed += LockRightStick;
-            powerUpInput.actions["Hinder (Lock Both)"].performed += LockBothSticks;
+            // powerUpInput = GetComponent<PlayerInput>();
+            // powerUpInput.actions["Hinder (Lock Left)"].performed += LockLeftStick;
+            // powerUpInput.actions["Hinder (Lock Right)"].performed += LockRightStick;
+            // powerUpInput.actions["Hinder (Lock Both)"].performed += LockBothSticks;
 
             // powerUpInput.actions["Help (Multiplier)"].performed += IncreaseMultiplier;
         }

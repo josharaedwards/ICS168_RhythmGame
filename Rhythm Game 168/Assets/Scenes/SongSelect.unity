@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.16700001}
-  m_AnchoredPosition: {x: -0.054885864, y: 0.9976196}
+  m_AnchoredPosition: {x: -0.054901123, y: 0.9976196}
   m_SizeDelta: {x: 0.10977, y: 0.3553009}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7758926
@@ -991,7 +991,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.20258589}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2.091999}
+  m_AnchoredPosition: {x: 0, y: 2.0919952}
   m_SizeDelta: {x: 0, y: -4.1849976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &626995335
@@ -1265,7 +1265,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.55
+  m_fontSize: 46.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1779,7 +1779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.39000002, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.24700928, y: -0.0024871826}
+  m_AnchoredPosition: {x: -0.24700928, y: -0.0025024414}
   m_SizeDelta: {x: 0.5, y: 0.0050354}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1740022643
@@ -2111,50 +2111,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
-      propertyPath: songList.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
-      propertyPath: songList.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 804aaedcd8069a14386a3d0dea1faf49, type: 2}
-    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
-      propertyPath: songList.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: e179a6fb259abef43a93697a5c7dbc32, type: 2}
-    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
-      propertyPath: songList.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
-    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
-      propertyPath: songList.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
-    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
-      propertyPath: songList.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
-    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
-      propertyPath: songList.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
-    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
-      propertyPath: songList.Array.data[6]
-      value: 
-      objectReference: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
-    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
-      propertyPath: songList.Array.data[7]
-      value: 
-      objectReference: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
-    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
-      propertyPath: songList.Array.data[8]
-      value: 
-      objectReference: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
-    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
-      propertyPath: songList.Array.data[9]
-      value: 
-      objectReference: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
 --- !u!1 &2063651577
