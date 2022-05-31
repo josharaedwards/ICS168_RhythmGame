@@ -60,14 +60,14 @@ public class PlayerManager : MonoBehaviour
         {
             GameOver();
             AudioManager.instance.Stop();
-            LevelLoaderScript.instance.LoadNextSceneFromDead("ResultScr");
+            LevelLoaderScript.instance.LoadNextSceneFromDead("ResultsScreen");
         }
     }
 
     private void wonGame(PlayerStats sub)
     {
         GameOver();
-        LevelLoaderScript.instance.LoadNextSceneFromWin("ResultScr");
+        LevelLoaderScript.instance.LoadNextSceneFromWin("ResultsScreen");
     }
 
     private void GameOver()
@@ -76,12 +76,12 @@ public class PlayerManager : MonoBehaviour
 
         for(int i = 0; i < playerPrefabs.Length; i++) //Get Scores from each player to put into results screen.
         {
-            PlayerPrefs.SetInt("ScorePlayer" + i, playerPrefabs[i].GetComponent<PlayerStats>().score);
-            PlayerPrefs.SetInt("ScorePlayer" + i, playerPrefabs[i].GetComponent<PlayerStats>().health);
-            PlayerPrefs.SetInt("SuperbHitPlayer" + i, playerPrefabs[i].GetComponent<PlayerStats>().superb);
-            PlayerPrefs.SetInt("GoodHitPlayer" + i, playerPrefabs[i].GetComponent<PlayerStats>().good);
-            PlayerPrefs.SetInt("BadHitPlayer" + i, playerPrefabs[i].GetComponent<PlayerStats>().bad);
-            PlayerPrefs.SetInt("GloomyHitPlayer" + i, playerPrefabs[i].GetComponent<PlayerStats>().gloomy);
+            PlayerPrefs.SetInt("ScorePlayer" + (i+1), playerPrefabs[i].GetComponent<PlayerStats>().score);
+            PlayerPrefs.SetInt("HealthPlayer" + (i+1), playerPrefabs[i].GetComponent<PlayerStats>().health);
+            PlayerPrefs.SetInt("SuperbHitPlayer" + (i+1), playerPrefabs[i].GetComponent<PlayerStats>().superb);
+            PlayerPrefs.SetInt("GoodHitPlayer" + (i+1), playerPrefabs[i].GetComponent<PlayerStats>().good);
+            PlayerPrefs.SetInt("BadHitPlayer" + (i+1), playerPrefabs[i].GetComponent<PlayerStats>().bad);
+            PlayerPrefs.SetInt("GloomyHitPlayer" + (i+1), playerPrefabs[i].GetComponent<PlayerStats>().gloomy);
         }
 
         

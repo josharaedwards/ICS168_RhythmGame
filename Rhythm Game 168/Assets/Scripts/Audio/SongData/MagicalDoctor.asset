@@ -18,5 +18,5 @@ MonoBehaviour:
   songClip: {fileID: 8300000, guid: a97ac270e03474a31be5b50ef95e88ea, type: 3}
   albumCover: {fileID: 21300000, guid: 80fa8a197696345429591479748820a4, type: 3}
   difficulty: Extreme
-  songButton: {fileID: 0}
+  songButton: {fileID: 21300000, guid: f4b353291667b403e8ed949678d8a804, type: 3}
   beatmapName: MagicalDoctorBeatmap

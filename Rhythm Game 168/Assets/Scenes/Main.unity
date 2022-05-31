@@ -137,7 +137,7 @@ PrefabInstance:
     - target: {fileID: 1809911801, guid: 8c583e809b0c4493d9b3ce2944a7726c, type: 3}
       propertyPath: playerPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 290272801809592470, guid: e924427f9457ba043bac451e28643421, type: 3}
+      objectReference: {fileID: 1308113659}
     - target: {fileID: 1487724672126587782, guid: 8c583e809b0c4493d9b3ce2944a7726c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatDelay: 0.2
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: c0356415ab7364745b51d080f8c24461, type: 3}
@@ -388,6 +388,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e924427f9457ba043bac451e28643421, type: 3}
+--- !u!1 &1308113659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 290272801809592470, guid: e924427f9457ba043bac451e28643421, type: 3}
+  m_PrefabInstance: {fileID: 1308113658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1426957576
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,7 +616,7 @@ PrefabInstance:
     - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
       propertyPath: currentSong
       value: 
-      objectReference: {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
+      objectReference: {fileID: 11400000, guid: a3cf304c9f9124170a1b6389d59c9d26, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
 --- !u!1001 &5031095184659195053
@@ -624,6 +629,10 @@ PrefabInstance:
     - target: {fileID: 752811875398998660, guid: fa70149573acee54ab8235bd116875ec, type: 3}
       propertyPath: m_Name
       value: Empty Beatmap
+      objectReference: {fileID: 0}
+    - target: {fileID: 752811875398998661, guid: fa70149573acee54ab8235bd116875ec, type: 3}
+      propertyPath: highwaySpeed
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 752811875398998662, guid: fa70149573acee54ab8235bd116875ec, type: 3}
       propertyPath: m_RootOrder
@@ -672,6 +681,10 @@ PrefabInstance:
     - target: {fileID: 5031095185751185402, guid: fa70149573acee54ab8235bd116875ec, type: 3}
       propertyPath: beatMapName
       value: INOBeatmap
+      objectReference: {fileID: 0}
+    - target: {fileID: 5031095185751185402, guid: fa70149573acee54ab8235bd116875ec, type: 3}
+      propertyPath: sortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa70149573acee54ab8235bd116875ec, type: 3}

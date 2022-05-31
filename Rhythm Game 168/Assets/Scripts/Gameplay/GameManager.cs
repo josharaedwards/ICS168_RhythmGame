@@ -12,6 +12,15 @@ public class GameManager : MonoBehaviourPunCallbacks
     public SongData[] songList;
     public SongData currentSong;
 
+    public enum GameStates
+    {
+        Menu,
+        SinglePlayer,
+        Multiplayer
+    }
+
+    public static GameStates gameState = GameStates.Menu;
+
     private void Awake()
     {
         Init();
