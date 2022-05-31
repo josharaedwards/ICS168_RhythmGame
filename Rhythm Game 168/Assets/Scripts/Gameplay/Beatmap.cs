@@ -37,6 +37,7 @@ public class Beatmap
     public List<float> left_down;
     public List<float> right_down;
     public List<float> right_up;
+    public float endTriggerPos;
 
     public Dictionary<Receiver, List<float>> beatmap;
 
@@ -47,7 +48,12 @@ public class Beatmap
         for (int i = 0; i < beatMap.transform.childCount; i++)
         {
             note = beatMap.transform.GetChild(i);
-            switch (note.localPosition.x)
+            if (note.tag == "Finish")   // Detect EndSongTrigger
+            {
+                endTriggerPos = note.localPosition.y;
+                continue;
+            }
+            switch (note.localPosition.x)   // Decide the corresponding lane for note
             {
                 case ReceiverPos.LEFT_UP:
                     left_up.Add(note.localPosition.y);
