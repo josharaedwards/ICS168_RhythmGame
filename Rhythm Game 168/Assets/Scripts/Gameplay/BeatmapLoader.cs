@@ -42,10 +42,10 @@ public class BeatmapLoader : MonoBehaviour
         foreach (Receiver receiver in beatmap.beatmap.Keys)
         {
             receiverPos = ReceiverPos.pos[receiver];
-            Quaternion rotation = Quaternion.identity;
+            Quaternion rotation = transform.rotation;
             if (receiver == Receiver.LEFT_UP || receiver == Receiver.RIGHT_UP)
             {
-                rotation = Quaternion.Euler(0f, 0f, 180f);
+                rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z + 180f);
             }
 
             foreach (float pos in beatmap.beatmap[receiver])
