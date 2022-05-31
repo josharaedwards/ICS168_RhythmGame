@@ -7,6 +7,7 @@ public class BeatmapLoader : MonoBehaviour
 {
     [SerializeField] private string beatMapName;
     [SerializeField] private GameObject notePrefab;
+    [SerializeField] private GameObject endSongTriggerPrefab;
     [SerializeField] private int sortingOrder;
 
     void Start()
@@ -34,17 +35,19 @@ public class BeatmapLoader : MonoBehaviour
 
     public void Load()
     {
+        // Load Beatmap object from json file
         string json_dump = File.ReadAllText(Application.dataPath + "/Beatmap/" + beatMapName + ".json");
         Debug.Log(json_dump);
         Beatmap beatmap = JsonUtility.FromJson<Beatmap>(json_dump);
         beatmap.InitBeatmap();
 
+        // Initialize beatmap with notes
         float receiverPos;
         foreach (Receiver receiver in beatmap.beatmap.Keys)
         {
             receiverPos = ReceiverPos.pos[receiver];
             Quaternion rotation = transform.rotation;
-            if (receiver == Receiver.LEFT_UP || receiver == Receiver.RIGHT_UP)
+            if (receiver == Receiver.LEFT_UP || receiver == Receiver.RIGHT_UP)  // If lane is up then rotate the note 180deg
             {
                 rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z + 180f);
             }
@@ -56,6 +59,11 @@ public class BeatmapLoader : MonoBehaviour
                 note.GetComponent<SpriteRenderer>().sortingOrder = sortingOrder;
             }
         }
+        // Init EndSongTrigger
+        GameObject endSongTrigger = Instantiate(endSongTriggerPrefab, Vector3.zero, transform.rotation, transform);
+        endSongTrigger.transform.localPosition = new Vector3(0f, beatmap.endTriggerPos, 0f);
+
+
         Debug.Log("LOADED BEATMAP " + beatMapName + " from " + Application.dataPath + "/Beatmap/" + beatMapName + ".json");
     }
 

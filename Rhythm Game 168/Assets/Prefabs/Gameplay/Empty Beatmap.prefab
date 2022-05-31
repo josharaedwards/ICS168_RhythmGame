@@ -64,3 +64,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatMapName: 
   notePrefab: {fileID: 9046662915842247669, guid: 000a23f54434b4d4eace937e140303c0, type: 3}
+  endSongTriggerPrefab: {fileID: 3709656414987624970, guid: 164e0b76f834f413e9d46830acfd125e, type: 3}
+  sortingOrder: 0
