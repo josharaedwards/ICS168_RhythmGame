@@ -26,13 +26,25 @@ public class SongSelectDisplay : MonoBehaviour
 
         for (int i = 0; i < numOfSongs; ++i)
         {
-            CreateSongButton(songList[i]);
+            GameObject songButton = CreateSongButton(songList[i]);
+
+            if(i == 0)
+            {
+                ReadyFirstSong(songButton);
+            }
         }
     }
 
-    private void CreateSongButton(SongData song)
+    private GameObject CreateSongButton(SongData song)
     {
         GameObject songButton = Instantiate(songButtonPrototype, songListContainer.transform);
         songButton.GetComponent<SongListButton>().Init(song);
+
+        return songButton;
+    }
+
+    private void ReadyFirstSong(GameObject songButton)
+    {
+        songButton.GetComponent<SongListButton>().ClickFirstButton();
     }
 }
