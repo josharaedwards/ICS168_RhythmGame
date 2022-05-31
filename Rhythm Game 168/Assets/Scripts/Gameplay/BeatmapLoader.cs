@@ -7,6 +7,7 @@ public class BeatmapLoader : MonoBehaviour
 {
     [SerializeField] private string beatMapName;
     [SerializeField] private GameObject notePrefab;
+    [SerializeField] private int sortingOrder;
 
     void Start()
     {
@@ -52,6 +53,7 @@ public class BeatmapLoader : MonoBehaviour
             {
                 GameObject note = Instantiate(notePrefab, Vector3.zero, rotation, transform);
                 note.transform.localPosition = new Vector3(receiverPos, pos, 0f);
+                note.GetComponent<SpriteRenderer>().sortingOrder = sortingOrder;
             }
         }
         Debug.Log("LOADED BEATMAP " + beatMapName + " from " + Application.dataPath + "/Beatmap/" + beatMapName + ".json");
