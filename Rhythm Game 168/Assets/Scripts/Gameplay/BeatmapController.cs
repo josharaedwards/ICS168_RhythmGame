@@ -63,7 +63,10 @@ public class BeatmapController : MonoBehaviour
         
         // PlayerManager.allPlayersReady += PlayersNowReady; 
         // CountdownScript.countdownEnded += CountdownEnded; 
-        PlayerManager.playersStartPlaying += StartBeatmap; //<---- Observer Pattern (subscribing)
+        if (!editMode)
+        {
+            PlayerManager.playersStartPlaying += StartBeatmap; //<---- Observer Pattern (subscribing)
+        }
     }
 
     void OnDestroy()
@@ -198,6 +201,7 @@ public class BeatmapController : MonoBehaviour
     {
         for (int i = 1; i < beatPositions.Length; i++)
         {
+            
             beatPositions[i].gameObject.SetActive(true);
         }
         transform.position = initPos;
