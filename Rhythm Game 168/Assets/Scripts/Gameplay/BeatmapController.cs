@@ -63,10 +63,7 @@ public class BeatmapController : MonoBehaviour
         
         // PlayerManager.allPlayersReady += PlayersNowReady; 
         // CountdownScript.countdownEnded += CountdownEnded; 
-        if (!editMode)
-        {
-            PlayerManager.playersStartPlaying += StartBeatmap; //<---- Observer Pattern (subscribing)
-        }
+        PlayerManager.playersStartPlaying += StartBeatmap; //<---- Observer Pattern (subscribing)
     }
 
     void OnDestroy()
