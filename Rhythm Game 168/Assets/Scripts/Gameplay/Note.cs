@@ -69,14 +69,20 @@ public class Note : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        receiver = collision.gameObject.GetComponent<ReceiverController>();
+        if(collision.tag == "Player")
+        {
+            receiver = collision.gameObject.GetComponent<ReceiverController>();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (gameObject.activeSelf)
+        if(collision.tag == "Player")
         {
-            Miss(receiver);
+            if (gameObject.activeSelf)
+            {
+                Miss(receiver);
+            }
         }
     }
 }

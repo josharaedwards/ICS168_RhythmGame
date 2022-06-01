@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6419319124264522175}
   m_Layer: 0
   m_Name: Right Down
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,7 +217,6 @@ MonoBehaviour:
   goodHit: {fileID: 9067433206459685691, guid: d945f5d1abbef4b4cafaf213c1b2442f, type: 3}
   badHit: {fileID: 3539708428591197616, guid: 66c580bf508bf48fbb8ae3101d3a0e58, type: 3}
   gloomyHit: {fileID: 116223284463633260, guid: 55cf3eeab2bb74848a453a959e96afb8, type: 3}
-  miss: {fileID: 2335399728336288483, guid: b3b97c6b8fec5439baa1daca925286df, type: 3}
 --- !u!1 &1385784783807801559
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +231,7 @@ GameObject:
   - component: {fileID: 7735195137906051378}
   m_Layer: 0
   m_Name: Left Down
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -353,7 +352,6 @@ MonoBehaviour:
   goodHit: {fileID: 9067433206459685691, guid: d945f5d1abbef4b4cafaf213c1b2442f, type: 3}
   badHit: {fileID: 3539708428591197616, guid: 66c580bf508bf48fbb8ae3101d3a0e58, type: 3}
   gloomyHit: {fileID: 116223284463633260, guid: 55cf3eeab2bb74848a453a959e96afb8, type: 3}
-  miss: {fileID: 2335399728336288483, guid: b3b97c6b8fec5439baa1daca925286df, type: 3}
 --- !u!1 &1385784784083642169
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +366,7 @@ GameObject:
   - component: {fileID: 5048751639069821844}
   m_Layer: 0
   m_Name: Left Up
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -489,7 +487,6 @@ MonoBehaviour:
   goodHit: {fileID: 9067433206459685691, guid: d945f5d1abbef4b4cafaf213c1b2442f, type: 3}
   badHit: {fileID: 3539708428591197616, guid: 66c580bf508bf48fbb8ae3101d3a0e58, type: 3}
   gloomyHit: {fileID: 116223284463633260, guid: 55cf3eeab2bb74848a453a959e96afb8, type: 3}
-  miss: {fileID: 2335399728336288483, guid: b3b97c6b8fec5439baa1daca925286df, type: 3}
 --- !u!1 &1385784784947940630
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +501,7 @@ GameObject:
   - component: {fileID: 1155655901568379616}
   m_Layer: 0
   m_Name: Right Up
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -625,7 +622,6 @@ MonoBehaviour:
   goodHit: {fileID: 9067433206459685691, guid: d945f5d1abbef4b4cafaf213c1b2442f, type: 3}
   badHit: {fileID: 3539708428591197616, guid: 66c580bf508bf48fbb8ae3101d3a0e58, type: 3}
   gloomyHit: {fileID: 116223284463633260, guid: 55cf3eeab2bb74848a453a959e96afb8, type: 3}
-  miss: {fileID: 2335399728336288483, guid: b3b97c6b8fec5439baa1daca925286df, type: 3}
 --- !u!1 &1385784784987179899
 GameObject:
   m_ObjectHideFlags: 0

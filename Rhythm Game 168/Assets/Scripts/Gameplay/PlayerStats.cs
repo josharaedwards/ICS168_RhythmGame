@@ -8,7 +8,9 @@ using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static event Action<PlayerStats> imDead, iGotHurt, /*iPoweredUp,*/ lowHealth, highHealth, wonMyGame; //<--- Observer pattern
+    private PlayerStats instance;
+
+    public static event Action<PlayerStats> imDead, iGotHurt, lowHealth, highHealth, wonMyGame; //<--- Observer pattern
     public static event Action<int> addToTotalScore; //<--- Observer pattern
     private const int maxHealth = 100;
     public const float maxMeter = 3.0f;
@@ -81,12 +83,16 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         healthBar.fillAmount = (float)health/maxHealth;
         //[looking if our receiver reached the end song trigger]
         ReceiverController.wonGame += wonTheGame;//<---- Observer Pattern (subscribing) 
-
+    
+        // if (this != null)
+        // {
+        //     iJoinedIn(this);
+        // }
         
-
     }
 
     private void OnDestroy()

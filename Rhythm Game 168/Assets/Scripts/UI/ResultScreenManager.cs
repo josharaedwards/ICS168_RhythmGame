@@ -16,7 +16,7 @@ public class ResultScreenManager : MonoBehaviour
     [SerializeField] private NumberCounter singlePlayerScore, singlePlayerHealth, p1Score, p2Score, p1Health, p2Health, totalScore;
     [SerializeField] private NumberCounter spSuperb, spGood, spBad, spGloomy, p1Superb, p1Good, p1Bad, p1Gloomy, p2Superb, p2Good, p2Bad, p2Gloomy;
 
-    private bool isSinglePlayer = (GameManager.gameState == GameManager.GameStates.SinglePlayer);
+    [SerializeField] private bool isSinglePlayer = (GameManager.gameState == GameManager.GameStates.SinglePlayer);
 
     public float fadeTime = 1.0f;
 
@@ -96,8 +96,8 @@ public class ResultScreenManager : MonoBehaviour
             StartCoroutine(Animation(p1HealthBar));
             yield return StartCoroutine(Animation(p2HealthBar));
 
-            p1Health.Value = PlayerPrefs.GetInt("HealthPlayer1");;
-            p2Health.Value = PlayerPrefs.GetInt("HealthPlayer2");;
+            p1Health.Value = PlayerPrefs.GetInt("HealthPlayer1");
+            p2Health.Value = PlayerPrefs.GetInt("HealthPlayer2");
             yield return new WaitForSeconds(countTime);
         }
 
@@ -110,7 +110,7 @@ public class ResultScreenManager : MonoBehaviour
         {
             yield return StartCoroutine(Animation(singlePlayerScoreText));
 
-            singlePlayerScore.Value = PlayerPrefs.GetInt("ScorePlayer1");;
+            singlePlayerScore.Value = PlayerPrefs.GetInt("ScorePlayer1");
             yield return new WaitForSeconds(countTime);
         }
 
@@ -184,7 +184,7 @@ public class ResultScreenManager : MonoBehaviour
         {
             yield return StartCoroutine(Animation(TotalScoreText));
 
-            totalScore.Value = 50;
+            totalScore.Value = PlayerPrefs.GetInt("TotalScore");
             yield return new WaitForSeconds(countTime);
         }
 
