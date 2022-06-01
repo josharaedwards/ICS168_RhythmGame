@@ -34,7 +34,7 @@ public class ReceiverController : MonoBehaviour
     private int wiggleToFree = 10;
     private bool disabled = false;
     // private bool isDead = false;
-    private bool /*superbPress, goodPress, almostPress,badPress,*/ validPress = false;
+    // private bool /*superbPress, goodPress, almostPress,badPress,*/ validPress = false;
     private Note currentNote; // TODO: Make this a queue for somewhat overlapping notes
 
     [SerializeField] private GameObject superbHit, goodHit, badHit, gloomyHit;
@@ -169,10 +169,9 @@ public class ReceiverController : MonoBehaviour
     private void Hit()
     {
         
-        if (validPress)
+        if (currentNote != null && currentNote.gameObject.activeSelf)
         {
             currentNote.Hit(this);
-            validPress = false;
         }
         else
         {
@@ -184,7 +183,6 @@ public class ReceiverController : MonoBehaviour
     {
         if (collision.tag == "Note")
         {
-            validPress = true;
             currentNote = collision.gameObject.GetComponent<Note>();
             //Debug.Log("Note Enter");
         }
@@ -197,19 +195,7 @@ public class ReceiverController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.activeSelf) //Checks if the GameObject is active, preventing the function from registering it being hit as a miss.
-        {
-            if (collision.tag == "Note")
-            {
-                validPress = false;
-                if (currentNote != null)
-                {
-                    currentNote.Miss(this);
-                    currentNote = null;
-                }
-                //Debug.Log("Note Exit");
-            }
-        }
+        
     }
 
     public void GloomyHit()

@@ -11,7 +11,7 @@ public class Note : MonoBehaviour
     [SerializeField] [Range(0f, 1f)] private float goodThreshold = 0.50f;
     //[SerializeField] [Range(0f, 1f)] private float superbThreshold = 0;
 
-    // ReceiverController receiver;
+    ReceiverController receiver;
 
     // Start is called before the first frame update
     void Start()
@@ -62,18 +62,21 @@ public class Note : MonoBehaviour
     // Depawn the note after a delay
     IEnumerator Despawn()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.3f);
         gameObject.SetActive(false);
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //receiver = collision.gameObject.GetComponent<ReceiverController>();
+        receiver = collision.gameObject.GetComponent<ReceiverController>();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        if (gameObject.activeSelf)
+        {
+            Miss(receiver);
+        }
     }
 }
