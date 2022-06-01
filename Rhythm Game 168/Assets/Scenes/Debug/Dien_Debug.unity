@@ -1499,6 +1499,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1809911801, guid: 8c583e809b0c4493d9b3ce2944a7726c, type: 3}
+      propertyPath: editMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809911801, guid: 8c583e809b0c4493d9b3ce2944a7726c, type: 3}
       propertyPath: playerPrefabs.Array.size
       value: 1
       objectReference: {fileID: 0}
