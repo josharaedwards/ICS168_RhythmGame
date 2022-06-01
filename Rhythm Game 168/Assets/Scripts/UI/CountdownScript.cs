@@ -16,7 +16,7 @@ public class CountdownScript : MonoBehaviour
 
     [SerializeField] private float countdownCount = 1.0f;
 
-    void Start()
+    void Awake()
     {
         PlayerManager.allPlayersReady += PlayersNowReady; //<---- Observer Pattern (subscribing)
     }

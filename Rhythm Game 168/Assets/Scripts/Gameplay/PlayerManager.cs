@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
 
     private PlayerInputManager manager;
 
-    [SerializeField] private bool editMode = false;
+   
 
     [SerializeField] private int playerCount = 1; //MUST set in editor for single vs multiplayer
     private int playerNumber = 0;
@@ -54,10 +54,9 @@ public class PlayerManager : MonoBehaviour
         if(playerCount == 1)
         {
             manager.gameObject.SetActive(false);
-            if(!editMode)
-            {
-                allPlayersReady(this);
-            }
+            
+            allPlayersReady(this);
+            
         }
     }
 
