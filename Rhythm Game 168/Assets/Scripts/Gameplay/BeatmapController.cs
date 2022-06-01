@@ -1,13 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Audio;
+using TMPro;
+
 public class BeatmapController : MonoBehaviour
 {
     [SerializeField] private bool editMode = true;
 
-    [SerializeField] private bool started = false;
+    public bool started = false;
+
+    public bool paused = false;
 
     [SerializeField] private bool isPlaying = false;
 
@@ -18,6 +23,10 @@ public class BeatmapController : MonoBehaviour
     AudioManager audioManager;
 
     [SerializeField] [Range(1.0f, 5.0f)] private float highwaySpeed = 1;
+
+    // [SerializeField] private TextMeshProUGUI countdownText;
+
+    // [SerializeField] private Animation countdownAnim;
 
     private Transform[] beatPositions;
 
@@ -50,21 +59,46 @@ public class BeatmapController : MonoBehaviour
 
         initPos = transform.position;
         audioManager = AudioManager.instance;
+
+        
+        // PlayerManager.allPlayersReady += PlayersNowReady; 
+        // CountdownScript.countdownEnded += CountdownEnded; 
+        PlayerManager.playersStartPlaying += StartBeatmap; //<---- Observer Pattern (subscribing)
+    }
+
+    void OnDestroy()
+    {
+        PlayerManager.playersStartPlaying -= StartBeatmap;  //<---- Observer Pattern (unsubscribing)
+        // CountdownScript.countdownEnded += CountdownEnded; 
+    }
+
+    private void StartBeatmap(PlayerManager sub)
+    {
+        started = true;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!started)
+        if (editMode)
         {
-            if (Input.anyKeyDown)
+            started = true;
+        }   
+
+        if (started)
+        {
+            if(!isPlaying)
             {
                 isPlaying = true;
-                started = true;
                 audioManager.PlaySong(song.songClip);
+                if(editMode)
+                {
+                    Pause();
+                }
             }
+            
         }
-        if (isPlaying)
+        if (isPlaying && !paused)
         {
             transform.localPosition -= transform.rotation * (new Vector3(0.0f, beatPerSecond * highwaySpeed * Time.fixedDeltaTime, 0.0f));
         }
@@ -109,7 +143,7 @@ public class BeatmapController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (isPlaying)
+            if (!paused)
             {
                 Pause();
             }
@@ -150,13 +184,13 @@ public class BeatmapController : MonoBehaviour
 
     private void Play()
     {
-        isPlaying = true;
+        paused = false;
         audioManager.Play();
     }
 
     private void Pause()
     {
-        isPlaying = false;
+        paused = true;
         audioManager.Pause();
     }
 

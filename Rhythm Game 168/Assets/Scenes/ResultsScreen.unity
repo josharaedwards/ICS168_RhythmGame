@@ -486,6 +486,7 @@ MonoBehaviour:
   p2Good: {fileID: 700217182}
   p2Bad: {fileID: 1997828277}
   p2Gloomy: {fileID: 608827670}
+  isSinglePlayer: 1
   fadeTime: 1
 --- !u!1 &238689715
 GameObject:
