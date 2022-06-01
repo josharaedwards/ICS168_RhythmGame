@@ -72,4 +72,16 @@ public class LevelLoaderScript : MonoBehaviour
         Debug.Log(scene + "Loaded!");
         SceneManager.LoadScene(scene);
     }
+
+    public void LeaveRoom(string scene)
+    {
+        StartCoroutine(LeaveRoomTransition(scene));
+    }
+
+    private IEnumerator LeaveRoomTransition(string scene)
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
+        GameManager.instance.LeaveRoom();
+    }
 }
