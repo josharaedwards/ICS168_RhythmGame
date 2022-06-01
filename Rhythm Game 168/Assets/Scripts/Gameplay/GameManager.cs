@@ -59,7 +59,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        SceneManager.LoadScene(0);
+        Debug.Log("Left Room Successful");
+        SceneManager.LoadScene("SinglePlayerMultiplayer");
     }
 
     public void LeaveRoom()
