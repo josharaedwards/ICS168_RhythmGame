@@ -19,7 +19,7 @@ public class BeatmapController : MonoBehaviour
     [SerializeField] private float beatPerMinute;
     private float beatPerSecond, secondsPerBeat;
 
-    [SerializeField] private SongData song;
+    private SongData song;
     AudioManager audioManager;
 
     [SerializeField] [Range(1.0f, 5.0f)] private float highwaySpeed = 1;
@@ -41,14 +41,17 @@ public class BeatmapController : MonoBehaviour
 
     void Start()
     {
+        beatmapLoader = GetComponent<BeatmapLoader>();
         song = GameManager.instance.currentSong;
+        if (!editMode)
+        {
+            beatmapLoader.setBeatmapName(song.beatmapName);
+            beatmapLoader.Clear();
+            beatmapLoader.Load();
+        }
+
         beatPerMinute = song.bpm;
         beatPerSecond = beatPerMinute / 60f;
-
-        beatmapLoader = GetComponent<BeatmapLoader>();
-        beatmapLoader.setBeatmapName(song.beatmapName);
-        beatmapLoader.Clear();
-        beatmapLoader.Load();
 
         beatPositions = GetComponentsInChildren<Transform>();
         for (int i = 1; i < beatPositions.Length; i++)
