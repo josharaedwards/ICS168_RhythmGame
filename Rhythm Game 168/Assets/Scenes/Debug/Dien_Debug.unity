@@ -860,6 +860,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5031095185751185402, guid: fa70149573acee54ab8235bd116875ec, type: 3}
+      propertyPath: beatMapName
+      value: ComeWanderBeatmap
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa70149573acee54ab8235bd116875ec, type: 3}
 --- !u!1001 &1170942503
