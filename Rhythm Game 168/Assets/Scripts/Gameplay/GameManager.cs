@@ -108,4 +108,11 @@ public class GameManager : MonoBehaviourPunCallbacks
         currentSong = otherSong;
         Debug.Log("Song Set: " + currentSong.songTitle);
     }
+
+    public void SetGameState(GameStates state)
+    {
+        gameState = state;
+
+        Debug.Log("Game State set to " + state);
+    }
 }
