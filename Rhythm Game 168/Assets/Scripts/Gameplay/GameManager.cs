@@ -10,6 +10,16 @@ public class GameManager : MonoBehaviourPunCallbacks
     public static GameManager instance { get; private set; }
 
     public SongData[] songList;
+    public SongData currentSong;
+
+    public enum GameStates
+    {
+        Menu,
+        SinglePlayer,
+        Multiplayer
+    }
+
+    public static GameStates gameState = GameStates.Menu;
 
     private void Awake()
     {
@@ -49,7 +59,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        SceneManager.LoadScene(0);
+        Debug.Log("Left Room Successful");
+        SceneManager.LoadScene("SinglePlayerMultiplayer");
     }
 
     public void LeaveRoom()
@@ -90,5 +101,18 @@ public class GameManager : MonoBehaviourPunCallbacks
 
             LoadArena();
         }
+    }
+
+    public void SetCurrentSong(SongData otherSong)
+    {
+        currentSong = otherSong;
+        Debug.Log("Song Set: " + currentSong.songTitle);
+    }
+
+    public void SetGameState(GameStates state)
+    {
+        gameState = state;
+
+        Debug.Log("Game State set to " + state);
     }
 }

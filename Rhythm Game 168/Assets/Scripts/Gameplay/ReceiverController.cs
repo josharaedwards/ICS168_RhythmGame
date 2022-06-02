@@ -1,24 +1,44 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ReceiverController : MonoBehaviour
 {
-    private SpriteRenderer buttonSprite, lineSprite, laneSprite;
+    public static event Action<ReceiverController> wonGame; //<--- Observer pattern
+    private SpriteRenderer buttonSprite, laneSprite;
+
+    [SerializeField] private SpriteRenderer lineSprite;
+
     private Color initButtonColor, initLineColor, initLaneColor;
     private Color pressedButtonColor, pressedLineColor, pressedLaneColor;
 
+    private Color disabledButtonColor, disabledLineColor, disabledLaneColor;
+
+    private BoxCollider2D boxCollider;
     private float receiverColliderSize;
-    private float receiverColliderOffset;
+    private Vector3 boxColliderOffset, receiverColliderPos;
+    private float receiverColliderPosY, receiverColliderPosX;
     private PlayerInput playerInput;
 
-    [SerializeField] [Range(0f, 2f)] private float shadeAlpha;
+    [SerializeField] [Range(0f, 1f)] private float shadeWhite, shadeAlpha;
     [SerializeField] private InputActionReference m_Keybind;
 
-    private ScoreTracker scoreTracker;
-    private bool /*superbPress, goodPress, almostPress,badPress,*/ validPress = false;
-    private GameObject currentNote; // TODO: Make this a queue for somewhat overlapping notes
+    [SerializeField] private AudioClip sfxHit;
+
+    [SerializeField] private AudioClip sfxMiss;
+    [SerializeField] private AudioClip sfxHitDisabled;
+    private PlayerStats scoreAndHealth;
+
+    private int wiggleToFree = 10;
+    private bool disabled = false;
+    // private bool isDead = false;
+    // private bool /*superbPress, goodPress, almostPress,badPress,*/ validPress = false;
+    private Note currentNote; // TODO: Make this a queue for somewhat overlapping notes
+
+    [SerializeField] private GameObject superbHit, goodHit, badHit, gloomyHit;
 
     private void OnEnable()
     {
@@ -27,298 +47,186 @@ public class ReceiverController : MonoBehaviour
 
     private void OnDisable()
     {
+        if(playerInput != null)
+        {
+            playerInput.actions.Disable();
+        }
+    }
+
+    public void Disable()
+    {
+        laneSprite.color = disabledLaneColor;
+        lineSprite.color = disabledLineColor;
+        buttonSprite.color = disabledButtonColor;
+        disabled = true;
+    }
+
+    public void DisableFully()
+    {
         playerInput.actions.Disable();
+        laneSprite.color = disabledLaneColor;
+        lineSprite.color = disabledLineColor;
+        buttonSprite.color = disabledButtonColor;
+        boxCollider.enabled = false;
     }
 
     void Awake() {
         playerInput = GetComponentInParent<PlayerInput>();
-        playerInput.actions[m_Keybind.action.name].performed += HitOrMiss;
+        playerInput.actions[m_Keybind.action.name].performed += Pressed;
         playerInput.actions[m_Keybind.action.name].canceled += notPressed;
-        // m_Keybind.action.performed += ctx => HitOrMiss();
-        // m_Keybind.action.performed += ctx => buttonSprite.color = pressedColor;
-        // m_Keybind.action.canceled += ctx => buttonSprite.color = initColor;
     }
 
     void notPressed(InputAction.CallbackContext context)
     {
         if(buttonSprite != null && lineSprite != null && laneSprite != null)
         {
-            laneSprite.color = initLaneColor;
-            lineSprite.color = initLineColor;
-            buttonSprite.color = initButtonColor;
+            if (!disabled)
+            {
+                laneSprite.color = initLaneColor;
+                lineSprite.color = initLineColor;
+                buttonSprite.color = initButtonColor;
+            }
+            else
+            {
+                laneSprite.color = disabledLaneColor;
+                lineSprite.color = disabledLineColor;
+                buttonSprite.color = disabledButtonColor;
+            }
         } 
     }
     
 
     void Start()
     {
-        receiverColliderSize = GetComponent<BoxCollider2D>().size.y;
-        receiverColliderOffset = GetComponent<BoxCollider2D>().offset.y;
+        boxCollider = GetComponent<BoxCollider2D>();
+        boxColliderOffset = boxCollider.offset;
+        receiverColliderSize = boxCollider.size.y;
+        receiverColliderPosX = boxColliderOffset.x + transform.position.x;
+        receiverColliderPosY = boxColliderOffset.y + transform.position.y;
+        receiverColliderPos = boxColliderOffset + transform.position;
 
-        laneSprite = GetComponentInChildren<SpriteRenderer>();
+
+        laneSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         initLaneColor = laneSprite.color;
-        pressedLaneColor = new Color(initLaneColor.r, initLaneColor.g, initLaneColor.b, initLaneColor.a * shadeAlpha);
+        pressedLaneColor = Color.Lerp(initLaneColor, Color.white, shadeWhite);
+        disabledLaneColor = new Color(initLaneColor.r, initLaneColor.g, initLaneColor.b, initLaneColor.a * shadeAlpha);
         
-        lineSprite = GameObject.Find("Judgement Line").GetComponent<SpriteRenderer>();
         initLineColor = lineSprite.color;
-        pressedLineColor = new Color(initLineColor.r, initLineColor.g, initLineColor.b, initLineColor.a * shadeAlpha);
+        pressedLineColor = Color.Lerp(initLineColor, Color.white, shadeWhite);
+        disabledLineColor = new Color(initLineColor.r, initLineColor.g, initLineColor.b, initLineColor.a * shadeAlpha);
 
         buttonSprite = GetComponent<SpriteRenderer>();
         initButtonColor = buttonSprite.color;
-        pressedButtonColor = new Color(initButtonColor.r, initButtonColor.g, initButtonColor.b, initButtonColor.a * shadeAlpha);
+        pressedButtonColor = Color.Lerp(initButtonColor, Color.white, shadeWhite);
+        disabledButtonColor = new Color(initButtonColor.r, initButtonColor.g, initButtonColor.b, initButtonColor.a * shadeAlpha);
 
-        scoreTracker = ScoreTracker.instance;
+        scoreAndHealth = GetComponentInParent<PlayerStats>();
+    }
+    
+    void Update()
+    {
+        
+        if (scoreAndHealth.wiggled >= wiggleToFree)
+        {
+            disabled = false;
+            laneSprite.color = initLaneColor;
+            lineSprite.color = initLineColor;
+            buttonSprite.color = initButtonColor;
+        }
+        
     }
 
-    /*
-    void Update() {
-        if (Input.GetKeyDown(PRESS)) {
-            HitOrMiss();
-            buttonSprite.color = pressedColor;
-        }
-        if (Input.GetKeyUp(PRESS)) {
-            buttonSprite.color = initColor;
-        }
-    }
-    */
     // Update is called once per frame
-    void HitOrMiss(InputAction.CallbackContext context)
+    void Pressed(InputAction.CallbackContext context)
     {
-        if(buttonSprite != null && lineSprite != null && laneSprite != null)
+        if (!disabled)
         {
-            laneSprite.color = pressedLaneColor;
-            lineSprite.color = pressedLineColor;
-            buttonSprite.color = pressedButtonColor;
+            if(buttonSprite != null && lineSprite != null && laneSprite != null)
+            {
+                laneSprite.color = pressedLaneColor;
+                lineSprite.color = pressedLineColor;
+                buttonSprite.color = pressedButtonColor;
+            }
+            Hit();
         }
-
-        HitType();
-            
-        // if (validPress)
-        // {
-        //     scoreTracker.gloomy += 1;
-
-        //     if(currentNote != null)
-        //     {
-        //         currentNote.SetActive(false);
-        //         currentNote = null;
-        //     }
-        //     validPress = false;
-        // }
-        // else
-        // {
-        //     scoreTracker.miss += 1;
-        // }
-
+        else
+        {
+            if(buttonSprite != null && lineSprite != null && laneSprite != null)
+            {
+                laneSprite.color = initLaneColor;
+                lineSprite.color = initLineColor;
+                buttonSprite.color = initButtonColor;
+            }
+            Wiggle();
+        }    
     }
 
-    private void HitType()
+    private void Wiggle()
     {
-        if (validPress)
+        AudioManager.instance.PlayBeat(sfxHitDisabled);
+        scoreAndHealth.wiggled += 1;
+        
+    }
+
+    // Send hit signal to current note
+    private void Hit()
+    {
+        
+        if (currentNote != null && currentNote.gameObject.activeSelf)
         {
-            float currentNotePos = currentNote.transform.position.y;
-            float hitRangePercentage = (Mathf.Abs(currentNotePos - (receiverColliderOffset + transform.position.y))/receiverColliderSize) * 2;
-
-            if (hitRangePercentage > .90f)
-            {
-                scoreTracker.gloomy += 1;
-            }
-            else if (hitRangePercentage > .75f)
-            {
-                scoreTracker.bad += 1;
-            }
-            else if (hitRangePercentage > .50f)
-            {
-                scoreTracker.good += 1;
-            }
-            else
-            {
-                scoreTracker.superb += 1;
-            }
-
-            if(currentNote != null)
-            {
-                currentNote.SetActive(false);
-                currentNote = null;
-            }
-            validPress = false;
+            currentNote.Hit(this);
         }
-        
-
-
-        // if (superbPress)
-        // {
-        //     scoreTracker.superb += 1;
-
-        //     superbPress = false;
-        //     goodPress = false; 
-        //     // almostPress = false; 
-        //     badPress = false;
-        //     validPress = false;
-            // if(currentNote != null)
-            // {
-            //     currentNote.SetActive(false);
-            //     currentNote = null;
-            // }
-            // (superbPress, goodPress, almostPress, badPress, validPress) = false;
-            // superbPress = false;
-//         }
-//         else if (goodPress)
-//         {
-//             scoreTracker.good += 1;
-
-//             superbPress = false;
-//             goodPress = false; 
-//             // almostPress = false; 
-//             badPress = false;
-//             validPress = false;
-//             // if(currentNote != null)
-//             // {
-//             //     currentNote.SetActive(false);
-//             //     currentNote = null;
-//             // }
-            
-//             //superbPress = false;
-//         }
-// //         else if (almostPress)
-// //         {
-// //             scoreTracker.almost += 1;
-
-// //             // if(currentNote != null)
-// //             // {
-// //             //     currentNote.SetActive(false);
-// //             //     currentNote = null;
-// //             // }
-// // ;
-// //             //validPress = false;
-// //         }
-//         else if (badPress)
-//         {
-//             scoreTracker.bad += 1;
-
-//             superbPress = false;
-//             goodPress = false; 
-//             // almostPress = false; 
-//             badPress = false;
-//             validPress = false;
-
-//             // if(currentNote != null)
-//             // {
-//             //     currentNote.SetActive(false);
-//             //     currentNote = null;
-//             // }
-
-//             //validPress = false;
-//         }
-//         else if (validPress)
-//         {
-//             scoreTracker.gloomy += 1;
-
-//             superbPress = false;
-//             goodPress = false; 
-//             // almostPress = false; 
-//             badPress = false;
-//             validPress = false;
-//             //validPress = false;
-//         }
-
-//         if(currentNote != null)
-//         {
-//             currentNote.SetActive(false);
-//             currentNote = null;
-//         }
-
-        // superbPress = false;
-        // goodPress = false; 
-        // // almostPress = false; 
-        // badPress = false;
-        // validPress = false;
-
-
-        
-        // else
-        // {
-        //     scoreTracker.miss += 1;
-        // }
-        
+        else
+        {
+            AudioManager.instance.PlayBeat(sfxMiss);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Note")
         {
-            validPress = true;
-            currentNote = collision.gameObject;
-            Debug.Log("Note Enter");
+            currentNote = collision.gameObject.GetComponent<Note>();
+            //Debug.Log("Note Enter");
         }
-        // switch (collision.tag)
-        // {
-        //     case "Note":
-        //         superbPress = true;
-        //         break;
-        //     case "Good Note":
-        //         goodPress = true;
-        //         break;
-        //     // case "Almost Note":
-        //     //     almostPress = true;
-        //     //     break;
-        //     case "Bad Note":
-        //         badPress = true;
-        //         break;
-        //     case "Gloomy Note":
-        //         validPress = true;
-        //         currentNote = collision.transform.parent.gameObject;
-        //         Debug.Log("Note Enter");
-        //         break;
-
-        // }
-        
+        else if (collision.tag == "Finish")
+        {
+            Debug.Log("Won Game!");
+            wonGame(this);          
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.activeSelf) //Checks if the GameObject is active, preventing the function from registering it being hit as a miss.
-        {
-            if (collision.tag == "Note")
-            {
-                validPress = false;
-                if (currentNote != null)
-                {
-                    scoreTracker.miss += 1;
-                }
-                currentNote = null;
-                Debug.Log("Note Exit");
-            }
-        }
-        // if (currentNote != null)
-        // {
-        //     if (currentNote.activeSelf) //Checks if the GameObject is active, preventing the function from registering it being hit as a miss.
-        //     {
-        //         switch (collision.tag)
-        //         {
-        //             case "Note":
-        //                 superbPress = false;
-        //                 break;
-        //             case "Good Note":
-        //                 goodPress = false;
-        //                 break;
-        //             // case "Almost Note":
-        //             //     almostPress = false;
-        //             //     break;
-        //             case "Bad Note":
-        //                 badPress = false;
-        //                 break;
-        //             case "Gloomy Note":
-        //                 validPress = false;
-        //                 scoreTracker.miss += 1;
-        //                 // if (currentNote != null)
-        //                 // {
-        //                 //     scoreTracker.miss += 1;
-        //                 // }
-        //                 currentNote = null;
-        //                 Debug.Log("Note Exit");
-        //                 break;
-        //         }
-        //     }
-        // }    
+        
+    }
+
+    public void GloomyHit()
+    {
+        scoreAndHealth.gloomyHit();
+        Instantiate(gloomyHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
+    }
+
+    public void BadHit()
+    {
+        scoreAndHealth.badHit();
+        Instantiate(badHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
+    }
+
+    public void GoodHit()
+    {
+        scoreAndHealth.goodHit();
+        Instantiate(goodHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
+    }
+
+    public void SuperbHit()
+    {
+        scoreAndHealth.superbHit();
+        Instantiate(superbHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
+    }
+
+    public float HitRangePercentage(Vector3 currentNotePos)
+    {
+        return (Mathf.Abs(Vector3.Distance(currentNotePos, receiverColliderPos))) / receiverColliderSize * 2;
     }
 }

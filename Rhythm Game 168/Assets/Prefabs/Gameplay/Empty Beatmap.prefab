@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &752811875398998660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 752811875398998662}
+  - component: {fileID: 752811875398998661}
+  - component: {fileID: 5031095185751185402}
+  m_Layer: 0
+  m_Name: Empty Beatmap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &752811875398998662
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752811875398998660}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &752811875398998661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752811875398998660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b19572313d103b47ac2967f29a8555a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editMode: 0
+  started: 0
+  paused: 0
+  isPlaying: 0
+  beatPerMinute: 0
+  highwaySpeed: 1.5
+--- !u!114 &5031095185751185402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752811875398998660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8903e9b5ee3c70c419e25092e1e1371e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMapName: 
+  notePrefab: {fileID: 9046662915842247669, guid: 000a23f54434b4d4eace937e140303c0, type: 3}
+  endSongTriggerPrefab: {fileID: 3709656414987624970, guid: 164e0b76f834f413e9d46830acfd125e, type: 3}
+  sortingOrder: 0

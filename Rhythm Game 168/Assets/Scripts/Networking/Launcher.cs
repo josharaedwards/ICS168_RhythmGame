@@ -69,12 +69,31 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("OnJoinedRoom() called by PUN. Now this client is in a room.");
-        
-        if(PhotonNetwork.CurrentRoom.PlayerCount == 1)
+
+        GameManager.GameStates currentState = GameManager.gameState;
+
+        switch(currentState)
+        {
+            case GameManager.GameStates.SinglePlayer:
+                Debug.Log("We load the Main for SinglePlayer");
+                PhotonNetwork.LoadLevel("Main");
+                break;
+            case GameManager.GameStates.Multiplayer:
+                Debug.Log("We load the Main for Multiplayer");
+                PhotonNetwork.LoadLevel("Main2");
+                break;
+            default:
+                Debug.Log("We are in in menu mode");
+                break;
+        }
+
+        //I'll add player count back in for networked multiplayer
+
+        /*if(PhotonNetwork.CurrentRoom.PlayerCount == 1)
         {
             Debug.Log("We load the Main Player 1");
 
             PhotonNetwork.LoadLevel("Main");
-        } 
+        }*/ 
     }
 }
