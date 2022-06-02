@@ -29,8 +29,7 @@ public class Note : MonoBehaviour
     public void Hit(ReceiverController receiver)
     {
         AudioManager.instance.PlayBeat(sfxHit);
-        float currentNotePos = transform.position.y;
-        float hitRangePercentage = receiver.HitRangePercentage(currentNotePos);
+        float hitRangePercentage = receiver.HitRangePercentage(transform.position);
 
         if (hitRangePercentage > gloomyThreshold)
         {

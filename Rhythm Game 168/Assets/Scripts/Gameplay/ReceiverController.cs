@@ -19,6 +19,7 @@ public class ReceiverController : MonoBehaviour
 
     private BoxCollider2D boxCollider;
     private float receiverColliderSize;
+    private Vector3 boxColliderOffset, receiverColliderPos;
     private float receiverColliderPosY, receiverColliderPosX;
     private PlayerInput playerInput;
 
@@ -98,9 +99,11 @@ public class ReceiverController : MonoBehaviour
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
+        boxColliderOffset = boxCollider.offset;
         receiverColliderSize = boxCollider.size.y;
-        receiverColliderPosX = boxCollider.offset.x + transform.position.x;
-        receiverColliderPosY = boxCollider.offset.y + transform.position.y;
+        receiverColliderPosX = boxColliderOffset.x + transform.position.x;
+        receiverColliderPosY = boxColliderOffset.y + transform.position.y;
+        receiverColliderPos = boxColliderOffset + transform.position;
 
 
         laneSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
@@ -222,8 +225,8 @@ public class ReceiverController : MonoBehaviour
         Instantiate(superbHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
     }
 
-    public float HitRangePercentage(float currentNotePos)
+    public float HitRangePercentage(Vector3 currentNotePos)
     {
-        return (Mathf.Abs(currentNotePos - (receiverColliderPosY)) / receiverColliderSize) * 2;
+        return (Mathf.Abs(Vector3.Distance(currentNotePos, receiverColliderPos))) / receiverColliderSize * 2;
     }
 }
