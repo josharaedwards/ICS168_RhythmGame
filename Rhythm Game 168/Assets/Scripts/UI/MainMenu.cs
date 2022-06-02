@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
     public void SinglePlayerButton()
     {
         // Single Player
-        GameManager.gameState = GameManager.GameStates.SinglePlayer;
+        GameManager.instance.SetGameState(GameManager.GameStates.SinglePlayer);
 
         LevelLoaderScript.instance.LoadNextScene("SongSelect");
     }
@@ -33,8 +33,7 @@ public class MainMenu : MonoBehaviour
     public void MultiPlayerButton()
     {
         // Multi Player
-        GameManager.gameState = GameManager.GameStates.SinglePlayer;
-        //GameManager.gameState = GameManager.GameStates.Multiplayer;
+        GameManager.instance.SetGameState(GameManager.GameStates.Multiplayer);
 
         LevelLoaderScript.instance.LoadNextSceneFromWin("SongSelect");
     }
