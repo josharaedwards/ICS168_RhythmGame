@@ -16,7 +16,7 @@ public class ResultScreenManager : MonoBehaviour
     [SerializeField] private NumberCounter singlePlayerScore, singlePlayerHealth, p1Score, p2Score, p1Health, p2Health, totalScore;
     [SerializeField] private NumberCounter spSuperb, spGood, spBad, spGloomy, p1Superb, p1Good, p1Bad, p1Gloomy, p2Superb, p2Good, p2Bad, p2Gloomy;
 
-    [SerializeField] private bool isSinglePlayer = (GameManager.gameState == GameManager.GameStates.SinglePlayer);
+    private bool isSinglePlayer = (GameManager.gameState == GameManager.GameStates.SinglePlayer);
 
     public float fadeTime = 1.0f;
 
