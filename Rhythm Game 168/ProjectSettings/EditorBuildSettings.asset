@@ -12,14 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/SinglePlayerMultiplayer.unity
     guid: f75c67915dc51e848813a5ce35f46d18
   - enabled: 1
-    path: Assets/Scenes/Debug/Jason_Debug.unity
-    guid: 14ae5077ad683fc4c9c7698101ad083c
-  - enabled: 1
     path: Assets/Scenes/SongSelect.unity
     guid: 9d35009d23b97b046a4f05c7e886f3b2
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 5a7a6dba6b33c124088fe4e4cad3db6c
+  - enabled: 1
+    path: Assets/Scenes/Main2.unity
+    guid: 3afec8b4bcc37f24989255ab39b6085c
   - enabled: 1
     path: Assets/Scenes/ResultsScreen.unity
     guid: 721100b17a2ff3d47a684d1f3c510ea1

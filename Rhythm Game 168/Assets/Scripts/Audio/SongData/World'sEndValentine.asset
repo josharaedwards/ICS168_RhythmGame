@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: World'sEndValentine
   m_EditorClassIdentifier: 
   songTitle: World's End Valentine
-  artistName: 
-  bpm: 0
-  songClip: {fileID: 0}
+  artistName: OMORI
+  bpm: 160
+  songClip: {fileID: 8300000, guid: dde542900e742944d9ea5389f3e0d60e, type: 3}
   albumCover: {fileID: 0}
-  difficulty: 
+  difficulty: Intermediate
+  songButton: {fileID: 0}
+  beatmapName: WorldsEndValentineBeatmap

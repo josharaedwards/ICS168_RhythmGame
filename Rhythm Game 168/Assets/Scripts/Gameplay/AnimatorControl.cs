@@ -22,6 +22,7 @@ public class AnimatorControl : MonoBehaviour
     void OnDestroy()
     {
         PlayerStats.imDead -= Died;
+        PlayerStats.wonMyGame -= wonGame;
         //PlayerStats.iPoweredUp -= PowerUp;
         PlayerStats.highHealth -= Healthy;
         PlayerStats.lowHealth -= Unhealthy;
@@ -30,7 +31,7 @@ public class AnimatorControl : MonoBehaviour
 
     private bool CheckIfMine(PlayerStats sub)
     {
-        if(this.transform.parent == sub.gameObject.transform)
+        if(this.gameObject.transform.parent == sub.gameObject.transform)
         {
             return true;
         }
