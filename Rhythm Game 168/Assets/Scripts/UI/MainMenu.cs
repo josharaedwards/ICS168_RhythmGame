@@ -35,6 +35,6 @@ public class MainMenu : MonoBehaviour
         // Multi Player
         GameManager.instance.SetGameState(GameManager.GameStates.Multiplayer);
 
-        LevelLoaderScript.instance.LoadNextSceneFromWin("SongSelect");
+        LevelLoaderScript.instance.LoadNextScene("SongSelect");
     }
 }
