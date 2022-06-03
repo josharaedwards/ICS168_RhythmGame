@@ -36,7 +36,7 @@ public class BeatmapLoader : MonoBehaviour
     public void Load()
     {
         // Load Beatmap object from json file
-        string json_dump = File.ReadAllText(Application.dataPath + "/Beatmap/" + beatMapName + ".json");
+        string json_dump = File.ReadAllText(Application.streamingAssetsPath + "/" + beatMapName + ".json");
         Debug.Log(json_dump);
         Beatmap beatmap = JsonUtility.FromJson<Beatmap>(json_dump);
         beatmap.InitBeatmap();
