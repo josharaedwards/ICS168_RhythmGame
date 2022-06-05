@@ -43,7 +43,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        Debug.Log("OnConnectedToMaster() was called by PUN");
+        Debug.Log("OnConnectedToMaster() was called by PUN"); 
 
         //Tries to joing a random existing room and calls OnJoinRandomFailed() if not
         PhotonNetwork.JoinRandomRoom();
@@ -69,31 +69,41 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("OnJoinedRoom() called by PUN. Now this client is in a room.");
+        Debug.Log("Our current PlayerCount is " + PhotonNetwork.CurrentRoom.PlayerCount);
 
         GameManager.GameStates currentState = GameManager.gameState;
 
         switch(currentState)
         {
             case GameManager.GameStates.SinglePlayer:
-                Debug.Log("We load the Main for SinglePlayer");
-                PhotonNetwork.LoadLevel("Main");
+                JoinSinglePlayerRoom();
                 break;
             case GameManager.GameStates.Multiplayer:
-                Debug.Log("We load the Main for Multiplayer");
-                PhotonNetwork.LoadLevel("Main2");
+                JoinMultiplayerRoom();
                 break;
             default:
-                Debug.Log("We are in in menu mode");
+                Debug.Log("[Launcher] We are in in menu mode");
                 break;
         }
+    }
 
-        //I'll add player count back in for networked multiplayer
+    private void JoinSinglePlayerRoom()
+    {
+        Debug.Log("[Launcher] We load the Main for SinglePlayer");
+        PhotonNetwork.LoadLevel("Main");
+    }
 
-        /*if(PhotonNetwork.CurrentRoom.PlayerCount == 1)
+    private void JoinMultiplayerRoom()
+    {
+        if(PhotonNetwork.CurrentRoom.PlayerCount == 1)
         {
-            Debug.Log("We load the Main Player 1");
-
-            PhotonNetwork.LoadLevel("Main");
-        }*/ 
+            Debug.Log("[Launcher] In Multiplayer but only one player. Load the Main for Singleplayer");
+            PhotonNetwork.LoadLevel("WaitingRoom");
+        }
+        else
+        {
+            Debug.Log("[Launcher] We load the Main for Multiplayer");
+            PhotonNetwork.LoadLevel("Main2");
+        }
     }
 }

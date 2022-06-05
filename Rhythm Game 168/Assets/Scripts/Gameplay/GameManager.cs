@@ -75,13 +75,42 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.LogError("Photon: Trying to load a level but not master client");
         }
 
-        Debug.LogFormat("Photon : Loading Level : Main");
+        Debug.Log("Our current PlayerCount is " + PhotonNetwork.CurrentRoom.PlayerCount);
+
+        switch (gameState)
+        {
+            case GameStates.SinglePlayer:
+                LoadSinglePlayerArena();
+                break;
+            case GameStates.Multiplayer:
+                LoadMultiplayerArena();
+                break;
+        }
+    }
+
+    private void LoadSinglePlayerArena()
+    {
+        Debug.LogFormat("[GameManager] Photon : Loading Single Player Level : Main");
         PhotonNetwork.LoadLevel("Main");
+    }
+
+    private void LoadMultiplayerArena()
+    {
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+        {
+            Debug.LogFormat("[GameManager] Photon : Loading Multiplayer Level : Main");
+            PhotonNetwork.LoadLevel("WaitingRoom");
+        }
+        else
+        {
+            Debug.LogFormat("[GameManager] Photon : Loading Multiplayer Level : Main2");
+            PhotonNetwork.LoadLevel("Main2");
+        }
     }
 
     public override void OnPlayerEnteredRoom(Player other)
     {
-        Debug.LogFormat("OnPlayerEnteredRoom()");
+        Debug.LogFormat("OnPlayerEnteredRoom() {0}", other.NickName);
 
         if(PhotonNetwork.IsMasterClient)
         {
@@ -93,7 +122,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public override void OnPlayerLeftRoom(Player other)
     {
-        Debug.LogFormat("OnPlayerLeftRoom()");
+        Debug.LogFormat("OnPlayerLeftRoom() {0}", other.NickName);
 
         if(PhotonNetwork.IsMasterClient)
         {
