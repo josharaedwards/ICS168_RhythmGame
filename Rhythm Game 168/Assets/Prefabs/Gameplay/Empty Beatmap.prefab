@@ -46,14 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editMode: 0
   started: 0
+  paused: 0
   isPlaying: 0
   beatPerMinute: 0
-  song: {fileID: 0}
   highwaySpeed: 1.5
-  countdown: 4
-  countdownCount: 1
-  countdownText: {fileID: 0}
-  countdownAnim: {fileID: 0}
 --- !u!114 &5031095185751185402
 MonoBehaviour:
   m_ObjectHideFlags: 0
