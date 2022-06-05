@@ -1265,7 +1265,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.35
+  m_fontSize: 53.05
   m_fontSizeBase: 47
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2224,14 +2224,6 @@ PrefabInstance:
     - target: {fileID: 6058770173813767486, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
-      propertyPath: songList.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6058770173813767487, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
-      propertyPath: songList.Array.data[4]
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f68582673b52fb44cb559b70e7c5d089, type: 3}
