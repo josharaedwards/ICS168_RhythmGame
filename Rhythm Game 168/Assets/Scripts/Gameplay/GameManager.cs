@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         Menu,
         SinglePlayer,
-        Multiplayer
+        LocalMultiplayer,
+        OnlineMultiplayer
     }
 
     public static GameStates gameState = GameStates.Menu;
@@ -82,8 +83,11 @@ public class GameManager : MonoBehaviourPunCallbacks
             case GameStates.SinglePlayer:
                 LoadSinglePlayerArena();
                 break;
-            case GameStates.Multiplayer:
-                LoadMultiplayerArena();
+            case GameStates.LocalMultiplayer:
+                LoadLocalMultiplayerArena();
+                break;
+            case GameStates.OnlineMultiplayer:
+                LoadOnlineMultiplayerArena();
                 break;
         }
     }
@@ -94,7 +98,13 @@ public class GameManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel("Main");
     }
 
-    private void LoadMultiplayerArena()
+    private void LoadLocalMultiplayerArena()
+    {
+        Debug.LogFormat("[GameManager] Photon : Loading Multiplayer Level : Main2");
+        PhotonNetwork.LoadLevel("Main2");
+    }
+
+    private void LoadOnlineMultiplayerArena()
     {
         if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
         {
@@ -104,7 +114,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         else
         {
             Debug.LogFormat("[GameManager] Photon : Loading Multiplayer Level : Main2");
-            PhotonNetwork.LoadLevel("Main2");
+            PhotonNetwork.LoadLevel("Main3");
         }
     }
 

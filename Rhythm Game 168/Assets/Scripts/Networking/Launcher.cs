@@ -78,8 +78,11 @@ public class Launcher : MonoBehaviourPunCallbacks
             case GameManager.GameStates.SinglePlayer:
                 JoinSinglePlayerRoom();
                 break;
-            case GameManager.GameStates.Multiplayer:
-                JoinMultiplayerRoom();
+            case GameManager.GameStates.LocalMultiplayer:
+                JoinLocalMutliplayerRoom();
+                break;
+            case GameManager.GameStates.OnlineMultiplayer:
+                JoinOnlineMultiplayerRoom();
                 break;
             default:
                 Debug.Log("[Launcher] We are in in menu mode");
@@ -93,7 +96,13 @@ public class Launcher : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel("Main");
     }
 
-    private void JoinMultiplayerRoom()
+    private void JoinLocalMutliplayerRoom()
+    {
+        Debug.Log("[Launcher] We load the Main for Multiplayer");
+        PhotonNetwork.LoadLevel("Main2");
+    }
+
+    private void JoinOnlineMultiplayerRoom()
     {
         if(PhotonNetwork.CurrentRoom.PlayerCount == 1)
         {
@@ -103,7 +112,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         else
         {
             Debug.Log("[Launcher] We load the Main for Multiplayer");
-            PhotonNetwork.LoadLevel("Main2");
+            PhotonNetwork.LoadLevel("Main3");
         }
     }
 }
