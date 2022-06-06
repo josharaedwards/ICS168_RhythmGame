@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         Menu,
         SinglePlayer,
-        Multiplayer
+        LocalMultiplayer,
+        OnlineMultiplayer
     }
 
     public static GameStates gameState = GameStates.Menu;
@@ -75,13 +76,51 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.LogError("Photon: Trying to load a level but not master client");
         }
 
-        Debug.LogFormat("Photon : Loading Level : Main");
+        Debug.Log("Our current PlayerCount is " + PhotonNetwork.CurrentRoom.PlayerCount);
+
+        switch (gameState)
+        {
+            case GameStates.SinglePlayer:
+                LoadSinglePlayerArena();
+                break;
+            case GameStates.LocalMultiplayer:
+                LoadLocalMultiplayerArena();
+                break;
+            case GameStates.OnlineMultiplayer:
+                LoadOnlineMultiplayerArena();
+                break;
+        }
+    }
+
+    private void LoadSinglePlayerArena()
+    {
+        Debug.LogFormat("[GameManager] Photon : Loading Single Player Level : Main");
         PhotonNetwork.LoadLevel("Main");
+    }
+
+    private void LoadLocalMultiplayerArena()
+    {
+        Debug.LogFormat("[GameManager] Photon : Loading Multiplayer Level : Main2");
+        PhotonNetwork.LoadLevel("Main2");
+    }
+
+    private void LoadOnlineMultiplayerArena()
+    {
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+        {
+            Debug.LogFormat("[GameManager] Photon : Loading Multiplayer Level : Main");
+            PhotonNetwork.LoadLevel("WaitingRoom");
+        }
+        else
+        {
+            Debug.LogFormat("[GameManager] Photon : Loading Multiplayer Level : Main2");
+            PhotonNetwork.LoadLevel("Main3");
+        }
     }
 
     public override void OnPlayerEnteredRoom(Player other)
     {
-        Debug.LogFormat("OnPlayerEnteredRoom()");
+        Debug.LogFormat("OnPlayerEnteredRoom() {0}", other.NickName);
 
         if(PhotonNetwork.IsMasterClient)
         {
@@ -93,7 +132,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public override void OnPlayerLeftRoom(Player other)
     {
-        Debug.LogFormat("OnPlayerLeftRoom()");
+        Debug.LogFormat("OnPlayerLeftRoom() {0}", other.NickName);
 
         if(PhotonNetwork.IsMasterClient)
         {
