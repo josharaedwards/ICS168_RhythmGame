@@ -50,7 +50,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 988063f3aec9ed9459c3acf426df866f, type: 2}
   - {fileID: 11400000, guid: 0e35d060530884a62b958ccec17e8962, type: 2}
   - {fileID: 11400000, guid: a3cf304c9f9124170a1b6389d59c9d26, type: 2}
-  currentSong: {fileID: 0}
+  currentSong: {fileID: 11400000, guid: a3cf304c9f9124170a1b6389d59c9d26, type: 2}
 --- !u!1001 &8386758883766708182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,6 +113,10 @@ PrefabInstance:
     - target: {fileID: 7338446010621643167, guid: 12f0b695d06b738479c3aa752c6286cf, type: 3}
       propertyPath: Priority
       value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338446010621643167, guid: 12f0b695d06b738479c3aa752c6286cf, type: 3}
+      propertyPath: m_Volume
+      value: 0.35
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4653710674552781816, guid: 12f0b695d06b738479c3aa752c6286cf, type: 3}
