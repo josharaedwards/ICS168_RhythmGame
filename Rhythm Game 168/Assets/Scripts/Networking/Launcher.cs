@@ -30,7 +30,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         progressLabel.SetActive(true);
         controlPanel.SetActive(false);
 
-        if(PhotonNetwork.IsConnected)
+        if(PhotonNetwork.IsConnected && BeatmapLoader.JSONLoaded)
         {
             PhotonNetwork.JoinRandomRoom();
         }
