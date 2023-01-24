@@ -103,17 +103,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""5591b8a5-34fa-4651-8a60-75663364c41b"",
-                    ""path"": ""<Gamepad>/rightStick/up"",
-                    ""interactions"": ""Press"",
-                    ""processors"": ""StickDeadzone(min=0.9)"",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Right Note"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""110af25d-aa03-4edd-96bc-dd207362c2a9"",
                     ""path"": ""<Keyboard>/slash"",
                     ""interactions"": """",
@@ -125,14 +114,47 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6728c36d-7c5c-49da-bcbb-d4befe359de8"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": ""Press"",
-                    ""processors"": ""StickDeadzone(min=0.9)"",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Up Note"",
+                    ""id"": ""7da62352-9692-47dc-99ca-083c602b8d94"",
+                    ""path"": ""<DualSenseGamepadHID>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PS5 Controller"",
+                    ""action"": ""Right Note"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e26a8363-9880-45bb-bff0-4466bfacb7a1"",
+                    ""path"": ""<WebGLGamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""WebGl Gamepad"",
+                    ""action"": ""Right Note"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""70096b7d-a13a-4ce0-8491-07213e9bfaf2"",
+                    ""path"": ""1DAxis(whichSideWins=1)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right Note"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""21e0b789-285c-4fc8-92e3-5f04bc026abd"",
+                    ""path"": ""<Gamepad>/rightStick/y"",
+                    ""interactions"": """",
+                    ""processors"": ""Clamp(min=0.01,max=1),AxisDeadzone"",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Right Note"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -146,15 +168,26 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""80f61f18-4ace-4477-bd10-6ee7067d8373"",
-                    ""path"": ""<Gamepad>/rightStick/down"",
-                    ""interactions"": ""Press"",
-                    ""processors"": ""StickDeadzone(min=0.9)"",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Down Note"",
-                    ""isComposite"": false,
+                    ""name"": ""1D Axis"",
+                    ""id"": ""bca2a963-7a02-4adc-a18a-fc6b618b2841"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up Note"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""d66f57fa-6d8f-4a34-80d4-93f773ba7043"",
+                    ""path"": ""<Gamepad>/leftStick/y"",
+                    ""interactions"": """",
+                    ""processors"": ""Clamp(min=-1,max=-0.01),AxisDeadzone"",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Up Note"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -168,15 +201,26 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""c9730d7a-f818-4c12-bb7c-912f1ec0a074"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
-                    ""interactions"": ""Press"",
-                    ""processors"": ""StickDeadzone(min=0.9)"",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Left Note"",
-                    ""isComposite"": false,
+                    ""name"": ""1D Axis"",
+                    ""id"": ""772538ae-0ff9-4b91-960b-2796e4460d21"",
+                    ""path"": ""1DAxis(whichSideWins=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down Note"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""1883a2ff-03c9-44e6-addb-bc465563adfe"",
+                    ""path"": ""<Gamepad>/rightStick/y"",
+                    ""interactions"": """",
+                    ""processors"": ""Clamp(min=-1,max=0.01),AxisDeadzone"",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Down Note"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -188,6 +232,28 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Left Note"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""883891d2-22af-4a55-ab92-199affcc734b"",
+                    ""path"": ""1DAxis(whichSideWins=1)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left Note"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""fbf5b717-76c0-4856-85f6-47cc70824146"",
+                    ""path"": ""<Gamepad>/leftStick/y"",
+                    ""interactions"": """",
+                    ""processors"": ""Clamp(min=0.01,max=1),AxisDeadzone"",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Left Note"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -254,6 +320,28 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""PS5 Controller"",
+            ""bindingGroup"": ""PS5 Controller"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<DualSenseGamepadHID>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""WebGl Gamepad"",
+            ""bindingGroup"": ""WebGl Gamepad"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<WebGLGamepad>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
@@ -431,6 +519,24 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         {
             if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
             return asset.controlSchemes[m_KeyboardSchemeIndex];
+        }
+    }
+    private int m_PS5ControllerSchemeIndex = -1;
+    public InputControlScheme PS5ControllerScheme
+    {
+        get
+        {
+            if (m_PS5ControllerSchemeIndex == -1) m_PS5ControllerSchemeIndex = asset.FindControlSchemeIndex("PS5 Controller");
+            return asset.controlSchemes[m_PS5ControllerSchemeIndex];
+        }
+    }
+    private int m_WebGlGamepadSchemeIndex = -1;
+    public InputControlScheme WebGlGamepadScheme
+    {
+        get
+        {
+            if (m_WebGlGamepadSchemeIndex == -1) m_WebGlGamepadSchemeIndex = asset.FindControlSchemeIndex("WebGl Gamepad");
+            return asset.controlSchemes[m_WebGlGamepadSchemeIndex];
         }
     }
     public interface IBeatPlayerControlsActions

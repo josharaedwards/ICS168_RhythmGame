@@ -230,6 +230,14 @@ PrefabInstance:
       propertyPath: m_NotificationBehavior
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6522757219014914964, guid: 8c583e809b0c4493d9b3ce2944a7726c, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_Id
+      value: 7345a62b-ea9b-49d1-90df-ad16da198e5c
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522757219014914964, guid: 8c583e809b0c4493d9b3ce2944a7726c, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_Name
+      value: Join
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c583e809b0c4493d9b3ce2944a7726c, type: 3}
 --- !u!1001 &1308113658
