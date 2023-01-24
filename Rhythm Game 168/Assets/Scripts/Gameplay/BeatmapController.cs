@@ -8,7 +8,7 @@ using TMPro;
 
 public class BeatmapController : MonoBehaviour
 {
-    [SerializeField] private bool editMode = true;
+    [SerializeField] private bool editMode = false;
 
     public bool started = false;
 
@@ -22,7 +22,7 @@ public class BeatmapController : MonoBehaviour
     private SongData song;
     AudioManager audioManager;
 
-    [SerializeField] [Range(1.0f, 5.0f)] private float highwaySpeed = 1;
+    [SerializeField] [Range(1.0f, 5.0f)] private float highwaySpeed = 1.5f;
 
     // [SerializeField] private TextMeshProUGUI countdownText;
 
@@ -39,7 +39,7 @@ public class BeatmapController : MonoBehaviour
         // secondsPerBeat = 60f/ beatPerMinute;
     }
 
-    void Start()
+    IEnumerator Start()
     {
         beatmapLoader = GetComponent<BeatmapLoader>();
         song = GameManager.instance.currentSong;
@@ -49,6 +49,10 @@ public class BeatmapController : MonoBehaviour
             beatmapLoader.Clear();
             beatmapLoader.Load();
         }
+        while(!BeatmapLoader.JSONLoaded)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
 
         beatPerMinute = song.bpm;
         beatPerSecond = beatPerMinute / 60f;
@@ -56,14 +60,13 @@ public class BeatmapController : MonoBehaviour
         beatPositions = GetComponentsInChildren<Transform>();
         for (int i = 1; i < beatPositions.Length; i++)
         {
-            //Debug.Log("changed");
             beatPositions[i].localPosition = Vector3.Scale(beatPositions[i].localPosition, new Vector3(1.0f, highwaySpeed, 1.0f));
         }
+        Debug.Log("changed");
 
         initPos = transform.position;
         audioManager = AudioManager.instance;
 
-        
         // PlayerManager.allPlayersReady += PlayersNowReady; 
         // CountdownScript.countdownEnded += CountdownEnded; 
         PlayerManager.playersStartPlaying += StartBeatmap; //<---- Observer Pattern (subscribing)

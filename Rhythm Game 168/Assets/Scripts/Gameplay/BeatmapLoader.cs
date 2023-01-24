@@ -47,14 +47,33 @@ public class BeatmapLoader : MonoBehaviour
             yield return uwr.SendWebRequest();
             Debug.Log(uwr.downloadHandler.text);
             json_dump = uwr.downloadHandler.text;
+            JSONLoaded = true;
         }
-        LoadBeatmap();
+        else
+        {
+            JSONLoaded = true;
+        }
+        
         
     }
+
+    IEnumerator WaitingForJSON()
+    {
+        while(!JSONLoaded)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+        LoadBeatmap();
+    }
+
     public void Load()
     {
+        JSONLoaded = false; //JSON gets turned to true within Start in BeatMapController.
         StartCoroutine(WebRequestJSONFile());
+        StartCoroutine(WaitingForJSON());
     }
+
+
 
     public void LoadBeatmap()
     {
@@ -65,7 +84,6 @@ public class BeatmapLoader : MonoBehaviour
             json_dump = File.ReadAllText(Application.streamingAssetsPath + "/" + beatMapName + ".json");
             Debug.Log(json_dump);
         }
-        JSONLoaded = true;
 
         Beatmap beatmap = JsonUtility.FromJson<Beatmap>(json_dump);    
         beatmap.InitBeatmap();
@@ -74,6 +92,8 @@ public class BeatmapLoader : MonoBehaviour
         float receiverPos;
         foreach (Receiver receiver in beatmap.beatmap.Keys)
         {
+            Debug.Log("Setting Up BeatMap");
+
             receiverPos = ReceiverPos.pos[receiver];
             Quaternion rotation = transform.rotation;
             if (receiver == Receiver.LEFT_UP || receiver == Receiver.RIGHT_UP)  // If lane is up then rotate the note 180deg

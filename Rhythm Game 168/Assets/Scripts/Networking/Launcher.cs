@@ -30,7 +30,11 @@ public class Launcher : MonoBehaviourPunCallbacks
         progressLabel.SetActive(true);
         controlPanel.SetActive(false);
 
-        if(PhotonNetwork.IsConnected && BeatmapLoader.JSONLoaded)
+        if(GameManager.gameState != GameManager.GameStates.OnlineMultiplayer) 
+        {
+            GameManager.instance.LoadArena();
+        }
+        else if(PhotonNetwork.IsConnected && BeatmapLoader.JSONLoaded)
         {
             PhotonNetwork.JoinRandomRoom();
         }
