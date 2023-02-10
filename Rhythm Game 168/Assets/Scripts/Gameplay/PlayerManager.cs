@@ -112,6 +112,7 @@ public class PlayerManager : MonoBehaviour
         for(int i = 0; i < playerStats.Length; i++) //Get Scores from each player to put into results screen.
         {
             Debug.Log("Collecting Data!! for: " + playerStats[i]);
+            PlayerPrefs.SetString("SongTitle", GameManager.instance.currentSong.songTitle);
             PlayerPrefs.SetInt("ScorePlayer" + (i+1), playerStats[i].GetComponent<PlayerStats>().score);
             PlayerPrefs.SetInt("HealthPlayer" + (i+1), playerStats[i].GetComponent<PlayerStats>().health);
             PlayerPrefs.SetInt("SuperbHitPlayer" + (i+1), playerStats[i].GetComponent<PlayerStats>().superb);

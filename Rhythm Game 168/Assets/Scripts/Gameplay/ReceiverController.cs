@@ -204,25 +204,25 @@ public class ReceiverController : MonoBehaviour
     public void GloomyHit()
     {
         scoreAndHealth.gloomyHit();
-        Instantiate(gloomyHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
+        Instantiate(gloomyHit, new Vector3(buttonSprite.transform.position.x, buttonSprite.transform.position.y, transform.position.z), Quaternion.identity);
     }
 
     public void BadHit()
     {
         scoreAndHealth.badHit();
-        Instantiate(badHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
+        Instantiate(badHit, new Vector3(buttonSprite.transform.position.x, buttonSprite.transform.position.y, transform.position.z), Quaternion.identity);
     }
 
     public void GoodHit()
     {
         scoreAndHealth.goodHit();
-        Instantiate(goodHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
+        Instantiate(goodHit, new Vector3(buttonSprite.transform.position.x, buttonSprite.transform.position.y, transform.position.z), Quaternion.identity);
     }
 
     public void SuperbHit()
     {
         scoreAndHealth.superbHit();
-        Instantiate(superbHit, new Vector3(receiverColliderPosX, receiverColliderPosY, transform.position.z), Quaternion.identity);
+        Instantiate(superbHit, new Vector3(buttonSprite.transform.position.x, buttonSprite.transform.position.y, transform.position.z), Quaternion.identity);
     }
 
     public float HitRangePercentage(Vector3 currentNotePos)

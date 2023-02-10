@@ -8,10 +8,10 @@ public class ResultScreenManager : MonoBehaviour
 {
     [SerializeField] private GameObject multiplayerUI, singlePlayerUI; 
     [SerializeField] private Button continueButton;
-    [SerializeField] private TextMeshProUGUI completionTitleText;
+    [SerializeField] private TextMeshProUGUI completionTitleText, songTitleText;
 
     [SerializeField] private Animator singlePlayerHealthBar, singlePlayerScoreBoard, singlePlayerScoreText, p1HealthBar, p2HealthBar;
-    [SerializeField] private Animator p1ScoreBoard, p2ScoreBoard, p1ScoreText, p2ScoreText, TotalScoreText, completionTitle;
+    [SerializeField] private Animator p1ScoreBoard, p2ScoreBoard, p1ScoreText, p2ScoreText, TotalScoreText, completionTitle, songTitle;
 
     [SerializeField] private NumberCounter singlePlayerScore, singlePlayerHealth, p1Score, p2Score, p1Health, p2Health, totalScore;
     [SerializeField] private NumberCounter spSuperb, spGood, spBad, spGloomy, p1Superb, p1Good, p1Bad, p1Gloomy, p2Superb, p2Good, p2Bad, p2Gloomy;
@@ -26,7 +26,7 @@ public class ResultScreenManager : MonoBehaviour
     private string HealthyHarmony = "Healthy Harmony";
     private string PhysicalBreakDown = "PHYSICAL BREAKDOWN";
     private string MentalBreakDown = "MENTAL BREAKDOWN";
-    private string CompleteCacophany = "COMPLETE CACOPHANY...";
+    private string CompleteCacophany = "...COMPLETE CACOPHANY...";
 
     void Awake()
     {
@@ -42,6 +42,7 @@ public class ResultScreenManager : MonoBehaviour
         p2ScoreBoard.enabled = false;
         p2ScoreText.enabled = false;
         TotalScoreText.enabled = false;
+        songTitle.enabled = false;
         completionTitle.enabled = false;
 
         if (isSinglePlayer)
@@ -67,6 +68,7 @@ public class ResultScreenManager : MonoBehaviour
 
     private IEnumerator ResultScreenSequence()
     {
+        yield return StartCoroutine(SongTitle());
         yield return StartCoroutine(HealthBars());
         yield return StartCoroutine(Score());
         yield return StartCoroutine(ScoreBoard());
@@ -80,6 +82,13 @@ public class ResultScreenManager : MonoBehaviour
         playingAnimation.SetTrigger("Start");
 
         yield return new WaitForSeconds(fadeTime);
+    }
+
+    private IEnumerator SongTitle()
+    {
+        songTitleText.text = "| " + PlayerPrefs.GetString("SongTitle") + " |";
+        StartCoroutine(Animation(songTitle));
+        yield return new WaitForSeconds(countTime);
     }
 
     private IEnumerator HealthBars()

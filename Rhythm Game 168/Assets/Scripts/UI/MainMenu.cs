@@ -45,4 +45,9 @@ public class MainMenu : MonoBehaviour
 
         LevelLoaderScript.instance.LoadNextScene("SongSelect");
     }
+
+    public void MainMenuButton()
+    {
+        LevelLoaderScript.instance.LoadNextScene("TitleScr");
+    }
 }
